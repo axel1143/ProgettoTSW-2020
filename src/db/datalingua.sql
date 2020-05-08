@@ -1,0 +1,9 @@
+Italiano
+Inglese
+Spagnolo
+Francese
+Cinese
+Giapponese
+Russo
+Tedesco
+Arabo
