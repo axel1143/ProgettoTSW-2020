@@ -38,16 +38,6 @@ create table Utente
     constraint fk_codice_fiscale2 foreign key (codice_fiscale) references Cliente(codice_fiscale) on update cascade on delete cascade,
     constraint pk_email primary key(email)
 );
-
-/*load data local infile './datacamera.sql'
-    into table Camera fields terminated by','(tipo,numero_letti) set numero = NULL;
-
-load data local infile './datacliente.sql'
-    into table Cliente fields terminated by',';
-
-load data local infile './dataprenotazione.sql'
-    into table Prenotazione fields terminated by','*/
-
 /*
  Popolamento camera
  */
