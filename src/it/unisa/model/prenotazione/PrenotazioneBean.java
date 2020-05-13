@@ -18,7 +18,7 @@ public class PrenotazioneBean {
     public PrenotazioneBean(){
         check_in="";
         check_out="";
-        numero=1;
+        numero=0;
         codice_fiscale="";
     }
 
