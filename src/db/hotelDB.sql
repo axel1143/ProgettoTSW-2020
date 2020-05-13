@@ -27,8 +27,16 @@ create table Prenotazione
   check_in datetime not null,
   check_out datetime not null,
   constraint pk_codice_fiscale_numero primary key(codice_fiscale,numero,check_in) ,
-  constraint fk_codice_fiscale6 foreign key (codice_fiscale) references Cliente(codice_fiscale) on update cascade on delete cascade,
+  constraint fk_codice_fiscale1 foreign key (codice_fiscale) references Cliente(codice_fiscale) on update cascade on delete cascade,
   constraint fk_numero1 foreign key (numero) references Camera(numero) on update cascade on delete cascade
+);
+create table Utente
+(
+    email varchar(30) not null,
+    password varchar(30) not null,
+    codice_fiscale char(16) not null,
+    constraint fk_codice_fiscale2 foreign key (codice_fiscale) references Cliente(codice_fiscale) on update cascade on delete cascade,
+    constraint pk_email primary key(email)
 );
 
 /*load data local infile './datacamera.sql'
@@ -90,5 +98,10 @@ INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('H
 INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('JJPPXW73C43Z901V',9,'2020-01-09 12:00:00','2020-01-12 14:00:00');
 INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('FVQGYU29S29H802O',10,'2020-01-10 12:00:00','2020-01-13 14:00:00');
 
-
-
+/*
+ Popolamento Utente
+ */
+INSERT INTO Utente(email, password, codice_fiscale) VALUES ('violatrentini00@gmail.com' ,'123456','PTUMPP69A09L140A');
+INSERT INTO Utente(email, password, codice_fiscale) VALUES ('carisiolucc@hotmail.com' ,'carisiolucchesi','LVMMCT27A08Z904K');
+INSERT INTO Utente(email, password, codice_fiscale) VALUES ('capazelio12345@libero.it' ,'cap2345','GBTDSV55D55G173Z');
+INSERT INTO Utente(email, password, codice_fiscale) VALUES ('ffallaci47@gmail.com' ,'password','FVQGYU29S29H802O');
