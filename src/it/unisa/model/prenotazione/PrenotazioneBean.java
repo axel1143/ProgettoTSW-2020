@@ -2,14 +2,14 @@ package it.unisa.model.prenotazione;
 
 public class PrenotazioneBean {
     String check_in;
-    String checl_out;
+    String check_out;
     int numero;
     String codice_fiscale;
 
     public String toString() {
         return "PrenotazioneBean{" +
                 "check_in='" + check_in + '\'' +
-                ", checl_out='" + checl_out + '\'' +
+                ", checl_out='" + check_out + '\'' +
                 ", numero=" + numero +
                 ", codice_fiscale='" + codice_fiscale + '\'' +
                 '}';
@@ -30,12 +30,12 @@ public class PrenotazioneBean {
         this.check_in = check_in;
     }
 
-    public String getChecl_out() {
-        return checl_out;
+    public String getCheck_out() {
+        return check_out;
     }
 
-    public void setChecl_out(String checl_out) {
-        this.checl_out = checl_out;
+    public void setCheck_out(String check_out) {
+        this.check_out = check_out;
     }
 
     public int getNumero() {
