@@ -7,33 +7,33 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="css/style_singole.css">
     <title>Home</title>
 </head>
 <body>
 <!--
 NAVBAR
 -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
-        <img src="" width="30" height="30" alt="">
-        Hotel Marbella
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="./index.jsp">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./camere.jsp">Camere</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./attivita.html">Attività</a>
-            </li>
-        </ul>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+    <div class="container">
+        <img src="" alt="">
+        <a class="navbar-brand" href="#">Hotel Marbel</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+            <ul class="navbar-nav navbar-right">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.jsp">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="camere.jsp">Visita Camere</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Esplora ristoranti ed attività</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
 
