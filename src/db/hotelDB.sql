@@ -87,6 +87,8 @@ INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('B
 INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('HSNCCE62S66L385Z',5,'2020-01-08 12:00:00','2020-01-11 14:00:00');
 INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('JJPPXW73C43Z901V',9,'2020-01-09 12:00:00','2020-01-12 14:00:00');
 INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('FVQGYU29S29H802O',10,'2020-01-10 12:00:00','2020-01-13 14:00:00');
+INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('FVQGYU29S29H802O',16,'2020-01-10 12:00:00','2020-01-13 14:00:00');
+INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('FVQGYU29S29H802O',17,'2020-01-10 12:00:00','2020-01-13 14:00:00');
 
 /*
  Popolamento Utente

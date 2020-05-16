@@ -1,40 +1,43 @@
 package it.unisa.model.prenotazione;
 
+import java.sql.Time;
+import java.sql.Timestamp;
+
 public class PrenotazioneBean {
-    String check_in;
-    String check_out;
+    Timestamp check_in;
+    Timestamp check_out;
     int numero;
     String codice_fiscale;
 
     public String toString() {
         return "PrenotazioneBean{" +
                 "check_in='" + check_in + '\'' +
-                ", checl_out='" + check_out + '\'' +
+                ", check_out='" + check_out + '\'' +
                 ", numero=" + numero +
                 ", codice_fiscale='" + codice_fiscale + '\'' +
                 '}';
     }
 
     public PrenotazioneBean(){
-        check_in="";
-        check_out="";
+        check_in= null;
+        check_out= null;
         numero=0;
         codice_fiscale="";
     }
 
-    public String getCheck_in() {
+    public Timestamp getCheck_in() {
         return check_in;
     }
 
-    public void setCheck_in(String check_in) {
+    public void setCheck_in(Timestamp check_in) {
         this.check_in = check_in;
     }
 
-    public String getCheck_out() {
+    public Timestamp getCheck_out() {
         return check_out;
     }
 
-    public void setCheck_out(String check_out) {
+    public void setCheck_out(Timestamp check_out) {
         this.check_out = check_out;
     }
 
