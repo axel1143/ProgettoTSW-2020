@@ -48,10 +48,15 @@ NAVBAR
 
 <!-- Inizio corpo pagina-->
 <div class="container-fluid">
-<div class="row"></div>
+<div class="row">
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
 <div class="row">
     <div class="col"></div>
-    <div class="col">
+    <div class="col-6">
       <div class="card w-90">
         <div class="row no-gutters" style="max-width:100%;max-height: 100%;">
             <div class="col-xl-4">
@@ -71,11 +76,14 @@ NAVBAR
     <div class="col"></div>
 </div>
 
-<div class="row"></div>
+<div class="row">
+    <br>
+    <br>
+</div>
 
     <div class="row">
         <div class="col"></div>
-        <div class="col">
+        <div class="col-6">
             <div class="card w-90">
                 <div class="row no-gutters" style="max-width:100%;max-height: 100%;">
                     <div class="col-xl-4">
@@ -95,9 +103,14 @@ NAVBAR
         <div class="col"></div>
 
 
-    </div><div class="row">
+    </div>
+    <div class="row">
+        <br>
+        <br>
+    </div>
+    <div class="row">
     <div class="col"></div>
-    <div class="col">
+    <div class="col-6">
         <div class="card w-90">
             <div class="row no-gutters" style="max-width:100%;max-height: 100%;">
                 <div class="col-xl-4">
@@ -116,8 +129,19 @@ NAVBAR
     </div>
     <div class="col"></div>
 </div>
+    <div class=row>
+        <br>
+        <br>
+    </div>
 </div>
 
+<div class="jumbotron" style="margin-bottom:0">
+    <p>Contattaci</p>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius nam impedit praesentium, molestiae hic libero, unde autem deserunt repudiandae minus nisi ut, dolorem natus saepe aliquid. Recusandae assumenda officia nulla.
+
+    <p>Informazioni</p>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error harum nulla est qui nam dolor aliquam necessitatibus vitae quasi accusamus veritatis impedit sequi maiores dolore assumenda, perspiciatis, quas voluptate. Fuga?
+</div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
