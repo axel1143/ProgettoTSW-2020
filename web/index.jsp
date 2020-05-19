@@ -99,8 +99,8 @@
             <img src="./imgs/imgs-index/camera-card-1.jpg" class="card-img" alt="...">
           </div>
           <div class="col-lg-8">
+            <div class="card-header"><h5>Camere</h5></div>
             <div class="card-body">
-              <h5 class="card-title">Camere</h5>
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <a href="camere.jsp" class="btn btn-primary">Visita le camere</a>
               <a href="#" class="btn btn-success">Prenota ora</a>
@@ -118,8 +118,8 @@
             <img src="./imgs/imgs-index/attivita-card-2.jpg" class="card-img" alt="...">
           </div>
           <div class="col-lg-8">
+            <div class="card-header"><h5>Attività</h5></div>
             <div class="card-body">
-              <h5 class="card-title">Attività</h5>
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <a href="#" class="btn btn-primary">Visita le nostre attività</a>
             </div>
@@ -137,11 +137,8 @@
             <img src="./imgs/imgs-index/ristoranti-card-3.jpg" class="card-img" alt="...">
           </div>
           <div class="col-lg-8">
-            <div class="card-header">
-              Prova
-            </div>
+            <div class="card-header"><h5>Ristoranti</h5></div>
             <div class="card-body">
-              <h5 class="card-title">Ristoranti</h5>
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <a href="#" class="btn btn-primary">Scopri i nostri ristoranti</a>
             </div>

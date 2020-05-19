@@ -16,8 +16,9 @@ public class UserDAO {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        String statement = "insert into Utenti(email,password,codice_fiscale,is_admin) VALUES (?,?,?,?)";
+        String statement = "insert into Utente(email,password,codice_fiscale,is_admin) VALUES (?,?,?,?)";
         try {
+            connection = DriverManagerConnectionPool.getConnection();
             preparedStatement = connection.prepareStatement(statement);
             preparedStatement.setString(1,email);
             preparedStatement.setString(2,password);
@@ -53,8 +54,9 @@ public class UserDAO {
         PreparedStatement preparedStatement = null;
         ArrayList<UserBean> usersList = new ArrayList<UserBean>();
 
-        String statement = "SELECT * from Utenti ;";
+        String statement = "SELECT * from Utente ;";
         try {
+            connection = DriverManagerConnectionPool.getConnection();
             preparedStatement = connection.prepareStatement(statement);
             ResultSet resultSet = preparedStatement.executeQuery();
 
