@@ -49,14 +49,8 @@ NAVBAR
 <!-- Inizio corpo pagina-->
 <div class="container-fluid">
 <div class="row">
-    <br>
-    <br>
-    <br>
-    <br>
-</div>
-<div class="row">
     <div class="col"></div>
-    <div class="col-6">
+    <div class="col-6" style="margin-top: 10ex">
       <div class="card w-90">
         <div class="row no-gutters" style="max-width:100%;max-height: 100%;">
             <div class="col-xl-4">
@@ -76,14 +70,9 @@ NAVBAR
     <div class="col"></div>
 </div>
 
-<div class="row">
-    <br>
-    <br>
-</div>
-
     <div class="row">
         <div class="col"></div>
-        <div class="col-6">
+        <div class="col-6" style="margin-top: 5ex">
             <div class="card w-90">
                 <div class="row no-gutters" style="max-width:100%;max-height: 100%;">
                     <div class="col-xl-4">
@@ -105,12 +94,8 @@ NAVBAR
 
     </div>
     <div class="row">
-        <br>
-        <br>
-    </div>
-    <div class="row">
     <div class="col"></div>
-    <div class="col-6">
+    <div class="col-6" style="margin-top: 5ex; margin-bottom: 5ex">
         <div class="card w-90">
             <div class="row no-gutters" style="max-width:100%;max-height: 100%;">
                 <div class="col-xl-4">
@@ -129,10 +114,6 @@ NAVBAR
     </div>
     <div class="col"></div>
 </div>
-    <div class=row>
-        <br>
-        <br>
-    </div>
 </div>
 
 <div class="jumbotron" style="margin-bottom:0">
