@@ -43,7 +43,32 @@ public class PrenotazioneDAO {
         return prenotazioneBeans;
     }
 
+    public static boolean removeReservation(String codice_fiscale,int numero,String check_in, String check_out) throws SQLException{ //Rimuove una prenotazione esistente
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
 
+        String statement = "DELETE from Prenotazione where Prenotazione.codice_fiscale = ? and Prenotazione.check_in = ? and Prenotazione.check_out = ? and Prenotazione.numero = ?";
+        try{
+            connection = DriverManagerConnectionPool.getConnection();
+
+            preparedStatement = connection.prepareStatement(statement);
+            preparedStatement.setString(1,codice_fiscale);
+            preparedStatement.setString(2,check_in);
+            preparedStatement.setString(3,check_out);
+            preparedStatement.setInt(4, numero);
+
+            preparedStatement.executeUpdate();
+            connection.commit();
+            preparedStatement.close();
+            return true;
+        } finally {
+            try{
+                if(preparedStatement != null) preparedStatement.close();
+            } finally {
+                DriverManagerConnectionPool.releaseConnection(connection);
+            }
+        }
+    }
 
     //TO ADD A RESERVATION
     public static boolean addReservation(String codice_fiscale,String nome,String cognome,String data_di_nascita,String check_in, String check_out, String tipo) throws SQLException{

@@ -13,7 +13,7 @@ import java.util.Collection;
 public class ClienteDAO {
 
     //Ritorna una lista di tutti i clienti
-    public static ArrayList<ClienteBean> allCustomer() throws SQLException {
+    public static Collection<ClienteBean> allCustomer() throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -47,7 +47,7 @@ public class ClienteDAO {
 
     //Controlal se un dato codice_fiscale corrisponde ad un cliente
     public static boolean isCustomer(String codice_fiscale) throws SQLException{
-        ArrayList<ClienteBean> customers = ClienteDAO.allCustomer();
+        ArrayList<ClienteBean> customers = (ArrayList<ClienteBean>) ClienteDAO.allCustomer();
         for(ClienteBean bean : customers){
             if(bean.getCodicefiscale().equals(codice_fiscale)) return true;
         }

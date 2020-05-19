@@ -35,6 +35,7 @@ create table Utente
     email varchar(30) not null,
     password varchar(30) not null,
     codice_fiscale char(16) not null,
+    isAdmin boolean not null ,
     constraint fk_codice_fiscale2 foreign key (codice_fiscale) references Cliente(codice_fiscale) on update cascade on delete cascade,
     constraint pk_email primary key(email)
 );
@@ -93,7 +94,7 @@ INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('F
 /*
  Popolamento Utente
  */
-INSERT INTO Utente(email, password, codice_fiscale) VALUES ('violatrentini00@gmail.com' ,'123456','PTUMPP69A09L140A');
-INSERT INTO Utente(email, password, codice_fiscale) VALUES ('carisiolucc@hotmail.com' ,'carisiolucchesi','LVMMCT27A08Z904K');
-INSERT INTO Utente(email, password, codice_fiscale) VALUES ('capazelio12345@libero.it' ,'cap2345','GBTDSV55D55G173Z');
-INSERT INTO Utente(email, password, codice_fiscale) VALUES ('ffallaci47@gmail.com' ,'password','FVQGYU29S29H802O');
+INSERT INTO Utente(email, password, codice_fiscale, isAdmin) VALUES ('violatrentini00@gmail.com' ,'123456','PTUMPP69A09L140A',false);
+INSERT INTO Utente(email, password, codice_fiscale, isAdmin) VALUES ('carisiolucc@hotmail.com' ,'carisiolucchesi','LVMMCT27A08Z904K',false);
+INSERT INTO Utente(email, password, codice_fiscale, isAdmin) VALUES ('capazelio12345@libero.it' ,'cap2345','GBTDSV55D55G173Z',false);
+INSERT INTO Utente(email, password, codice_fiscale, isAdmin) VALUES ('ffallaci47@gmail.com' ,'password','FVQGYU29S29H802O',false);
