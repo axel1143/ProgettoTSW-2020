@@ -33,6 +33,8 @@ public class PrenotazioneDAO {
                 prenotazioneBeans.add(bean);
             }
 
+            return prenotazioneBeans;
+
         } finally {
             try{
                 if(preparedStatement != null) preparedStatement.close();
@@ -40,7 +42,6 @@ public class PrenotazioneDAO {
                 DriverManagerConnectionPool.releaseConnection(connection);
             }
         }
-        return prenotazioneBeans;
     }
 
     public static boolean removeReservation(String codice_fiscale,int numero,String check_in, String check_out) throws SQLException{ //Rimuove una prenotazione esistente
