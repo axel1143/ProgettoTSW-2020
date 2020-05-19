@@ -102,7 +102,7 @@ public class PrenotazioneDAO {
         }
     }
 
-    public static boolean validate(String check_in, String check_out, String  tipo) throws SQLException{ // Controlla se una prenotazione è valida per il check_in e check_out scelti
+    public static boolean validate(String check_in, String check_out, String tipo) throws SQLException{ // Controlla se una prenotazione è valida per il check_in e check_out scelti
         ArrayList<PrenotazioneBean> validateList = PrenotazioneDAO.listOfBooked(check_in,check_out,tipo);
         if(validateList.size() == 0) return true; //Se la lista delle prenotazioni che da conflitto è vuota, allora la prenotazione si può effettuare
 

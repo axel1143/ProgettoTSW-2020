@@ -90,8 +90,8 @@
 <!--CAROUSEL-->
 
 <!-- CARDS-->
-<div class="container">
-  <div class="card-cont">
+<div class="container mt-5 mb-5"> <!-- mt = margin top /mb = margin bottom -->
+  <div class="card-cont mb-5">
     <div class="card mb-3" style="max-width: 100%;">
       <div class="row no-gutters">
         <div class="col-lg-4">
@@ -108,7 +108,7 @@
       </div>
     </div>
   </div>
-  <div class="card-cont">
+  <div class="card-cont mt-5 mb-5">
     <div class="card mb-3" style="max-width: 100%;">
       <div class="row no-gutters">
         <div class="col-lg-4">
@@ -124,7 +124,7 @@
       </div>
     </div>
   </div>
-  <div class="card-cont">
+  <div class="card-cont mt-5">
     <div class="card mb-3" style="max-width: 100%;">
       <div class="row no-gutters">
         <div class="col-lg-4">

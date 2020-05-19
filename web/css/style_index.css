@@ -7,7 +7,7 @@ body{
 }
 /*CAROUSEL*/
 .carousel-inner > .carousel-item{
-    min-height: 55rem;
+    min-height: 85vh;
     background-size: cover;
     background-position: center center;
 }
@@ -35,6 +35,3 @@ body{
 /*
 CARDS
  */
-.card-cont{
-    padding: 2rem 0rem 0rem 2rem ;
-}
