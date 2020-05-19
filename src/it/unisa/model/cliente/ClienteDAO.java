@@ -45,7 +45,8 @@ public class ClienteDAO {
         }
     }
 
-    //Controlal se un dato codice_fiscale corrisponde ad un cliente
+
+    //Controlla se un dato codice_fiscale corrisponde ad un cliente
     public static boolean isCustomer(String codice_fiscale) throws SQLException{
         ArrayList<ClienteBean> customers = (ArrayList<ClienteBean>) ClienteDAO.allCustomer();
         for(ClienteBean bean : customers){
@@ -54,6 +55,8 @@ public class ClienteDAO {
         return false;
     }
 
+
+    //Aggiunge un cliente al database -- NECESSARIA UNA PRENOTAZIONE ->PrenoatzioneDAO
     public static boolean addCostumer(String codice_fiscale, String nome, String cognome, String data_di_nascita) throws SQLException{
         Connection connection = null;
         PreparedStatement preparedStatement = null;

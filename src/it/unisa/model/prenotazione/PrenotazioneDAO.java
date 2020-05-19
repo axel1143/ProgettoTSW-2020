@@ -2,6 +2,7 @@ package it.unisa.model.prenotazione;
 
 import it.unisa.model.DriverManagerConnectionPool;
 import it.unisa.model.cliente.ClienteDAO;
+import it.unisa.model.user.UserDAO;
 
 import java.sql.*;
 import java.text.ParseException;
@@ -11,6 +12,7 @@ import java.util.Date;
 
 public class PrenotazioneDAO {
 
+    // Ritorna tutte le prenotazioni per un determinato codice fiscale
     public static Collection<PrenotazioneBean> doRetriveByCF(String codice_fiscale) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -44,7 +46,9 @@ public class PrenotazioneDAO {
         }
     }
 
-    public static boolean removeReservation(String codice_fiscale,int numero,String check_in, String check_out) throws SQLException{ //Rimuove una prenotazione esistente
+
+    //Rimuove una prenotazione esistente
+    public static boolean removeReservation(String codice_fiscale,int numero,String check_in, String check_out) throws SQLException{
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -72,11 +76,16 @@ public class PrenotazioneDAO {
     }
 
     //TO ADD A RESERVATION
-    public static boolean addReservation(String codice_fiscale,String nome,String cognome,String data_di_nascita,String check_in, String check_out, String tipo) throws SQLException{
+
+    //Aggiunge una prenotazione sia con dati utente che con dati cliente
+    public static boolean addReservation(String codice_fiscale,String nome,String cognome,String data_di_nascita,String check_in, String check_out, String tipo, boolean register, String email, String password) throws SQLException{
         Connection connection = null;
         PreparedStatement preparedStatement = null;
+
         if(!PrenotazioneDAO.validate(check_in,check_out,tipo)) return false;  //Controlla se la prenotazione inserita è valida
         if(!ClienteDAO.isCustomer(codice_fiscale)) ClienteDAO.addCostumer(codice_fiscale, nome, cognome, data_di_nascita); //Se il cliente non è nel database, lo aggiunge
+        if(register && !UserDAO.isUser(codice_fiscale)){ UserDAO.addStandardUser(codice_fiscale,email,password); //Se il cliente vuole essere registrato e non è già un utente
+
         String statement = "INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES (?,?,?,?);";
 
         try{
@@ -98,11 +107,15 @@ public class PrenotazioneDAO {
                 if(preparedStatement != null) preparedStatement.close();
             } finally {
                 DriverManagerConnectionPool.releaseConnection(connection);
+                }
             }
         }
+        return false;
     }
 
-    public static boolean validate(String check_in, String check_out, String tipo) throws SQLException{ // Controlla se una prenotazione è valida per il check_in e check_out scelti
+
+    // Controlla se una prenotazione è valida per il check_in e check_out scelti
+    public static boolean validate(String check_in, String check_out, String tipo) throws SQLException{
         ArrayList<PrenotazioneBean> validateList = PrenotazioneDAO.listOfBooked(check_in,check_out,tipo);
         if(validateList.size() == 0) return true; //Se la lista delle prenotazioni che da conflitto è vuota, allora la prenotazione si può effettuare
 
@@ -113,7 +126,9 @@ public class PrenotazioneDAO {
     }
 
 
-    public static int getFirstFreeByType(String check_in, String check_out,String tipo) throws SQLException{ // Ritorna la prima camera libera nel periodo scelto
+
+    // Ritorna la prima camera libera nel periodo scelto , -1 alrimenti(
+    public static int getFirstFreeByType(String check_in, String check_out,String tipo) throws SQLException{
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         String selStatement = "select * from Camera where Camera.tipo = ?";
@@ -152,7 +167,9 @@ public class PrenotazioneDAO {
         return -1;
     }
 
-    public static ArrayList<PrenotazioneBean> listOfBooked(String check_in, String check_out, String tipo) throws SQLException{ //Ritorna una lista di tutte le prenotazioni che vanno in conflitto con i porametri passati
+
+    //Ritorna una lista di tutte le prenotazioni che vanno in conflitto con i porametri passati
+    public static ArrayList<PrenotazioneBean> listOfBooked(String check_in, String check_out, String tipo) throws SQLException{
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -170,7 +187,7 @@ public class PrenotazioneDAO {
                 prenotazioneBean.setNumero(resultSet.getInt("numero"));
                 prenotazioneBean.setCodice_fiscale(resultSet.getString("codice_fiscale"));
                 /*
-                  Check_in e Check_out quando vengono recuperati dal database vengono settati 1 ora avanti per il fusorario
+                 QUANDO CHECK_IN E CHECK_OUT VENGONO RECUPERATI DAL DATABASE VENGONO SHIFTATI DI 1 ORA AVANTI -- RICONTROLLARE
                  */
                 prenotazioneBean.setCheck_out(resultSet.getTimestamp("check_out"));
                 prenotazioneBean.setCheck_in(resultSet.getTimestamp("check_in"));
@@ -189,15 +206,10 @@ public class PrenotazioneDAO {
                 Date parsedDate2 = dateFormat.parse(check_out);
                 Timestamp timestampCheckout = new Timestamp(parsedDate2.getTime());
 
-
-                /*
-                Controlla se il check_in o il check_out inserito, coimbaciano con una fascia di prenotazione già esistente
-                */
+                //Controlla se il check_in o il check_out inserito, coimbaciano con una fascia di prenotazione già esistente
                 if(((timestampCheckout.after(bcheckin) && timestampCheckout.before(bcheckout)) || (timestampCheckin.after(bcheckin) && timestampCheckin.before(bcheckout)))) toReturn.add(bean);
 
-                /*
-                Controlla se nella fascia temporale selezionata vi sono già prenotazioni esistenti
-                 */
+                //Controlla se nella fascia temporale selezionata vi sono già prenotazioni esistenti
                 else if((timestampCheckin.before(bcheckin) && timestampCheckout.after(bcheckout))) toReturn.add(bean);
             }
              return toReturn;

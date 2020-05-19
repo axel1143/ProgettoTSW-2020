@@ -51,9 +51,9 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" style="background-image: url(./imgs/imgs-index/carousel-slide-1.jpg);">
-      <div class="carousel-caption">
+      <div class="carousel-caption p-4">
         <div class="btn-card">
-          <button type="button" class="btn btn-success" onclick="location.href='./index.jsp'">Prenota Ora</button>
+          <button type="button" class="btn btn-lg btn-success" onclick="location.href='./index.jsp'">Prenota Ora</button>
         </div>
         <div class="gradient-slide">
           <h1 style>Camere</h1>
@@ -62,7 +62,7 @@
       </div>
     </div>
     <div class="carousel-item" style="background-image: url(./imgs/imgs-index/carousel-slide-2.jpg);">
-      <div class="carousel-caption">
+      <div class="carousel-caption p-4">
         <div class="gradient-slide">
           <h1>Attività</h1>
           <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ipsum molestiae dicta veritatis, adipisci molestias nesciunt qui quisquam placeat eum suscipit laudantium nemo culpa. Laboriosam blanditiis similique eius quo quod!</p>
@@ -70,7 +70,7 @@
       </div>
     </div>
     <div class="carousel-item" style="background-image: url(./imgs/imgs-index/carousel-slide-3.jpg);">
-      <div class="carousel-caption">
+      <div class="carousel-caption p-4">
         <div class="gradient-slide">
           <h1>Ristoranti</h1>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ipsum molestiae dicta veritatis, adipisci molestias nesciunt qui quisquam placeat eum suscipit laudantium nemo culpa. Laboriosam blanditiis similique eius quo quod!</p>
@@ -91,50 +91,60 @@
 
 <!-- CARDS-->
 <div class="container mt-5 mb-5"> <!-- mt = margin top /mb = margin bottom -->
-  <div class="card-cont mb-5">
-    <div class="card mb-3" style="max-width: 100%;">
-      <div class="row no-gutters">
-        <div class="col-lg-4">
-          <img src="./imgs/imgs-index/camera-card-1.jpg" class="card-img" alt="...">
-        </div>
-        <div class="col-lg-8">
-          <div class="card-body">
-            <h5 class="card-title">Camere</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <a href="camere.jsp" class="btn btn-primary">Visita le camere</a>
-            <a href="#" class="btn btn-success">Prenota ora</a>
+  <div class="row">
+    <div class="col">
+      <div class="card" style="max-width: 100%;">
+        <div class="row no-gutters">
+          <div class="col-lg-4">
+            <img src="./imgs/imgs-index/camera-card-1.jpg" class="card-img" alt="...">
+          </div>
+          <div class="col-lg-8">
+            <div class="card-body">
+              <h5 class="card-title">Camere</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <a href="camere.jsp" class="btn btn-primary">Visita le camere</a>
+              <a href="#" class="btn btn-success">Prenota ora</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="card-cont mt-5 mb-5">
-    <div class="card mb-3" style="max-width: 100%;">
-      <div class="row no-gutters">
-        <div class="col-lg-4">
-          <img src="./imgs/imgs-index/attivita-card-2.jpg" class="card-img" alt="...">
-        </div>
-        <div class="col-lg-8">
-          <div class="card-body">
-            <h5 class="card-title">Attività</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <a href="#" class="btn btn-primary">Visita le nostre attività</a>
+  <div class="row my-5">
+    <div class="col">
+      <div class="card" style="max-width: 100%;">
+        <div class="row no-gutters">
+          <div class="col-lg-4">
+            <img src="./imgs/imgs-index/attivita-card-2.jpg" class="card-img" alt="...">
+          </div>
+          <div class="col-lg-8">
+            <div class="card-body">
+              <h5 class="card-title">Attività</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <a href="#" class="btn btn-primary">Visita le nostre attività</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="card-cont mt-5">
-    <div class="card mb-3" style="max-width: 100%;">
-      <div class="row no-gutters">
-        <div class="col-lg-4">
-          <img src="./imgs/imgs-index/ristoranti-card-3.jpg" class="card-img" alt="...">
-        </div>
-        <div class="col-lg-8">
-          <div class="card-body">
-            <h5 class="card-title">Ristoranti</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <a href="#" class="btn btn-primary">Scopri i nostri ristoranti</a>
+
+  <div class="row">
+    <div class="col">
+      <div class="card" style="max-width: 100%;">
+        <div class="row no-gutters">
+          <div class="col-lg-4">
+            <img src="./imgs/imgs-index/ristoranti-card-3.jpg" class="card-img" alt="...">
+          </div>
+          <div class="col-lg-8">
+            <div class="card-header">
+              Prova
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Ristoranti</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <a href="#" class="btn btn-primary">Scopri i nostri ristoranti</a>
+            </div>
           </div>
         </div>
       </div>

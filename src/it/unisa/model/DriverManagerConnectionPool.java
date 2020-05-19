@@ -3,7 +3,6 @@ package it.unisa.model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
