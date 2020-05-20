@@ -78,30 +78,23 @@ public class PrenotazioneDAO {
     //TO ADD A RESERVATION
 
     //Aggiunge una prenotazione sia con dati utente che con dati cliente
-    public static boolean addReservation(String codice_fiscale,String nome,String cognome,String data_di_nascita,String check_in, String check_out, String tipo, boolean register, String email, String password) throws SQLException, ParseException {
+    public static void addReservation(String codice_fiscale, int numRoom,String check_in, String check_out) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
-
-        if(!PrenotazioneDAO.validate(check_in,check_out,tipo)) return false;  //Controlla se la prenotazione inserita è valida
-        if(!ClienteDAO.isCustomer(codice_fiscale)) ClienteDAO.addCostumer(codice_fiscale, nome, cognome, data_di_nascita); //Se il cliente non è nel database, lo aggiunge
-        if(register && !UserDAO.isUser(codice_fiscale)) UserDAO.addStandardUser(codice_fiscale,email,password); //Se il cliente vuole essere registrato e non è già un utente
 
         String statement = "INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES (?,?,?,?);";
 
         try{
             connection = DriverManagerConnectionPool.getConnection();
-
             preparedStatement = connection.prepareStatement(statement);
-            int numRoom = PrenotazioneDAO.getFirstFreeByType(check_in,check_out,tipo); // Cerca il primo numero di camera libero del tipo scelto
             preparedStatement.setString(1,codice_fiscale);
-            preparedStatement.setInt(2,numRoom);
+            preparedStatement.setInt(2, numRoom);
             preparedStatement.setString(3,check_in);
             preparedStatement.setString(4,check_out);
 
             preparedStatement.executeUpdate();
             connection.commit();
             preparedStatement.close();
-            return true;
         } finally {
             try{
                 if(preparedStatement != null) preparedStatement.close();

@@ -99,4 +99,4 @@ INSERT INTO Utente(email, password, codice_fiscale, is_admin) VALUES ('carisiolu
 INSERT INTO Utente(email, password, codice_fiscale, is_admin) VALUES ('capazelio12345@libero.it' ,'cap2345','GBTDSV55D55G173Z',false);
 INSERT INTO Utente(email, password, codice_fiscale, is_admin) VALUES ('ffallaci47@gmail.com' ,'password','FVQGYU29S29H802O',false);
 
-DELETE from Cliente where Cliente.codice_fiscale = "DNTLSN99P21L259R"
+/*SELECT Count(*) from Prenotazione where codice_fiscale="FVQGYU29S29H8L2O" and numero=17 and check_in="2020-01-10 12:00:00" and check_out="2020-01-13 14:00:00";*/
