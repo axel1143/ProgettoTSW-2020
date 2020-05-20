@@ -48,30 +48,30 @@
 <!-- FORM DI REGISTRAZIONE -->
 <div class="container py-2">
     <h1>Prenotati ora</h1>
-    <form method="post" action="">
+    <form method="post" action="${pageContext.request.contextPath}/doReservationControl">
         <h3>Dati personali</h3>
         <div class="form-group">
             <label for="inputCodiceFiscale">Codice Fiscale</label>
-            <input type="text" class="form-control" id="inputCodiceFiscale"  placeholder="Inserisci qui il tuo codice fiscale">
+            <input type="text" class="form-control" id="inputCodiceFiscale" name="codicefiscale" placeholder="Inserisci qui il tuo codice fiscale">
         </div>
         <div class="form-group">
             <label for="inputNome">Nome</label>
-            <input type="text" class="form-control" id="inputNome">
+            <input type="text" class="form-control" name="nome" id="inputNome">
         </div>
         <div class="form-group">
             <label for="inputCognome">Cognome</label>
-            <input type="text" class="form-control" id="inputCognome">
+            <input type="text" class="form-control" name="cognome" id="inputCognome">
         </div>
         <div class="form-group">
             <label for="inputData">Data di nascita</label>
-            <input type="text" class="form-control" id="inputData" placeholder="yyyy-mm-dd">
+            <input type="text" class="form-control" id="inputData" name="nascita" placeholder="yyyy-mm-dd">
         </div>
         <h3>Informazioni prenotazione</h3>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <label class="input-group-text" for="inputCamera">Tipo di camera</label>
             </div>
-            <select class="custom-select" id="inputCamera">
+            <select class="custom-select" id="inputCamera" name="tipocamera">
                 <option value="suite">Suite</option>
                 <option value="superior">Superior</option>
                 <option value="standard">Standard</option>
@@ -79,25 +79,25 @@
         </div>
         <div class="form-group">
             <label for="inputIn">Data di Check in</label>
-            <input type="text" class="form-control" id="inputIn" placeholder="yyyy-mm-dd hh:mm:ss">
+            <input type="text" class="form-control" id="inputIn" name="check_in" placeholder="yyyy-mm-dd hh:mm:ss">
         </div>
         <div class="form-group">
             <label for="inputOut">Data di Check out</label>
-            <input type="text" class="form-control" id="inputOut" placeholder="yyyy-mm-dd hh:mm:ss">
+            <input type="text" class="form-control" id="inputOut" name="check_out" placeholder="yyyy-mm-dd hh:mm:ss">
         </div>
 
         <h3>Informazioni di registrazione</h3>
         <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="registerCheck">
+            <input type="checkbox" class="form-check-input" id="registerCheck" name="register" value="toregister">
             <label class="form-check-label" for="registerCheck">Desidero registrarmi al sito</label>
         </div>
         <div class="form-group">
             <label for="inputEmail">Email</label>
-            <input type="text" class="form-control" id="inputEmail">
+            <input type="text" class="form-control" id="inputEmail" name="email">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

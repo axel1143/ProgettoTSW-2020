@@ -78,13 +78,13 @@ public class PrenotazioneDAO {
     //TO ADD A RESERVATION
 
     //Aggiunge una prenotazione sia con dati utente che con dati cliente
-    public static boolean addReservation(String codice_fiscale,String nome,String cognome,String data_di_nascita,String check_in, String check_out, String tipo, boolean register, String email, String password) throws SQLException{
+    public static boolean addReservation(String codice_fiscale,String nome,String cognome,String data_di_nascita,String check_in, String check_out, String tipo, boolean register, String email, String password) throws SQLException, ParseException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         if(!PrenotazioneDAO.validate(check_in,check_out,tipo)) return false;  //Controlla se la prenotazione inserita è valida
         if(!ClienteDAO.isCustomer(codice_fiscale)) ClienteDAO.addCostumer(codice_fiscale, nome, cognome, data_di_nascita); //Se il cliente non è nel database, lo aggiunge
-        if(register && !UserDAO.isUser(codice_fiscale)){ UserDAO.addStandardUser(codice_fiscale,email,password); //Se il cliente vuole essere registrato e non è già un utente
+        if(register && !UserDAO.isUser(codice_fiscale)) UserDAO.addStandardUser(codice_fiscale,email,password); //Se il cliente vuole essere registrato e non è già un utente
 
         String statement = "INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES (?,?,?,?);";
 
@@ -110,12 +110,11 @@ public class PrenotazioneDAO {
                 }
             }
         }
-        return false;
-    }
+
 
 
     // Controlla se una prenotazione è valida per il check_in e check_out scelti
-    public static boolean validate(String check_in, String check_out, String tipo) throws SQLException{
+    public static boolean validate(String check_in, String check_out, String tipo) throws SQLException, ParseException {
         ArrayList<PrenotazioneBean> validateList = PrenotazioneDAO.listOfBooked(check_in,check_out,tipo);
         if(validateList.size() == 0) return true; //Se la lista delle prenotazioni che da conflitto è vuota, allora la prenotazione si può effettuare
 
@@ -128,7 +127,7 @@ public class PrenotazioneDAO {
 
 
     // Ritorna la prima camera libera nel periodo scelto , -1 alrimenti(
-    public static int getFirstFreeByType(String check_in, String check_out,String tipo) throws SQLException{
+    public static int getFirstFreeByType(String check_in, String check_out,String tipo) throws SQLException,ParseException{
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         String selStatement = "select * from Camera where Camera.tipo = ?";
@@ -144,7 +143,7 @@ public class PrenotazioneDAO {
 
             ArrayList<PrenotazioneBean> listBooked = PrenotazioneDAO.listOfBooked(check_in, check_out, tipo);
 
-            if(listBooked.size() == 0) return numbers.get(0); //Se la listOfBooked è vuota, ritorna la prima camera libera
+            if(listBooked == null) return numbers.get(1); //Se la listOfBooked è vuota, ritorna la prima camera libera
 
             else {
                 ArrayList<Integer> bookedNumber = new ArrayList<Integer>();
@@ -169,7 +168,7 @@ public class PrenotazioneDAO {
 
 
     //Ritorna una lista di tutte le prenotazioni che vanno in conflitto con i porametri passati
-    public static ArrayList<PrenotazioneBean> listOfBooked(String check_in, String check_out, String tipo) throws SQLException{
+    public static ArrayList<PrenotazioneBean> listOfBooked(String check_in, String check_out, String tipo) throws SQLException, ParseException{
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -213,17 +212,13 @@ public class PrenotazioneDAO {
                 else if((timestampCheckin.before(bcheckin) && timestampCheckout.after(bcheckout))) toReturn.add(bean);
             }
              return toReturn;
-        }catch (ParseException e){
-            e.printStackTrace();
-        }
-        finally {
+        } finally {
             try {
                 if (preparedStatement != null) preparedStatement.close();
             } finally {
                 DriverManagerConnectionPool.releaseConnection(connection);
             }
         }
-        return null;
     }
 
     //

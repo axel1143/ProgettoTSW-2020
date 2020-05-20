@@ -98,3 +98,5 @@ INSERT INTO Utente(email, password, codice_fiscale, is_admin) VALUES ('violatren
 INSERT INTO Utente(email, password, codice_fiscale, is_admin) VALUES ('carisiolucc@hotmail.com' ,'carisiolucchesi','LVMMCT27A08Z904K',false);
 INSERT INTO Utente(email, password, codice_fiscale, is_admin) VALUES ('capazelio12345@libero.it' ,'cap2345','GBTDSV55D55G173Z',false);
 INSERT INTO Utente(email, password, codice_fiscale, is_admin) VALUES ('ffallaci47@gmail.com' ,'password','FVQGYU29S29H802O',false);
+
+DELETE from Cliente where Cliente.codice_fiscale = "DNTLSN99P21L259R"
