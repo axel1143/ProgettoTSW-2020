@@ -14,31 +14,30 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/style_index.css">
 </head>
-<body>
-
+<body class="pt-2" style="background-color: rgba(225, 196, 167, 0.2)">
 <!--<div class="jumbotron text-center" style="margin-bottom:0">
  <h1>My First Bootstrap 4 Page</h1>
  <p>Resize this responsive page to see the effect!</p>
 </div> -->
 
 <!-- NAVBAR-->
-<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="font-size: large">
   <div class="container">
     <img src="" alt="">
-    <a class="navbar-brand" href="#">Hotel Marbel</a>
+    <a class="navbar-brand" href="#"> <div class="font-weight-bold">Hotel Marbel</div></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
       <ul class="navbar-nav navbar-right">
-        <li class="nav-item">
-          <a class="nav-link active" href="/index.jsp">Home</a>
+        <li class="nav-item ">
+          <a class="nav-link active font-weight-bold" href="/index.jsp">Home</a>
+        </li>
+        <li class="nav-item px-2">
+          <a class="nav-link font-weight-bold" href="camere.jsp">Visita camere</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="camere.jsp">Visita Camere</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Esplora ristoranti ed attività</a>
+          <a class="nav-link font-weight-bold" href="#">Esplora ristoranti ed attività</a>
         </li>
       </ul>
     </div>
@@ -48,31 +47,31 @@
 
 
 <!--CAROUSEL-->
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleControls" class="carousel slide carousel-fade" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" style="background-image: url(./imgs/imgs-index/carousel-slide-1.jpg);">
       <div class="carousel-caption p-4">
-        <div class="btn-card">
-          <button type="button" class="btn btn-lg btn-success" onclick="location.href='./index.jsp'">Prenota Ora</button>
+        <div class="btn-card pb-3">
+          <button type="button" class="btn btn-lg btn-danger" onclick="location.href='prenotazione.jsp'">Prenota Ora</button>
         </div>
-        <div class="gradient-slide">
-          <h1 style>Camere</h1>
+        <div class="gradient-slide p-1">
+          <h1 class="font-weight-bold">Camere</h1>
           <p style>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ipsum molestiae dicta veritatis, adipisci molestias nesciunt qui quisquam placeat eum suscipit laudantium nemo culpa. Laboriosam blanditiis similique eius quo quod!</p>
         </div>
       </div>
     </div>
     <div class="carousel-item" style="background-image: url(./imgs/imgs-index/carousel-slide-2.jpg);">
       <div class="carousel-caption p-4">
-        <div class="gradient-slide">
-          <h1>Attività</h1>
+        <div class="gradient-slide p-1">
+          <h1 class="font-weight-bold">Attività</h1>
           <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ipsum molestiae dicta veritatis, adipisci molestias nesciunt qui quisquam placeat eum suscipit laudantium nemo culpa. Laboriosam blanditiis similique eius quo quod!</p>
         </div>
       </div>
     </div>
     <div class="carousel-item" style="background-image: url(./imgs/imgs-index/carousel-slide-3.jpg);">
       <div class="carousel-caption p-4">
-        <div class="gradient-slide">
-          <h1>Ristoranti</h1>
+        <div class="gradient-slide p-1">
+          <h1 class="font-weight-bold">Ristoranti</h1>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ipsum molestiae dicta veritatis, adipisci molestias nesciunt qui quisquam placeat eum suscipit laudantium nemo culpa. Laboriosam blanditiis similique eius quo quod!</p>
         </div>
       </div>
@@ -102,8 +101,8 @@
             <div class="card-header"><h5>Camere</h5></div>
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <a href="camere.jsp" class="btn btn-primary">Visita le camere</a>
-              <a href="#" class="btn btn-success">Prenota ora</a>
+              <a href="camere.jsp" class="btn btn-warning">Visita le camere</a>
+              <a href="#" class="btn btn-danger">Prenota ora</a>
             </div>
           </div>
         </div>
@@ -121,7 +120,7 @@
             <div class="card-header"><h5>Attività</h5></div>
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <a href="#" class="btn btn-primary">Visita le nostre attività</a>
+              <a href="#" class="btn btn-warning">Visita le nostre attività</a>
             </div>
           </div>
         </div>
@@ -140,7 +139,7 @@
             <div class="card-header"><h5>Ristoranti</h5></div>
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <a href="#" class="btn btn-primary">Scopri i nostri ristoranti</a>
+              <a href="#" class="btn btn-warning">Scopri i nostri ristoranti</a>
             </div>
           </div>
         </div>
@@ -152,7 +151,7 @@
 
 
 
-<div class="jumbotron" style="margin-bottom:0">
+<div class="jumbotron py-1" style="margin-bottom:0">
   <p>Contattaci</p>
   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius nam impedit praesentium, molestiae hic libero, unde autem deserunt repudiandae minus nisi ut, dolorem natus saepe aliquid. Recusandae assumenda officia nulla.
 
