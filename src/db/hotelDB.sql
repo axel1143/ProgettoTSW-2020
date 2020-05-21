@@ -35,7 +35,7 @@ create table Utente
     email varchar(30) not null,
     password varchar(30) not null,
     codice_fiscale char(16) not null,
-    is_admin boolean not null ,
+    is_admin boolean not null , /*Controllare il vincolo di partecipazione (Anche un admin deve effettuare una prenotazione) DA MODIFICARE*/
     constraint fk_codice_fiscale2 foreign key (codice_fiscale) references Cliente(codice_fiscale) on update cascade on delete cascade,
     constraint pk_email primary key(email)
 );
