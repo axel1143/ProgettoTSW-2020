@@ -72,7 +72,7 @@ NAVBAR
 
     <div class="row">
         <div class="col"></div>
-        <div class="col-6" style="margin-top: 5ex">
+        <div class="col-6">
             <div class="card w-90">
                 <div class="row no-gutters" style="max-width:100%;max-height: 100%;">
                     <div class="col-xl-4">
@@ -95,7 +95,7 @@ NAVBAR
     </div>
     <div class="row">
     <div class="col"></div>
-    <div class="col-6" style="margin-top: 5ex; margin-bottom: 5ex">
+    <div class="col-6">
         <div class="card w-90">
             <div class="row no-gutters" style="max-width:100%;max-height: 100%;">
                 <div class="col-xl-4">
