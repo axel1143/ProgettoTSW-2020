@@ -92,7 +92,7 @@
 <div class="container mt-5 mb-5"> <!-- mt = margin top /mb = margin bottom -->
   <div class="row">
     <div class="col">
-      <div class="card" style="max-width: 100%;">
+      <div class="card w-100">
         <div class="row no-gutters">
           <div class="col-lg-4">
             <img src="./imgs/imgs-index/camera-card-1.jpg" class="card-img" alt="...">
@@ -111,7 +111,7 @@
   </div>
   <div class="row my-5">
     <div class="col">
-      <div class="card" style="max-width: 100%;">
+      <div class="card w-100">
         <div class="row no-gutters">
           <div class="col-lg-4">
             <img src="./imgs/imgs-index/attivita-card-2.jpg" class="card-img" alt="...">
@@ -130,7 +130,7 @@
 
   <div class="row">
     <div class="col">
-      <div class="card" style="max-width: 100%;">
+      <div class="card w-100">
         <div class="row no-gutters">
           <div class="col-lg-4">
             <img src="./imgs/imgs-index/ristoranti-card-3.jpg" class="card-img" alt="...">
