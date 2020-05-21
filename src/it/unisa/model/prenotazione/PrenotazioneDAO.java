@@ -48,7 +48,7 @@ public class PrenotazioneDAO {
 
 
     //Rimuove una prenotazione esistente
-    public static boolean removeReservation(String codice_fiscale,int numero,String check_in, String check_out) throws SQLException{
+    public static boolean removeReservation(PrenotazioneBean toAdd) throws SQLException{
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -57,10 +57,10 @@ public class PrenotazioneDAO {
             connection = DriverManagerConnectionPool.getConnection();
 
             preparedStatement = connection.prepareStatement(statement);
-            preparedStatement.setString(1,codice_fiscale);
-            preparedStatement.setString(2,check_in);
-            preparedStatement.setString(3,check_out);
-            preparedStatement.setInt(4, numero);
+            preparedStatement.setString(1,toAdd.getCodice_fiscale());
+            preparedStatement.setString(2,toAdd.getCheck_in().toString());
+            preparedStatement.setString(3,toAdd.getCheck_out().toString());
+            preparedStatement.setInt(4,toAdd.getNumero());
 
             preparedStatement.executeUpdate();
             connection.commit();
@@ -78,7 +78,7 @@ public class PrenotazioneDAO {
     //TO ADD A RESERVATION
 
     //Aggiunge una prenotazione sia con dati utente che con dati cliente
-    public static void addReservation(String codice_fiscale, int numRoom,String check_in, String check_out) throws SQLException {
+    public static void addReservation(PrenotazioneBean toAdd) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -87,10 +87,10 @@ public class PrenotazioneDAO {
         try{
             connection = DriverManagerConnectionPool.getConnection();
             preparedStatement = connection.prepareStatement(statement);
-            preparedStatement.setString(1,codice_fiscale);
-            preparedStatement.setInt(2, numRoom);
-            preparedStatement.setString(3,check_in);
-            preparedStatement.setString(4,check_out);
+            preparedStatement.setString(1,toAdd.getCodice_fiscale());
+            preparedStatement.setInt(2, toAdd.getNumero());
+            preparedStatement.setString(3,toAdd.getCheck_in().toString());
+            preparedStatement.setString(4,toAdd.getCheck_out().toString());
 
             preparedStatement.executeUpdate();
             connection.commit();

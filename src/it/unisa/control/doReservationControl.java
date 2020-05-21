@@ -1,13 +1,16 @@
 package it.unisa.control;
 
 import it.unisa.model.cliente.ClienteDAO;
+import it.unisa.model.prenotazione.PrenotazioneBean;
 import it.unisa.model.prenotazione.PrenotazioneDAO;
 import it.unisa.model.user.UserDAO;
 
 import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 @WebServlet("/doReservationControl")
 public class doReservationControl extends javax.servlet.http.HttpServlet {
@@ -37,14 +40,24 @@ public class doReservationControl extends javax.servlet.http.HttpServlet {
             else if(!PrenotazioneDAO.validate(check_in,check_out,tipo)) response.sendRedirect(response.encodeRedirectURL("./operation.jsp?validate=false")); //COntrolla se la prenotazione è valida
 
             else{
-                if(toRegister && !UserDAO.isUser(codiceFiscale)) UserDAO.addStandardUser(codiceFiscale,email,password); //Aggiunge l'utente se desidera essere aggiunto e se non è stato già assunto
                 if(!ClienteDAO.isCustomer(codiceFiscale)) ClienteDAO.addCostumer(codiceFiscale, nome, cognome,nascita); //Aggiunge il cliente se non è stato aggiunto
-                int numberRoom = PrenotazioneDAO.getFirstFreeByType(check_in,check_out,tipo); //Recupera il primo numero di camera libero
-                PrenotazioneDAO.addReservation(codiceFiscale,numberRoom,check_in,check_out);
+                if(toRegister && !UserDAO.isUser(codiceFiscale)) UserDAO.addStandardUser(codiceFiscale,email,password);
+                int numberRoom = PrenotazioneDAO.getFirstFreeByType(check_in,check_out,tipo);//Recupera il primo numero di camera libero
+
+                PrenotazioneBean toAdd = new PrenotazioneBean(); //Crea il bean
+
+                toAdd.setCodice_fiscale(codiceFiscale);
+                toAdd.setCheck_in(new Timestamp((new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(check_in)).getTime()));
+                toAdd.setCheck_out(new Timestamp((new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(check_out)).getTime()));
+                toAdd.setNumero(numberRoom);
+
+                PrenotazioneDAO.addReservation(toAdd); //Aggiunge il bean
+
                 response.sendRedirect(response.encodeRedirectURL("./operation.jsp?&validate=true"));
             }
         } catch (SQLException | ParseException throwables) {
             response.sendRedirect(response.encodeRedirectURL("./operation.jsp?error=SQLExceptionOrParseExxeption"));
+            throwables.printStackTrace();
         }
 
     }

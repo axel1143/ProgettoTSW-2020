@@ -1,7 +1,6 @@
 package it.unisa.model.cliente;
 
 import it.unisa.model.DriverManagerConnectionPool;
-import it.unisa.model.prenotazione.PrenotazioneBean;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -57,7 +56,7 @@ public class ClienteDAO {
 
 
     //Aggiunge un cliente al database -- NECESSARIA UNA PRENOTAZIONE ->PrenoatzioneDAO
-    public static boolean addCostumer(String codice_fiscale, String nome, String cognome, String data_di_nascita) throws SQLException{
+    public static void addCostumer(String codice_fiscale, String nome, String cognome, String data_di_nascita) throws SQLException{
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -71,8 +70,6 @@ public class ClienteDAO {
             preparedStatement.setString(4,data_di_nascita);
             preparedStatement.executeUpdate();
             connection.commit();
-
-            return true;
 
         } finally {
             try{
