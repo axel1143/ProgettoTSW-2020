@@ -6,6 +6,7 @@ public class UserBean implements Serializable {
     String email;
     String password;
     String codicefiscale;
+    boolean isAdmin;
 
 
     public String toString() {
@@ -16,6 +17,7 @@ public class UserBean implements Serializable {
         email="";
         password="";
         codicefiscale="";
+        isAdmin = false;
     }
 
     public String getEmail() {
@@ -40,6 +42,13 @@ public class UserBean implements Serializable {
 
     public void setCodicefiscale(String codicefiscale) {
         this.codicefiscale = codicefiscale;
+    }
+
+    public void setAdmin(boolean isAdmin){
+        this.isAdmin = isAdmin;
+    }
+    public boolean isAdmin(){
+        return this.isAdmin;
     }
 
 

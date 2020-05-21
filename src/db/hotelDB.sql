@@ -35,6 +35,7 @@ create table Utente
     email varchar(30) not null,
     password varchar(30) not null,
     codice_fiscale char(16) not null,
+    is_admin boolean not null , /*Controllare il vincolo di partecipazione (Anche un admin deve effettuare una prenotazione) DA MODIFICARE*/
     constraint fk_codice_fiscale2 foreign key (codice_fiscale) references Cliente(codice_fiscale) on update cascade on delete cascade,
     constraint pk_email primary key(email)
 );
@@ -93,7 +94,9 @@ INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('F
 /*
  Popolamento Utente
  */
-INSERT INTO Utente(email, password, codice_fiscale) VALUES ('violatrentini00@gmail.com' ,'123456','PTUMPP69A09L140A');
-INSERT INTO Utente(email, password, codice_fiscale) VALUES ('carisiolucc@hotmail.com' ,'carisiolucchesi','LVMMCT27A08Z904K');
-INSERT INTO Utente(email, password, codice_fiscale) VALUES ('capazelio12345@libero.it' ,'cap2345','GBTDSV55D55G173Z');
-INSERT INTO Utente(email, password, codice_fiscale) VALUES ('ffallaci47@gmail.com' ,'password','FVQGYU29S29H802O');
+INSERT INTO Utente(email, password, codice_fiscale, is_admin) VALUES ('violatrentini00@gmail.com' ,'123456','PTUMPP69A09L140A',false);
+INSERT INTO Utente(email, password, codice_fiscale, is_admin) VALUES ('carisiolucc@hotmail.com' ,'carisiolucchesi','LVMMCT27A08Z904K',false);
+INSERT INTO Utente(email, password, codice_fiscale, is_admin) VALUES ('capazelio12345@libero.it' ,'cap2345','GBTDSV55D55G173Z',false);
+INSERT INTO Utente(email, password, codice_fiscale, is_admin) VALUES ('ffallaci47@gmail.com' ,'password','FVQGYU29S29H802O',false);
+
+/*SELECT Count(*) from Prenotazione where codice_fiscale="FVQGYU29S29H8L2O" and numero=17 and check_in="2020-01-10 12:00:00" and check_out="2020-01-13 14:00:00";*/
