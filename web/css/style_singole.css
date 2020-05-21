@@ -7,3 +7,11 @@ body{
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
 }
+
+/*CAROUSEL*/
+
+.carousel-inner > .carousel-item{
+    min-height: 85vh;
+    background-size: cover;
+    background-position: center center;
+}
