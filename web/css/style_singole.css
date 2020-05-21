@@ -5,3 +5,40 @@ body{
 .navbar-nav > .nav-item{
     padding: 0rem 0.3rem 0.3rem 0rem;
 }
+
+.carousel-inner>.carousel-item{
+    min-height: 55rem;
+    background-size: cover;
+    background-position: center center;
+}
+
+.card-slider{
+    max-width:100%;
+    background-color: beige;
+
+}
+.cont-homepage{
+    padding-top: 2.5rem;
+    background: beige;
+}
+
+p.normal{
+    font-family: Arial, serif;
+    font-weight: bolder;
+    color:black;
+    border-radius: 5rem;
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,0.60) 0%, rgba(255,255,255,0.60) 100%)
+}
+
+
+h1.head{
+    font-weight: bolder;
+}
+
+p.testo{
+    clear:left;
+    margin-top:0.5em;
+}
+
+
