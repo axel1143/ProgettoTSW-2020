@@ -10,27 +10,27 @@
     <link rel="stylesheet" href="css/style_singole.css">
     <title>Home</title>
 </head>
-<body>
+<body class="pt-2" style="background-color: rgba(225, 196, 167, 0.2)">
 <!--
 NAVBAR
 -->
-<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="font-size: large">
     <div class="container">
         <img src="" alt="">
-        <a class="navbar-brand" href="#">Hotel Marbel</a>
+        <a class="navbar-brand" href="#"> <div class="font-weight-bold">Hotel Marbella</div></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
             <ul class="navbar-nav navbar-right">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.jsp">Home</a>
+                <li class="nav-item ">
+                    <a class="nav-link active font-weight-bold" href="index.jsp">Home</a>
+                </li>
+                <li class="nav-item px-2">
+                    <a class="nav-link font-weight-bold" href="camere.jsp">Visita camere</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="camere.jsp">Visita Camere</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Esplora ristoranti ed attività</a>
+                    <a class="nav-link font-weight-bold" href="#">Esplora ristoranti ed attività</a>
                 </li>
             </ul>
         </div>
