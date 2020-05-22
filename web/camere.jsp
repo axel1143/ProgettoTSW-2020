@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/style_camere.css">
     <title>Camere</title>
 </head>
-<body class="pt-2" style="background-color: rgba(225, 196, 167, 0.2)">
+<body class="pt-2">
 <!--
 NAVBAR
 -->

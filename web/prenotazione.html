@@ -1,11 +1,68 @@
-<%--
+<!--
   Created by IntelliJ IDEA.
   User: alex
   Date: 19/05/20
   Time: 23:46
   To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+!-->
+
+
+
+<script>
+    function control()
+    {
+        let err=false;
+        if(document.getElementById("inputCodiceFiscale").innerText === ("") || document.getElementById("inputCodiceFiscale").innerText.length<16)
+            {
+                document.getElementById("inputCodiceFiscale").style.borderColor="red";
+                err=true;
+            }
+        if(document.getElementById("inputNome").innerText === (""))
+        {
+            document.getElementById("inputNome").style.borderColor="red";
+            err=true;
+        }
+        if(document.getElementById("inputCognome").innerText === (""))
+    {
+        document.getElementById("inputCognome").style.borderColor="red";
+        err=true;
+    }
+        if(document.getElementById("inputData").innerText === (""))
+    {
+        document.getElementById("inputData").style.borderColor="red";
+        err=true;
+    }
+        if (document.getElementById("inputCodiceFiscale").innerText === (""))
+        {
+            document.getElementById("inputCodiceFiscale").style.borderColor = "red";
+            err = true;
+        }
+        if (document.getElementById("inputCodiceFiscale").innerText === (""))
+        {
+            document.getElementById("inputCodiceFiscale").style.borderColor = "red";
+            err = true;
+        }
+
+
+        if(document.getElementById("registerCheck").checked === true) {
+
+
+            if (document.getElementById("inputEmail").innerText === ("")) {
+                document.getElementById("inputEmail").style.borderColor = "red";
+                err = true;
+            }
+
+            if (document.getElementById("exampleInputPassword1").innerText === ("")) {
+                document.getElementById("exampleInputPassword1").style.borderColor = "red";
+                err = true;
+            }
+        }
+        return !err;
+    }
+
+
+
+</script>
 
 <html lang="en">
 <head>
@@ -48,7 +105,7 @@
 <!-- FORM DI REGISTRAZIONE -->
 <div class="container py-2">
     <h1>Prenotati ora</h1>
-    <form method="post" action="${pageContext.request.contextPath}/doReservationControl">
+    <form method="post" action="${pageContext.request.contextPath}/doReservationControl" onsubmit="return control()">
         <h3>Dati personali</h3>
         <div class="form-group">
             <label for="inputCodiceFiscale">Codice Fiscale</label>
@@ -74,16 +131,36 @@
             <select class="custom-select" id="inputCamera" name="tipocamera">
                 <option value="suite">Suite</option>
                 <option value="superior">Superior</option>
-                <option value="standard">Standard</option>
+                <option value="standard" selected>Standard</option>
             </select>
         </div>
         <div class="form-group">
             <label for="inputIn">Data di Check in</label>
-            <input type="text" class="form-control" id="inputIn" name="check_in" placeholder="yyyy-mm-dd hh:mm:ss">
+            <input id="datetimepicker" type="text" >
         </div>
         <div class="form-group">
             <label for="inputOut">Data di Check out</label>
-            <input type="text" class="form-control" id="inputOut" name="check_out" placeholder="yyyy-mm-dd hh:mm:ss">
+            <div class="container">
+                <div class="row">
+                    <div class='col-sm-6'>
+                        <div class="form-group">
+                            <div class='input-group date' >
+                                <input type='text' class="form-control" name="check_out" id='inputOut'/>
+                                <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $(function () {
+                            $('#inputOut').datetimepicker({
+                                locale: 'it'
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
         </div>
 
         <h3>Informazioni di registrazione</h3>
@@ -99,9 +176,10 @@
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type=Submit class="btn btn-primary">Submit</button>
     </form>
 </div>
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

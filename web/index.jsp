@@ -51,7 +51,7 @@
     <div class="carousel-item active " style="background-image: url(./imgs/imgs-index/carousel-slide-1.jpg);">
       <div class="carousel-caption p-4">
         <div class="btn-card pb-3">
-          <button type="button" class="btn btn-lg btn-danger" onclick="location.href='prenotazione.jsp'">Prenota Ora</button>
+          <button type="button" class="btn btn-lg btn-danger" onclick="location.href='prenotazione.html'">Prenota Ora</button>
         </div>
         <div class="gradient-slide p-1">
           <h1 class="font-weight-bold">Camere</h1>
