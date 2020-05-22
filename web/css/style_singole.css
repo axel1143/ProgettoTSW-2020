@@ -11,7 +11,30 @@ body{
 /*CAROUSEL*/
 
 .carousel-inner > .carousel-item{
-    min-height: 85vh;
+    min-height: 100vh;
     background-size: cover;
     background-position: center center;
+}
+
+.gradient-slide {
+    background: rgba(154, 154, 89, 0.44);
+    backdrop-filter: blur(3.5px);
+    -webkit-backdrop-filter: blur(3.5px);
+    border-radius: 8px;
+}
+
+.side-container{
+    top:50%;
+    left:15% !important;
+    transform: translate(-15%,-50%);
+    right: 0!important;
+    height: auto;
+    margin: 0;
+    max-width:400px;
+    padding: 2em !important;
+}
+
+.side-body{
+    width: 100%;
+    padding: 2em!important;
 }
