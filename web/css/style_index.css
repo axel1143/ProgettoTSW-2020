@@ -5,9 +5,10 @@
 }
 /*CAROUSEL*/
 .carousel-inner > .carousel-item{
-    min-height: 85vh;
+    min-height: 95vh;
     background-size: cover;
     background-position: center center;
+    background-attachment: fixed;
 }
 
 .carousel-item>.carousel-caption>h1{

@@ -23,7 +23,6 @@
 <!-- NAVBAR-->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="font-size: large">
   <div class="container">
-    <img src="" alt="">
     <a class="navbar-brand" href="#"> <div class="font-weight-bold">Hotel Marbella</div></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
@@ -37,7 +36,7 @@
           <a class="nav-link font-weight-bold" href="camere.jsp">Visita camere</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link font-weight-bold" href="#">Esplora ristoranti ed attività</a>
+          <a class="nav-link font-weight-bold" href="attivita.jsp">Esplora ristoranti ed attività</a>
         </li>
       </ul>
     </div>
@@ -49,7 +48,7 @@
 <!--CAROUSEL-->
 <div id="carouselExampleControls" class="carousel slide carousel-fade" data-ride="carousel">
   <div class="carousel-inner">
-    <div class="carousel-item active" style="background-image: url(./imgs/imgs-index/carousel-slide-1.jpg);">
+    <div class="carousel-item active " style="background-image: url(./imgs/imgs-index/carousel-slide-1.jpg);">
       <div class="carousel-caption p-4">
         <div class="btn-card pb-3">
           <button type="button" class="btn btn-lg btn-danger" onclick="location.href='prenotazione.jsp'">Prenota Ora</button>
