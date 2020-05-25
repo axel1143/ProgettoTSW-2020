@@ -41,14 +41,14 @@
 <!-- Fine NAVBAR-->
 <div class="container-fluid" style="background-image: url(imgs/imgs-attivita/spa-backgorund-1.jpg);">
     <div class="row pt-5">
-        <div class="col-md-4 pt-3">
+        <div class="col-md-4 pt-3 d-flex align-items-center my-2">
             <div class="container">
-                <h1>SPA</h1>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, quas, architecto, harum iure possimus veniam placeat eligendi aut asperiores molestias totam officia commodi in consequuntur minus suscipit adipisci omnis! Doloribus.</p>
+                <p class="text-center lead"><h2>Spa</h2>
+                <p class="lead card-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, quas, architecto, harum iure possimus veniam placeat eligendi aut asperiores molestias totam officia commodi in consequuntur minus suscipit adipisci omnis! Doloribus.</p>
             </div>
         </div>
         <div class="col-md-8 my-5">
-            <div class="container my-3">
+            <div class="container my-1">
                 <div id="carouselControls" class="carousel slide carousel-fade" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" style="background-image: url(imgs/imgs-attivita/spa-carousel-1.jpg);">
@@ -74,7 +74,7 @@
 <div class="container-fluid" style="background-image: url(imgs/imgs-attivita/ristoranti-background-3.jpg);">
     <div class="row">
         <div class="col-md-8 my-5">
-            <div class="container my-3">
+            <div class="container my-1">
                 <div id="carouselControls2" class="carousel slide carousel-fade" data-ride="carousel">
                     <div class="carousel-inner my-5">
                         <div class="carousel-item active" style="background-image: url(imgs/imgs-attivita/ristoranti-carousel-1.jpg)">
@@ -95,20 +95,24 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 pt-3">
-            <h1>RISTORANTI</h1>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, quas, architecto, harum iure possimus veniam placeat eligendi aut asperiores molestias totam officia commodi in consequuntur minus suscipit adipisci omnis! Doloribus.</p>
+        <div class="col-md-4 py-2 d-flex align-items-center py-2 my-2">
+            <div class="container">
+                <p class="text-center lead"><h2>Ristoranti</h2>
+                <p class="lead card-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, quas, architecto, harum iure possimus veniam placeat eligendi aut asperiores molestias totam officia commodi in consequuntur minus suscipit adipisci omnis! Doloribus.</p>
+            </div>
         </div>
     </div>
 </div>
-<div class="container-fluid" style="background-image: url(imgs/imgs-attivita/attivita-background-2.jpg);">
+<div class="container-fluid" style="background-image: url(imgs/imgs-attivita/attivita-background-2.jpg); ">
     <div class="row">
-        <div class="col-md-4 pt-3">
-            <h1>BAR, PALESTRA E ANIMAZIONE</h1>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, quas, architecto, harum iure possimus veniam placeat eligendi aut asperiores molestias totam officia commodi in consequuntur minus suscipit adipisci omnis! Doloribus.</p>
+        <div class="col-md-4 py-2 d-flex align-items-center py-2 my-2">
+            <div class="container">
+                <p class="text-center lead">  <h2>Bar, Palestra e Sala bambini</h2>
+                <p class="lead card-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, quas, architecto, harum iure possimus veniam placeat eligendi aut asperiores molestias totam officia commodi in consequuntur minus suscipit adipisci omnis! Doloribus.</p>
+            </div>
         </div>
         <div class="col-md-8 my-5">
-            <div class="container my-3">
+            <div class="container my-1">
                 <div id="carouselControls3" class="carousel slide carousel-fade" data-ride="carousel">
                     <div class="carousel-inner my-5">
                         <div class="carousel-item active" style="background-image: url(imgs/imgs-attivita/bar-carousel-1.jpg)">

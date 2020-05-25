@@ -7,13 +7,18 @@
 .container-fluid{
     background-size: cover;
     background-attachment: fixed;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
 }
 .container-fluid>.row{
     min-height: 100vh;
 }
-.container-fluid>.row>.col-md-4{
-    background-color: rgba(0,0,0,0.35); backdrop-filter: blur(5px);
+.container-fluid>.row>.col-md-4>.container{
+    background-color: rgba(0,0,0,0.50); backdrop-filter: blur(10px);
     color: white;
+    min-height: 40vh;
+    border-radius: 20px;
 }
 
 .carousel>.carousel-inner>.carousel-item{
