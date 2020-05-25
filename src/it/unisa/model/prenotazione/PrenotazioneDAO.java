@@ -136,7 +136,7 @@ public class PrenotazioneDAO {
 
             ArrayList<PrenotazioneBean> listBooked = PrenotazioneDAO.listOfBooked(check_in, check_out, tipo);
 
-            if(listBooked == null) return numbers.get(1); //Se la listOfBooked è vuota, ritorna la prima camera libera
+            if(listBooked.size() == 0) return numbers.get(1); //Se la listOfBooked è vuota, ritorna la prima camera libera
 
             else {
                 ArrayList<Integer> bookedNumber = new ArrayList<Integer>();
@@ -187,11 +187,13 @@ public class PrenotazioneDAO {
                 prenotazioneBeans.add(prenotazioneBean);
             }
             ArrayList<PrenotazioneBean> toReturn = new ArrayList<PrenotazioneBean>();
+
             for(PrenotazioneBean bean : prenotazioneBeans){
                 Timestamp bcheckin = bean.getCheck_in();
                 Timestamp bcheckout = bean.getCheck_out();
 
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+
                 Date parsedDate1 = dateFormat.parse(check_in);
                 Timestamp timestampCheckin = new Timestamp(parsedDate1.getTime());
 
