@@ -1,5 +1,7 @@
 vbody{
     padding-top: 1rem;
+    background-image: url("../imgs/imgs-index/carousel-slide-1.jpg");
+    background-size: contain;
 }
 /*NAVBAR*/
 .navbar{
@@ -7,7 +9,7 @@ vbody{
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
 }
-.col-6{
-   margin-top: 5ex;
+.col-6 {
+    margin-top: 5ex;
     margin-bottom: 5ex;
 }
