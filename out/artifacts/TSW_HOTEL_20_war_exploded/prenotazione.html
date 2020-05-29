@@ -6,6 +6,62 @@
   To change this template use File | Settings | File Templates.
 !-->
 
+<script>
+    function control()
+    {
+        let err=false;
+        if(document.getElementById("inputCodiceFiscale").innerText === ("") || document.getElementById("inputCodiceFiscale").innerText.length<16)
+        {
+            document.getElementById("inputCodiceFiscale").style.borderColor="red";
+            err=true;
+        }
+        if(document.getElementById("inputNome").innerText === (""))
+        {
+            document.getElementById("inputNome").style.borderColor="red";
+            err=true;
+        }
+        if(document.getElementById("inputCognome").innerText === (""))
+        {
+            document.getElementById("inputCognome").style.borderColor="red";
+            err=true;
+        }
+        if(document.getElementById("inputData").innerText === (""))
+        {
+            document.getElementById("inputData").style.borderColor="red";
+            err=true;
+        }
+        if (document.getElementById("inputCodiceFiscale").innerText === (""))
+        {
+            document.getElementById("inputCodiceFiscale").style.borderColor = "red";
+            err = true;
+        }
+        if (document.getElementById("inputCodiceFiscale").innerText === (""))
+        {
+            document.getElementById("inputCodiceFiscale").style.borderColor = "red";
+            err = true;
+        }
+
+
+        if(document.getElementById("registerCheck").checked === true) {
+
+
+            if (document.getElementById("inputEmail").innerText === ("")) {
+                document.getElementById("inputEmail").style.borderColor = "red";
+                err = true;
+            }
+
+            if (document.getElementById("exampleInputPassword1").innerText === ("")) {
+                document.getElementById("exampleInputPassword1").style.borderColor = "red";
+                err = true;
+            }
+        }
+        return !err;
+    }
+
+
+
+</script>
+
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -122,61 +178,7 @@
     </form>
 </div>
 
-<script>
-    function control()
-    {
-        let err=false;
-        if(document.getElementById("inputCodiceFiscale").innerText === ("") || document.getElementById("inputCodiceFiscale").innerText.length<16)
-        {
-            document.getElementById("inputCodiceFiscale").style.borderColor="red";
-            err=true;
-        }
-        if(document.getElementById("inputNome").innerText === (""))
-        {
-            document.getElementById("inputNome").style.borderColor="red";
-            err=true;
-        }
-        if(document.getElementById("inputCognome").innerText === (""))
-        {
-            document.getElementById("inputCognome").style.borderColor="red";
-            err=true;
-        }
-        if(document.getElementById("inputData").innerText === (""))
-        {
-            document.getElementById("inputData").style.borderColor="red";
-            err=true;
-        }
-        if (document.getElementById("inputCodiceFiscale").innerText === (""))
-        {
-            document.getElementById("inputCodiceFiscale").style.borderColor = "red";
-            err = true;
-        }
-        if (document.getElementById("inputCodiceFiscale").innerText === (""))
-        {
-            document.getElementById("inputCodiceFiscale").style.borderColor = "red";
-            err = true;
-        }
 
-
-        if(document.getElementById("registerCheck").checked === true) {
-
-
-            if (document.getElementById("inputEmail").innerText === ("")) {
-                document.getElementById("inputEmail").style.borderColor = "red";
-                err = true;
-            }
-
-            if (document.getElementById("exampleInputPassword1").innerText === ("")) {
-                document.getElementById("exampleInputPassword1").style.borderColor = "red";
-                err = true;
-            }
-        }
-        return !err;
-    }
-
-
-
-</script>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
