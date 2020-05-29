@@ -41,13 +41,13 @@
 <!-- Fine NAVBAR-->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-3 col-description d-flex align-items-center justify-content-center">
+        <div class="col-md-3 col-description d-flex align-items-center justify-content-center">
             <div class="container mxy-5">
                 <p class="lead card-title"><h1 class="sectionTitle">Spa</h1>
                 <p class="lead card-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, quas, architecto, harum iure possimus veniam placeat eligendi aut asperiores molestias totam officia commodi in consequuntur minus suscipit adipisci omnis! Doloribus.</p>
             </div>
         </div>
-        <div class="col-lg-9 py-3 col-image d-flex align-items-center" style="background-image: url(imgs/imgs-attivita/spa-backgorund-1.jpg);">
+        <div class="col-md-9 py-3 col-image d-flex align-items-center" style="background-image: url(imgs/imgs-attivita/spa-backgorund-1.jpg);">
             <div class="container mxy-5">
                 <div id="carouselControls" class="carousel slide carousel-fade" data-ride="carousel">
                     <div class="carousel-inner">
@@ -73,7 +73,7 @@
 </div>
 <div class="container-fluid my-2">
     <div class="row">
-        <div class="col-lg-9 py-3 col-image d-flex align-items-center" style="background-image: url(imgs/imgs-attivita/ristoranti-background-3.jpg);">
+        <div class="col-md-9 py-3 col-image d-flex align-items-center" style="background-image: url(imgs/imgs-attivita/ristoranti-background-3.jpg);">
             <div class="container">
                 <div id="carouselControls2" class="carousel slide carousel-fade" data-ride="carousel">
                     <div class="carousel-inner">
@@ -95,7 +95,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-description d-flex align-items-center">
+        <div class="col-md-3 col-description d-flex align-items-center">
             <div class="container">
                 <p class="text-center lead"><h1 class="sectionTitle">Ristoranti</h1>
                 <p class="lead card-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, quas, architecto, harum iure possimus veniam placeat eligendi aut asperiores molestias totam officia commodi in consequuntur minus suscipit adipisci omnis! Doloribus.</p>
@@ -105,13 +105,13 @@
 </div>
 <div class="container-fluid" >
     <div class="row">
-        <div class="col-lg-3 col-description d-flex align-items-center">
+        <div class="col-md-3 col-description d-flex align-items-center">
             <div class="container">
                 <p class="text-center lead">  <h1 class="sectionTitle">Bar, Palestra e Sala bambini</h1>
                 <p class="lead card-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, quas, architecto, harum iure possimus veniam placeat eligendi aut asperiores molestias totam officia commodi in consequuntur minus suscipit adipisci omnis! Doloribus.</p>
             </div>
         </div>
-        <div class="col-lg-9 d-flex col-image align-items-center py-3 " style="background-image: url(imgs/imgs-attivita/attivita-background-2.jpg);">
+        <div class="col-md-9 d-flex col-image align-items-center py-3 " style="background-image: url(imgs/imgs-attivita/attivita-background-2.jpg);">
             <div class="container">
                 <div id="carouselControls3" class="carousel slide carousel-fade" data-ride="carousel">
                     <div class="carousel-inner">
