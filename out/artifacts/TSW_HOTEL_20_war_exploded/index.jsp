@@ -23,16 +23,20 @@
 <!-- NAVBAR-->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="font-size: large">
   <div class="container">
-    <a class="navbar-brand" href="#"> <div class="font-weight-bold">Hotel Marbella</div></a>
+    <a class="navbar-brand font-weight-bold" href="#">
+      <img src="./imgs/logo.png" width="45" height="45" alt="" style="margin: 0;">
+      Hotel Marbella
+    </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
       <ul class="navbar-nav navbar-right">
-        <li class="nav-item ">
+        <li class="nav-item active">
           <a class="nav-link active font-weight-bold" href="index.jsp">Home</a>
         </li>
-        <li class="nav-item px-2">
+        <li class="nav-item">
           <a class="nav-link font-weight-bold" href="camere.jsp">Visita camere</a>
         </li>
         <li class="nav-item">

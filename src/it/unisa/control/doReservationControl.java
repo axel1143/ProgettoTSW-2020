@@ -33,11 +33,7 @@ public class doReservationControl extends javax.servlet.http.HttpServlet {
         }
 
         try {
-            if (toRegister&&(email.equals("") || password.equals(""))) response.sendRedirect(response.encodeRedirectURL("./operation.jsp?error=InvalidUserORPassword"));
-            else if(codiceFiscale.equals("") || nome.equals("") || cognome.equals("") || nascita.equals("") || tipo.equals("") || check_in.equals("") ||check_out.equals("")){
-                response.sendRedirect(response.encodeRedirectURL("./operation.jsp?error=invalidInformation"));
-            }
-            else if(!PrenotazioneDAO.validate(check_in,check_out,tipo)) response.sendRedirect(response.encodeRedirectURL("./operation.jsp?validate=false")); //COntrolla se la prenotazione è valida
+            if(!PrenotazioneDAO.validate(check_in,check_out,tipo)) response.sendRedirect(response.encodeRedirectURL("./operation.jsp?validate=false")); //COntrolla se la prenotazione è valida
 
             else{
                 if(!ClienteDAO.isCustomer(codiceFiscale)) ClienteDAO.addCostumer(codiceFiscale, nome, cognome,nascita); //Aggiunge il cliente se non è stato aggiunto
