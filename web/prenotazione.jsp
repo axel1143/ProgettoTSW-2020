@@ -87,7 +87,7 @@
             <label for="inputOut">Data di Check out</label>
             <input type='text' class="form-control"  name="check_out" id='inputOut'  placeholder="yyyy-mm-dd hh-mm-ss" onchange="controlDate('inputOut')"/>
         </div>
-        <button class="btn-primary" onclick="check()">Controlla data di prenotazione</button>
+        <button class="btn btn-primary" onclick="check()">Controlla data di prenotazione</button>
         <div id="Response" ></div>
         <h3>Informazioni di registrazione</h3>
         <div class="form-check">
