@@ -142,3 +142,21 @@ function showRegister() {
         $("#registerForm").slideUp()
     }
 }
+
+function check(){
+    $.ajax({
+        type:'POST',
+        url:'./checkBooked',
+        data: {
+            checkin : $('#inputIn').val(),
+            checkout:$('#inputOut').val(),
+            tipocamera: $('#inputCamera').val(),
+        },
+        success: function(risposta) {
+            $('div#Response').html(risposta)
+        },
+        error: function() {
+            alert("Controllo non riuscito!!")
+        }
+    })
+}
