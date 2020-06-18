@@ -50,7 +50,7 @@
 <!-- FORM DI REGISTRAZIONE -->
 <div class="container py-2">
     <h1>Prenotati ora</h1>
-    <div name="register" method="post" action="./doReservationControl" onsubmit="return control()"> <!--onsubmit="return control()" -->
+    <form name="register" method="post" action="./doReservationControl" onsubmit="return control()"> <!--onsubmit="return control()" -->
         <h3>Dati personali</h3>
         <div class="form-group">
             <label for="inputCodiceFiscale">Codice Fiscale</label>
@@ -87,9 +87,6 @@
             <label for="inputOut">Data di Check out</label>
             <input type='text' class="form-control"  name="check_out" id='inputOut'  placeholder="yyyy-mm-dd hh-mm-ss" onchange="controlDate('inputOut')"/>
         </div>
-        <script>
-
-        </script>
         <button class="btn-primary" onclick="check()">Controlla data di prenotazione</button>
         <div id="Response" ></div>
         <h3>Informazioni di registrazione</h3>
@@ -109,7 +106,6 @@
         </div>
             <button type=Submit class="btn btn-primary">Submit</button>
     </form>
-</div>
 </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
