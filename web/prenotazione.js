@@ -49,12 +49,10 @@
 }*/
 function control() {
     let err = true;
+    if ($('div#Response').html() !== "Camera disponibile!") err = false // Controllo JS che non si puo' vedere proprio (Se la prenotazione non é valida non va avanti)
     if (controlCF() === false) err = false
     if (controlNames("nome") === false) err = false
     if (controlNames("cognome") === false) err = false
-    if (controlDate("inputIn") === false) err = false
-    if (controlDate("inputOut") === false) err = false
-    if (controlBirth() ===false) err = false
     if(document.getElementById("registerCheck").checked){
         if(controlEmail() === false) err = false
         if(controlPassword() === false) err = false
@@ -81,31 +79,6 @@ function controlEmail() {
             email.style.borderColor = "red"
             return false
         }
-}
-function controlBirth() {
-    let birth = document.getElementById("inputData")
-    let regCheck = /\d{4}-\d{2}-\d{2}/
-    if(birth.value.match(regCheck)){
-        birth.style.borderColor = "green"
-        return true
-    }
-    else {
-        birth.style.borderColor = "red"
-        return false
-    }
-
-}
-function controlDate(inputdate) {
-    let date = document.getElementById(inputdate)
-    let regCheck = /\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/
-    if(date.value.match(regCheck)){
-        date.style.borderColor = "green"
-        return true
-    }
-    else {
-        date.style.borderColor ="red"
-        return false
-    }
 }
 function controlNames(tocheck) {
     let name = document.forms["register"][tocheck];
@@ -144,19 +117,29 @@ function showRegister() {
 }
 
 function check(){
+    let check_in =$('#inputCheck').val().slice(0,10)
+    let check_out =$('#inputCheck').val().slice(13,23)
     $.ajax({
         type:'POST',
         url:'./checkBooked',
         data: {
-            checkin : $('#inputIn').val(),
-            checkout:$('#inputOut').val(),
+            checkin : bookedDateMaker(check_in,true),
+            checkout: bookedDateMaker(check_out,true),
             tipocamera: $('#inputCamera').val(),
         },
-        success: function(risposta) {
-            $('div#Response').html(risposta)
+        success: function() {
+            $('div#Response').html("Camera disponibile!")
         },
-        error: function() {
-            alert("Controllo non riuscito!!")
+        error: function(xhr,status,error) {
+            if(xhr.status === 300) $('div#Response').html("Camera non disponibile, prova un'altra data!")
+            else alert("Errore generico")
         }
     })
+}
+function bookedDateMaker(date,booked) { // Booleano usato per riutilizzare la stessa funzione nel caso si tratti di una data di prenotazione o di nascita
+    let day = date.slice(3,5)
+    let month = date.slice(0,2)
+    let year = date.slice(6,10)
+    if(booked) return year + "-" + month + "-" + day + " 10:00:00"
+    else return year + "-" + month + "-" + day
 }

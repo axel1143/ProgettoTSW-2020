@@ -60,10 +60,10 @@ NAVBAR
             </div>
             <div class="col-xl-8">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">Camera suite</h5>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    <button type="button" class="btn btn-success" onclick="location.href='./index.jsp'">Prenota Ora</button>
+                    <button type="button" class="btn btn-success" onclick="location.href='./camera_suite.jsp'">Visita la camera</button>
                 </div>
             </div>
         </div>
@@ -82,10 +82,10 @@ NAVBAR
                     </div>
                     <div class="col-xl-8">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-title">Camera superior</h5>
                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                            <button type="button" class="btn btn-success" onclick="location.href='./index.jsp'">Prenota Ora</button>
+                            <button type="button" class="btn btn-success" onclick="location.href='./camera_superior.jsp'">Visita la camera</button>
                         </div>
                     </div>
                 </div>
@@ -105,10 +105,10 @@ NAVBAR
                 </div>
                 <div class="col-xl-8">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
+                        <h5 class="card-title">Camera standard</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        <button type="button" class="btn btn-success" onclick="location.href='./index.jsp'">Prenota Ora</button>
+                        <button type="button" class="btn btn-success" onclick="location.href='./camera_standard.jsp'">Visita la camera</button>
                     </div>
                 </div>
             </div>

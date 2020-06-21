@@ -35,7 +35,7 @@ NAVBAR
                     <a class="nav-link font-weight-bold" href="attivita.jsp">Esplora ristoranti ed attività</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold btn-danger" href="prenotazione.jsp" >Prenota Ora</a>
+                    <a class="nav-link font-weight-bold btn-danger" href="prenotazione.jsp?tipocamera=superior" >Prenota Ora</a>
                 </li>
             </ul>
         </div>

@@ -18,14 +18,12 @@ public class checkBooked extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             boolean checked = PrenotazioneDAO.validate(request.getParameter("checkin"), request.getParameter("checkout"),request.getParameter("tipocamera"));
-            if(checked)
-                out.println("Disponibile!");
-            else
-                out.println("Non Disponibile, prova un'altra data");
+            if(!checked) response.setStatus(300);
+            else out.println(checked);
         } catch (SQLException | ParseException throwables) {
             response.sendError(404);
         }
-    }
+        }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);

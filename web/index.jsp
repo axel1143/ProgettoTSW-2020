@@ -23,7 +23,7 @@
 <!-- NAVBAR-->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="font-size: large">
   <div class="container">
-    <a class="navbar-brand font-weight-bold" href="#">
+    <a class="navbar-brand font-weight-bold" href="index.jsp">
       <img src="./imgs/logo.png" width="40" height="40" alt="" style="margin: 0;">
       Hotel Marbella
     </a>

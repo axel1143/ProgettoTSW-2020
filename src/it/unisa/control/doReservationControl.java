@@ -22,9 +22,11 @@ public class doReservationControl extends javax.servlet.http.HttpServlet {
         String nome = request.getParameter("nome");
         String cognome = request.getParameter("cognome");
         String nascita= request.getParameter("nascita");
+        nascita = fixDate(nascita, false);
         String tipo = request.getParameter("tipocamera");
-        String check_in = request.getParameter("check_in");
-        String check_out = request.getParameter("check_out");
+        String date = request.getParameter("dates");
+        String check_in = fixDate(date.substring(0,10),true);
+        String check_out= fixDate(date.substring(13,23),true);
 
         if(request.getParameter("register")!=null) {
             toRegister=true;
@@ -60,5 +62,13 @@ public class doReservationControl extends javax.servlet.http.HttpServlet {
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         doPost(request,response);
+    }
+
+    protected String fixDate(String date, boolean booked){ // Booleano usato per riutilizzare la stessa funzione nel caso si tratti di una data di prenotazione o di nascita
+        String month = date.substring(0,2);
+        String day = date.substring(3,5);
+        String year = date.substring(6,10);
+        if (booked) return year + "-" + month + "-" + day + " 10:00:00";
+        else return year + "-" + month + "-" + day;
     }
 }

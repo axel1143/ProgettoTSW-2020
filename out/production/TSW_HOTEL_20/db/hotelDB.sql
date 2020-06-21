@@ -77,19 +77,19 @@ INSERT INTO Cliente(codice_fiscale,nome,cognome,data_di_nascita) VALUES('FVQGYU2
  Popolamento prenotazione
  */
 
-INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('PTUMPP69A09L140A',1,'2020-01-01 12:00:00','2020-01-03 14:30:00');
-INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('PTUMPP69A09L140A',1,'2020-01-05 12:00:00','2020-01-07 14:30:00');
-INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('VGMLDT66H15C309X',2,'2020-01-02 12:00:00','2020-01-03 20:00:00');
-INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('LVMMCT27A08Z904K',3,'2020-01-03 12:00:00','2020-01-03 14:00:00');
-INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('LHUCFQ80H43B674H',4,'2020-01-04 12:00:00','2020-01-07 14:00:00');
-INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('TKKBMB39L68I172H',5,'2020-01-05 12:00:00','2020-01-08 14:00:00');
-INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('GBTDSV55D55G173Z',6,'2020-01-06 12:00:00','2020-01-09 14:00:00');
-INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('BWNYNG95C04G058H',7,'2020-01-07 12:00:00','2020-01-10 14:00:00');
-INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('HSNCCE62S66L385Z',5,'2020-01-08 12:00:00','2020-01-11 14:00:00');
-INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('JJPPXW73C43Z901V',9,'2020-01-09 12:00:00','2020-01-12 14:00:00');
-INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('FVQGYU29S29H802O',10,'2020-01-10 12:00:00','2020-01-13 14:00:00');
-INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('FVQGYU29S29H802O',16,'2020-01-10 12:00:00','2020-01-13 14:00:00');
-INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('FVQGYU29S29H802O',17,'2020-01-10 12:00:00','2020-01-13 14:00:00');
+INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('PTUMPP69A09L140A',1,'2020-01-01 10:00:00','2020-01-03 10:00:00');
+INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('PTUMPP69A09L140A',1,'2020-01-05 10:00:00','2020-01-07 10:00:00');
+INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('VGMLDT66H15C309X',2,'2020-01-02 10:00:00','2020-01-03 10:00:00');
+INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('LVMMCT27A08Z904K',3,'2020-01-03 10:00:00','2020-01-03 10:00:00');
+INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('LHUCFQ80H43B674H',4,'2020-01-04 10:00:00','2020-01-07 10:00:00');
+INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('TKKBMB39L68I172H',5,'2020-01-05 10:00:00','2020-01-08 10:00:00');
+INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('GBTDSV55D55G173Z',6,'2020-01-06 10:00:00','2020-01-09 10:00:00');
+INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('BWNYNG95C04G058H',7,'2020-01-07 10:00:00','2020-01-10 10:00:00');
+INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('HSNCCE62S66L385Z',5,'2020-01-08 10:00:00','2020-01-11 10:00:00');
+INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('JJPPXW73C43Z901V',9,'2020-01-09 10:00:00','2020-01-12 10:00:00');
+INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('FVQGYU29S29H802O',10,'2020-01-10 10:00:00','2020-01-13 10:00:00');
+INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('FVQGYU29S29H802O',16,'2020-01-10 10:00:00','2020-01-13 10:00:00');
+INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('FVQGYU29S29H802O',17,'2020-01-10 10:00:00','2020-01-13 10:00:00');
 
 /*
  Popolamento Utente
