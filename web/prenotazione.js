@@ -49,7 +49,7 @@
 }*/
 function control() {
     let err = true;
-    if ($('div#Response').html() !== "Camera disponibile!") err = false // Controllo JS che non si puo' vedere proprio (Se la prenotazione non é valida non va avanti)
+    if ($('div#Response').html() !== "Camera disponibile!") err = false //Controllo JS che non si puo' vedere proprio (Se la prenotazione non é valida non va avanti)
     if (controlCF() === false) err = false
     if (controlNames("nome") === false) err = false
     if (controlNames("cognome") === false) err = false
