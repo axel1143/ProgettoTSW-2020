@@ -56,13 +56,12 @@ NAVBAR
       <div class="card w-90">
         <div class="row no-gutters" style="max-width:100%;max-height: 100%;">
             <div class="col-xl-4">
-                <img src="..." class="card-img" alt="...">
+                <img src="./imgs/imgs-camere/suite.jpg" class="card-img" alt="...">
             </div>
             <div class="col-xl-8">
                 <div class="card-body">
                     <h5 class="card-title">Camera suite</h5>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     <button type="button" class="btn btn-success" onclick="location.href='./camera_suite.jsp'">Visita la camera</button>
                 </div>
             </div>
@@ -78,13 +77,12 @@ NAVBAR
             <div class="card w-90">
                 <div class="row no-gutters" style="max-width:100%;max-height: 100%;">
                     <div class="col-xl-4">
-                        <img src="..." class="card-img" alt="...">
+                        <img src="./imgs/imgs-camere/superior.jpg" class="card-img"  alt="...">
                     </div>
                     <div class="col-xl-8">
                         <div class="card-body">
                             <h5 class="card-title">Camera superior</h5>
                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                             <button type="button" class="btn btn-success" onclick="location.href='./camera_superior.jsp'">Visita la camera</button>
                         </div>
                     </div>
@@ -101,13 +99,12 @@ NAVBAR
         <div class="card w-90">
             <div class="row no-gutters" style="max-width:100%;max-height: 100%;">
                 <div class="col-xl-4">
-                    <img src="..." class="card-img" alt="...">
+                    <img src="./imgs/imgs-camere/standard.jpg" class="card-img" alt="...">
                 </div>
                 <div class="col-xl-8">
                     <div class="card-body">
                         <h5 class="card-title">Camera standard</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                         <button type="button" class="btn btn-success" onclick="location.href='./camera_standard.jsp'">Visita la camera</button>
                     </div>
                 </div>
@@ -118,7 +115,7 @@ NAVBAR
 </div>
 </div>
 
-<div class="jumbotron" style="margin-bottom:0">
+<div class="jumbotron py-1" style="margin-bottom:0">
     <p>Contattaci</p>
     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius nam impedit praesentium, molestiae hic libero, unde autem deserunt repudiandae minus nisi ut, dolorem natus saepe aliquid. Recusandae assumenda officia nulla.
 

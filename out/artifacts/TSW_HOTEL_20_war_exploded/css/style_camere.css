@@ -13,3 +13,6 @@ vbody{
     margin-top: 5ex;
     margin-bottom: 5ex;
 }
+div.row{
+    background: rgba(225, 196, 167, 0.2);
+}
