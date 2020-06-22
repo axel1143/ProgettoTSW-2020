@@ -48,15 +48,15 @@ NAVBAR
 <!-- CAROUSEL -->
 <div id="carouselExampleControls" class="carousel slide carousel-fade mb-0" data-ride="carousel">
     <div class="carousel-inner">
-        <div class="carousel-item active " style="background-image: url(./imgs/imgs-index/carousel-slide-1.jpg);">
+        <div class="carousel-item active " style="background-image: url(./imgs/img-suite/suite2.jpg);">
             <div class="carousel-caption p-4">
                 <div class="gradient-slide p-1">
                     <h1 class="font-weight-bold">Camera Suite</h1>
-                    <p></p>
+                    <p>Vivi con noi un esperienza indimenticabile e piena di relax nella nostra suite</p>
                 </div>
             </div>
         </div>
-        <div class="carousel-item" style="background-image: url(./imgs/imgs-index/carousel-slide-2.jpg);">
+        <div class="carousel-item" style="background-image: url(./imgs/img-suite/suiteuno.jpg);">
             <div class="carousel-caption p-4 side-container">
                 <div class="gradient-slide p-1 side-body">
                     <h1 class="font-weight-bold">-</h1>
@@ -64,7 +64,7 @@ NAVBAR
                 </div>
             </div>
         </div>
-        <div class="carousel-item" style="background-image: url(./imgs/imgs-index/carousel-slide-3.jpg);">
+        <div class="carousel-item" style="background-image: url(./imgs/img-suite/suite3.jpg);">
             <div class="carousel-caption p-4 side-container">
                 <div class="gradient-slide p-1 side-body">
                     <h1 class="font-weight-bold">-</h1>
