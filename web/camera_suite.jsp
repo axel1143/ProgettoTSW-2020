@@ -60,7 +60,7 @@ NAVBAR
             <div class="carousel-caption p-4 side-container">
                 <div class="gradient-slide p-1 side-body">
                     <h1 class="font-weight-bold">-</h1>
-                    <p></p>
+                    <p>ciao</p>
                 </div>
             </div>
         </div>
