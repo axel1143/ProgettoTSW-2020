@@ -105,7 +105,7 @@
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <a href="camere.jsp" class="btn btn-warning">Visita le camere</a>
-              <a href="#" class="btn btn-danger">Prenota ora</a>
+              <a href="prenotazione.jsp" class="btn btn-danger">Prenota ora</a>
             </div>
           </div>
         </div>
@@ -123,7 +123,7 @@
             <div class="card-header"><h5>Attività</h5></div>
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <a href="#" class="btn btn-warning">Visita le nostre attività</a>
+              <a href="attivita.jsp" class="btn btn-warning">Visita le nostre attività</a>
             </div>
           </div>
         </div>
@@ -142,7 +142,7 @@
             <div class="card-header"><h5>Ristoranti</h5></div>
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <a href="#" class="btn btn-warning">Scopri i nostri ristoranti</a>
+              <a href="attivita.jsp#ristoranti" class="btn btn-warning">Scopri i nostri ristoranti</a>
             </div>
           </div>
         </div>

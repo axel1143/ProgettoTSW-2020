@@ -57,7 +57,7 @@ NAVBAR
             </div>
         </div>
         <div class="carousel-item" style="background-image: url(./imgs/img-suite/suiteuno.jpg);">
-            <div class="carousel-caption p-4 side-container">
+            <div class="carousel-caption p-4">
                 <div class="gradient-slide p-1 side-body">
                     <h1 class="font-weight-bold">CIAO</h1>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius nam impedit praesentium, molestiae hic libero, unde autem deserunt repudiandae minus </p>
@@ -65,7 +65,7 @@ NAVBAR
             </div>
         </div>
         <div class="carousel-item" style="background-image: url(./imgs/img-suite/suite3.jpg);">
-            <div class="carousel-caption p-4 side-container">
+            <div class="carousel-caption p-4">
                 <div class="gradient-slide p-1 side-body">
                     <h1 class="font-weight-bold">CIAO</h1>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius nam impedit praesentium, molestiae hic libero, unde autem deserunt repudiandae minus </p>

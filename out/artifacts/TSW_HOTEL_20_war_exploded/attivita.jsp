@@ -14,7 +14,7 @@
 
 
 </head>
-<body style="background-color: rgba(225, 196, 167, 0.4)">
+<body style="">
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="font-size: large">
@@ -44,8 +44,8 @@
 <!-- Fine NAVBAR-->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-3 col-description d-flex align-items-center justify-content-center">
-            <div class="container mxy-5">
+        <div class="col-md-3 col-description d-flex align-items-center py-3">
+            <div class="container border border-secondary rounded">
                 <p class="lead card-title"><h1 class="sectionTitle">Spa</h1>
                 <p class="lead card-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, quas, architecto, harum iure possimus veniam placeat eligendi aut asperiores molestias totam officia commodi in consequuntur minus suscipit adipisci omnis! Doloribus.</p>
             </div>
@@ -98,8 +98,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3 col-description d-flex align-items-center">
-            <div class="container">
+        <a name="ristoranti"></a>
+        <div class="col-md-3 col-description d-flex align-items-center py-2">
+            <div class="container border border-secondary rounded">
                 <p class="text-center lead"><h1 class="sectionTitle">Ristoranti</h1>
                 <p class="lead card-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, quas, architecto, harum iure possimus veniam placeat eligendi aut asperiores molestias totam officia commodi in consequuntur minus suscipit adipisci omnis! Doloribus.</p>
             </div>
@@ -108,9 +109,9 @@
 </div>
 <div class="container-fluid" >
     <div class="row">
-        <div class="col-md-3 col-description d-flex align-items-center">
-            <div class="container">
-                <p class="text-center lead">  <h1 class="sectionTitle">Bar, Palestra e Sala bambini</h1>
+        <div class="col-md-3 col-description d-flex align-items-center pb-2">
+            <div class="container border border-secondary rounded">
+                <p class="text-center lead">  <h1 class="sectionTitle">Bar, Palestra e Ludoteca</h1>
                 <p class="lead card-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, quas, architecto, harum iure possimus veniam placeat eligendi aut asperiores molestias totam officia commodi in consequuntur minus suscipit adipisci omnis! Doloribus.</p>
             </div>
         </div>

@@ -12,7 +12,7 @@ import java.util.Collection;
 public class UserDAO {
 
     //Aggiunge un utente con privilegi standard
-    public static boolean addStandardUser(String codice_fiscale, String email, String password) throws SQLException{
+    public static boolean addStandardUser(UserBean bean) throws SQLException{
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -20,10 +20,10 @@ public class UserDAO {
         try {
             connection = DriverManagerConnectionPool.getConnection();
             preparedStatement = connection.prepareStatement(statement);
-            preparedStatement.setString(1,email);
-            preparedStatement.setString(2,password);
-            preparedStatement.setString(3,codice_fiscale);
-            preparedStatement.setBoolean(4,false);
+            preparedStatement.setString(1,bean.getEmail());
+            preparedStatement.setString(2,bean.getPassword());
+            preparedStatement.setString(3,bean.getCodicefiscale());
+            preparedStatement.setBoolean(4,bean.isAdmin());
 
             preparedStatement.executeUpdate();
             connection.commit();

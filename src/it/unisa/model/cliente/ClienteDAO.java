@@ -56,7 +56,7 @@ public class ClienteDAO {
 
 
     //Aggiunge un cliente al database -- NECESSARIA UNA PRENOTAZIONE ->PrenoatzioneDAO
-    public static void addCostumer(String codice_fiscale, String nome, String cognome, String data_di_nascita) throws SQLException{
+    public static void addCostumer(ClienteBean bean) throws SQLException{
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -64,10 +64,10 @@ public class ClienteDAO {
         try{
             connection = DriverManagerConnectionPool.getConnection();
             preparedStatement = connection.prepareStatement(statement);
-            preparedStatement.setString(1,codice_fiscale);
-            preparedStatement.setString(2,nome);
-            preparedStatement.setString(3,cognome);
-            preparedStatement.setString(4,data_di_nascita);
+            preparedStatement.setString(1,bean.getCodicefiscale());
+            preparedStatement.setString(2,bean.getNome());
+            preparedStatement.setString(3,bean.getCognome());
+            preparedStatement.setString(4,bean.getDatanascita());
             preparedStatement.executeUpdate();
             connection.commit();
 

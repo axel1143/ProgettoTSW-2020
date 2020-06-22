@@ -1,52 +1,3 @@
-/*function control()
-{
-    let err=false;
-    if(document.getElementById("inputCodiceFiscale").innerText === ("") || document.getElementById("inputCodiceFiscale").innerText.length<16){
-        document.getElementById("inputCodiceFiscale").style.borderColor="red";
-        err=true;
-    }
-    if(document.getElementById("inputNome").innerText === (""))
-    {
-        document.getElementById("inputNome").style.borderColor="red";
-        err=true;
-    }
-    if(document.getElementById("inputCognome").innerText === (""))
-    {
-        document.getElementById("inputCognome").style.borderColor="red";
-        err=true;
-    }
-    if(document.getElementById("inputData").innerText === (""))
-    {
-        document.getElementById("inputData").style.borderColor="red";
-        err=true;
-    }
-    if (document.getElementById("inputCodiceFiscale").innerText === (""))
-    {
-        document.getElementById("inputCodiceFiscale").style.borderColor = "red";
-        err = true;
-    }
-    if (document.getElementById("inputCodiceFiscale").innerText === (""))
-    {
-        document.getElementById("inputCodiceFiscale").style.borderColor = "red";
-        err = true;
-    }
-
-
-    if(document.getElementById("registerCheck").checked === true) {
-
-
-        if (document.getElementById("inputEmail").innerText === ("")) {
-            document.getElementById("inputEmail").style.borderColor = "red";
-            err = true;
-        }
-
-        if (document.getElementById("exampleInputPassword1").innerText === ("")) {
-            document.getElementById("exampleInputPassword1").style.borderColor = "red";
-            err = true;
-        }
-    }
-    return !err;
-}*/
 function control() {
     let err = true;
     if ($('div#Response').html() !== "Camera disponibile!") err = false //Controllo JS che non si puo' vedere proprio (Se la prenotazione non é valida non va avanti)
@@ -117,8 +68,9 @@ function showRegister() {
 }
 
 function check(){
-    let check_in =$('#inputCheck').val().slice(0,10)
-    let check_out =$('#inputCheck').val().slice(13,23)
+    let date  = $('#inputCheck').val()
+    let check_in =date.slice(0,10)
+    let check_out =date.slice(13,23)
     $.ajax({
         type:'POST',
         url:'./checkBooked',
