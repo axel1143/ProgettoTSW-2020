@@ -52,23 +52,23 @@ NAVBAR
             <div class="carousel-caption p-4">
                 <div class="gradient-slide p-1">
                     <h1 class="font-weight-bold">Camera Superior</h1>
-                    <p></p>
+                    <p>Le camere superior si distinguono per le loro dimensioni più amipie rispetto alle standard</p>
                 </div>
             </div>
         </div>
         <div class="carousel-item" style="background-image: url(./imgs/img-superior/superior2.jpg);">
             <div class="carousel-caption p-4 side-container">
                 <div class="gradient-slide p-1 side-body">
-                    <h1 class="font-weight-bold">-</h1>
-                    <p></p>
+                    <h1 class="font-weight-bold">CIAO</h1>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius nam impedit praesentium, molestiae hic libero, unde autem deserunt repudiandae minus </p>
                 </div>
             </div>
         </div>
         <div class="carousel-item" style="background-image: url(./imgs/img-superior/superior3.jpg);">
             <div class="carousel-caption p-4 side-container">
                 <div class="gradient-slide p-1 side-body">
-                    <h1 class="font-weight-bold">-</h1>
-                    <p></p>
+                    <h1 class="font-weight-bold">CIAO</h1>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius nam impedit praesentium, molestiae hic libero, unde autem deserunt repudiandae minus </p>
                 </div>
             </div>
         </div>

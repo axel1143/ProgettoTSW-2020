@@ -48,27 +48,27 @@ NAVBAR
 <!-- CAROUSEL -->
 <div id="carouselExampleControls" class="carousel slide carousel-fade mb-0" data-ride="carousel">
     <div class="carousel-inner">
-        <div class="carousel-item active " style="background-image: url(./imgs/imgs-index/carousel-slide-1.jpg);">
+        <div class="carousel-item active " style="background-image: url(./imgs/img-standard/standard3.jpg);">
             <div class="carousel-caption p-4">
                 <div class="gradient-slide p-1">
                     <h1 class="font-weight-bold">Camera Standard</h1>
-                    <p></p>
+                    <p>Le nostre camere standard sono la scelta miglire e vantaggiosa per goderti al meglio la tua vacanza</p>
                 </div>
             </div>
         </div>
-        <div class="carousel-item" style="background-image: url(./imgs/imgs-index/carousel-slide-2.jpg);">
+        <div class="carousel-item" style="background-image: url(./imgs/img-standard/standard2.jpg);">
             <div class="carousel-caption p-4 side-container">
                 <div class="gradient-slide p-1 side-body">
-                    <h1 class="font-weight-bold">-</h1>
-                    <p></p>
+                    <h1 class="font-weight-bold">CIAO</h1>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius nam impedit praesentium, molestiae hic libero, unde autem deserunt repudiandae minus </p>
                 </div>
             </div>
         </div>
-        <div class="carousel-item" style="background-image: url(./imgs/imgs-index/carousel-slide-3.jpg);">
+        <div class="carousel-item" style="background-image: url(./imgs/img-standard/standard4.jpg);">
             <div class="carousel-caption p-4 side-container">
                 <div class="gradient-slide p-1 side-body">
-                    <h1 class="font-weight-bold">-</h1>
-                    <p></p>
+                    <h1 class="font-weight-bold">CIAO</h1>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius nam impedit praesentium, molestiae hic libero, unde autem deserunt repudiandae minus </p>
                 </div>
             </div>
         </div>
