@@ -7,9 +7,11 @@
   To change this template use File | Settings | File Templates.
 !-->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<% Cart cart = (Cart) request.getSession().getAttribute("cart");
-    if(cart != null) response.sendRedirect(response.encodeRedirectURL("./riepilogo.jsp"));
-    String type = request.getParameter("tipocamera");
+<% Cart cart = (Cart) request.getSession().getAttribute("cart"); // Prende il carrello dalla sessione attuale
+    String action = (String) request.getAttribute("action"); // Serve a capire se la pagina JSP é stata chiamata con un action
+    String type = request.getParameter("tipocamera"); //Serve a capire se la prenotazione é stata chiamata su una determinata cameras specifica
+    String bookError = request.getParameter("bookError"); //Controlla se in qualche modo l'utente ha bypassato il controllo front-end sulla data di prenotazione
+    if(cart != null && action == null) response.sendRedirect(response.encodeRedirectURL("./riepilogo.jsp"));
     if (type == null) type = ""; %>
 <html lang="en">
 <head>
@@ -21,7 +23,9 @@
     <script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-
+    <% if(bookError!= null && bookError.equals("true")){%>
+    <script>alert("La prenotazione effettuata non é disponibile, riprova con una data diversa!")</script>
+    <% } %>
     <!-- Bootstrap, DateRangePicker CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
@@ -66,20 +70,22 @@
             <h3>Dati personali</h3>
             <div class="form-group">
                 <label for="inputCodiceFiscale">Codice Fiscale</label>
-                <input type="text" class="form-control" id="inputCodiceFiscale" name="codicefiscale" placeholder="Inserisci qui il tuo codice fiscale" onchange="controlCF()"/>
-                <!--<label class="hidden" id="errorName">Inserire un codice fiscale valido!</label> -->
+                <input type="text" class="form-control" id="inputCodiceFiscale" name="codicefiscale"  placeholder="Inserisci qui il tuo codice fiscale" onchange="controlCF()" <% if (action != null && action.equals("modify")){%> value="<%=cart.getPrenotazioneBean().getCodice_fiscale()%>" <%}%> />
+                <div id="cfError"></div>
             </div>
             <div class="form-group">
                 <label for="inputNome">Nome</label>
-                <input type="text" class="form-control" name="nome" id="inputNome" onchange="controlNames('nome')"/>
+                <input type="text" class="form-control" name="nome" id="inputNome" onchange="controlNames('nome')"  <% if (action != null && action.equals("modify")){%> value="<%=cart.getClienteBean().getNome()%>" <%}%>/>
+                <div id="nomeError"></div>
             </div>
             <div class="form-group">
                 <label for="inputCognome">Cognome</label>
-                <input type="text" class="form-control" name="cognome" id="inputCognome" onchange="controlNames('cognome')"/>
+                <input type="text" class="form-control" name="cognome" id="inputCognome" onchange="controlNames('cognome')"  <% if (action != null && action.equals("modify")){%> value="<%=cart.getClienteBean().getCognome()%>" <%}%>/>
+                <div id="cognomeError"></div>
             </div>
             <div class="form-group">
                 <label for="inputData">Data di nascita</label>
-                <input type="text" class="form-control" id="inputData" name="nascita" placeholder="yyyy-mm-dd"/>
+                <input type="text" class="form-control" id="inputData" name="nascita" <% if (action != null && action.equals("modify")){%> value="<%=cart.getClienteBean().getDatanascita()%>" <%}%> />
                 <script>
                     $(function() {
                         $('input[name="nascita"]').daterangepicker({
@@ -100,26 +106,18 @@
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputCamera">Tipo di camera</label>
                 </div>
-                <select class="custom-select" id="inputCamera" name="tipocamera">
-                    <option value="suite" <%if (type.equals("suite"))%> selected <%;%>>Suite</option>
-                    <option value="superior"<%if (type.equals("superior"))%> selected <%;%>>Superior</option>
-                    <option value="standard"<%if (type.equals("standard"))%> selected <%;%>>Standard</option>
+                <select class="custom-select" id="inputCamera" name="tipocamera" onchange="$('#Response').html('')" <% if (action != null && action.equals("modify")){%> value="<%=cart.getPrenotazioneBean().getTipo()%>" <%}%>>
+                    <option value="suite" <%if (type.equals("suite") && action == null)%> selected <%;%>>Suite</option>
+                    <option value="superior"<%if (type.equals("superior")  && action == null)%> selected <%;%>>Superior</option>
+                    <option value="standard"<%if (type.equals("standard")  && action == null)%> selected <%;%>>Standard</option>
                 </select>
             </div>
             <div class="form-group"><label for="inputCheck">Seleziona le tua permanenza</label>
-                <input class="form-control" type="text" name="dates" id="inputCheck" value="01/01/2020 - 01/15/2020" />
+                <input class="form-control" type="text" name="dates" id="inputCheck"  value="" />
                 <script>$('input[name="dates"]').daterangepicker();</script>
             </div>
-            <!-- <div class="form-group">
-                <label for="inputIn">Data di Check in</label>
-                <input type="text" class="form-control" name="check_in"  id='inputIn'   placeholder="yyyy-mm-dd hh-mm-ss" onchange="controlDate('inputIn')"/>
-            </div>
-            <div class="form-group">
-                <label for="inputOut">Data di Check out</label>
-                <input type='text' class="form-control"  name="check_out" id='inputOut'  placeholder="yyyy-mm-dd hh-mm-ss" onchange="controlDate('inputOut')"/>
-            </div> -->
-            <a class="btn btn-primary" onclick="check()" style="color: white">Controlla data di prenotazione</a>
-            <div id="Response"></div>
+            <a class="btn btn-warning" onclick="check()" style="color: white">Controlla data di prenotazione</a>
+            <div id="Response" <%if (action != null && action.equals("modify")){%> style="color: red; font-size: large"<%}%>> <%if (action != null && action.equals("modify")) out.println("Inserire nuovamente il periodo di prenotazione!");%></div>
         </div>
 
         <div class="form-check">
@@ -131,16 +129,18 @@
                 <h3>Informazioni di registrazione</h3>
                 <div class="form-group">
                     <label for="inputEmail">Email</label>
-                    <input type="text" class="form-control" id="inputEmail" name="email" onchange="controlEmail()"/>
+                    <input type="text" class="form-control" id="inputEmail" name="email" onchange="controlEmail()" <% if (action != null && action.equals("modify") && cart.isAddUser()){%> value="<%=cart.getUserBean().getEmail()%>" <%}%> />
+                    <div id="emailError"></div>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword">Password</label>
-                    <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password" onchange="controlPassword()"/>
+                    <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password" onchange="controlPassword()" <% if (action != null && action.equals("modify") && cart.isAddUser()){%> value="<%=cart.getUserBean().getPassword()%>" <%}%>/>
+                    <div id="passwordError"></div>
                 </div>
             </div>
         </div>
-
-            <button type='Submit' class="btn btn-primary">Submit</button>
+        <input hidden value="create" name="action">
+            <button type='Submit' class="btn btn-success">Procedi con la prenotazione</button>
     </form>
 </div>
 <!-- BOOTRSTAP JS -->

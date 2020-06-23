@@ -50,11 +50,16 @@ else {%>
     <h2>Vuole confermare la seguente prenotazione?</h2>
     <div class="d-flex">
         <form method="post" class="px-2" action="./doReservationControl">
+            <input name="action" value="booked" hidden>
             <button class="btn btn-success" type="submit">Conferma prenotazione</button>
         </form>
-        <form method="get" class="px-2" action="./doReservationControl">
+        <form method="post" class="px-2" action="./doReservationControl">
             <input name="action" value="delete" hidden>
             <button class="btn btn-danger" type="submit">Cancella prenotazione</button>
+        </form>
+        <form method="post" class="px-2" action="./doReservationControl">
+            <input name="action" value="modify" hidden>
+            <button class="btn btn-warning" type="submit">Modifica prenotazione</button>
         </form>
     </div>
     <h2>Riepilogo informazioni:</h2>
@@ -98,9 +103,9 @@ else {%>
 
     <div class="form-group">
         <label for="inputRegister">Desideri registrarti?</label>
-        <input type="text" class="form-control" id="inputRegister" disabled value="<% if(!cart.isAddClient()) out.println("No"); else out.println("Si");%>"/>
+        <input type="text" class="form-control" id="inputRegister" disabled value="<% if(cart.isAddUser()) out.println("Si"); else out.println("No");%>"/>
     </div>
-    <%if(cart.isAddClient()){%>
+    <%if(cart.isAddUser()){%>
     <div id="registerForm">
         <div class="container-fluid border border-secondary rounded mb-2 py-3">
             <h3>Informazioni di registrazione</h3>

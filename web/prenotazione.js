@@ -1,6 +1,11 @@
 function control() {
+    let responsePar = $('div#Response')
     let err = true;
-    if ($('div#Response').html() !== "Camera disponibile!") err = false //Controllo JS che non si puo' vedere proprio (Se la prenotazione non é valida non va avanti)
+    if (responsePar.html() !== "Camera disponibile!") {
+        err = false
+        responsePar.css("color", "red")
+        responsePar.html("Data di prenotazione non controllata!")
+    }
     if (controlCF() === false) err = false
     if (controlNames("nome") === false) err = false
     if (controlNames("cognome") === false) err = false
@@ -11,30 +16,54 @@ function control() {
     return err
 }
 function controlPassword() {
-    let password = document.getElementById("inputPassword")
-        if(password.value === "" || password.value.length < 10){
-            password.style.borderColor = "red"
+    let errPass = $('#passwordError')
+    errPass.html('')
+    let password = $("#inputPassword")
+        if(password.val() === "" || password.val().length < 10){
+            password.css("border-color", "red")
+            errPass.css("color", "red")
+            errPass.html("Inserisci una password con almeno 10 caratteri!")
             return false
         }
-        password.style.borderColor = "green"
+        password.css("border-color", "green")
         return true
 }
 function controlEmail() {
-        let email = document.getElementById("inputEmail")
+        let errMail = $('#emailError')
+        errMail.html('');
+        let email = $("#inputEmail")
         let regCheck = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-        if(email.value.match(regCheck)){
-            email.style.borderColor = "green"
-            return true
+        if(!email.val().match(regCheck)){
+            email.css("border-color", "red")
+            errMail.css("color","red")
+            errMail.html("Inserisci una email in un formato valido!")
+            return false
         }
         else{
-            email.style.borderColor = "red"
-            return false
+            email.css("border-color", "green")
+            return true
         }
 }
 function controlNames(tocheck) {
+    if(tocheck === "nome"){
+        var nameErr = $('#nomeError')
+        nameErr.html("")
+    }
+    if(tocheck === "cognome") {
+        var cognomeErr = $('#cognomeError')
+        cognomeErr.html('')
+    }
     let name = document.forms["register"][tocheck];
     if(name.value === "" || name.value.length > 20){
         name.style.borderColor= "red";
+        if(tocheck === "nome") {
+            nameErr.css("color","red")
+            nameErr.html("Inserisci un nome valido!")
+        }
+        if(tocheck === "cognome") {
+            cognomeErr.css("color","red")
+            cognomeErr.html("Inserisci un nome valido!")
+        }
         return false
     }
     else {
@@ -44,10 +73,14 @@ function controlNames(tocheck) {
 
 }
 function controlCF() {
+    let cfErr = $('#cfError')
+    cfErr.html('')
     let cf = document.forms["register"]["codicefiscale"];
     let patternEmail = /^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$/i;
     if( cf.value=== "" || cf.value.size < 16 || !cf.value.match(patternEmail)){
         cf.style.borderColor = "red";
+        cfErr.css("color","red")
+        cfErr.html("Inserisci un codice fiscale in un formato valido!")
         return false
     }
     else {
@@ -69,6 +102,8 @@ function showRegister() {
 
 function check(){
     let date  = $('#inputCheck').val()
+    let responsePar = $('div#Response')
+    responsePar.html("")
     let check_in =date.slice(0,10)
     let check_out =date.slice(13,23)
     $.ajax({
@@ -80,10 +115,14 @@ function check(){
             tipocamera: $('#inputCamera').val(),
         },
         success: function() {
-            $('div#Response').html("Camera disponibile!")
+            responsePar.html("Camera disponibile!")
+            responsePar.css("color" , "green")
         },
         error: function(xhr,status,error) {
-            if(xhr.status === 300) $('div#Response').html("Camera non disponibile, prova un'altra data!")
+            if(xhr.status === 300){
+                responsePar.html("Camera non disponibile, prova un'altra data!")
+                responsePar.css("color", "red")
+            }
             else alert("Errore generico")
         }
     })
