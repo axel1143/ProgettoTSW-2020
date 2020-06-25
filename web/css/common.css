@@ -1,0 +1,46 @@
+:root{
+    --main-color : rgb(255, 120, 18)
+}
+@font-face {
+    font-family: 'trajanpro_regular';
+    src: url('../fonts/logo/TrajanProRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    font-family: Serif;
+}
+.navbar{
+    background: var(--main-color);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    max-height: 3rem;
+}
+.navbar-brand{
+    font-family: trajanpro_regular;
+}
+
+.gradient-slide {
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+    font-size: larger;
+    border-radius: 3.5rem;
+}
+
+.gradient-slide>h1{
+    font-size: 3.5rem;
+}
+
+.footer{
+    background: var(--main-color);
+    color: white;
+}
+
+.btn-darkgreen{
+    background-color: darkgreen;
+    color: white;
+}
+
+.card-header{
+    font-family: trajanpro_regular;
+}

@@ -17,13 +17,15 @@ else {%>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <link rel="stylesheet" href="./css/style_prenotazione.css">
+    <link rel="stylesheet" href="./css/common.css">
+
 </head>
 <body>
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="font-size: large">
     <div class="container">
         <a class="navbar-brand font-weight-bold" href="index.jsp">
-            <img src="./imgs/logo.png" width="40" height="40" alt="" style="margin: 0;">
+            <img src="./imgs/logo.png" width="90" height="40" alt="" >
             Hotel Marbella
         </a>
 

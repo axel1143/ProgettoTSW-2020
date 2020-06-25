@@ -13,18 +13,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/style_index.css">
+  <link rel="stylesheet" href="./css/common.css">
 </head>
-<body class="pt-2" style="background-color: rgba(225, 196, 167, 0.2)">
+<body class="pt-1">
 <!--<div class="jumbotron text-center" style="margin-bottom:0">
  <h1>My First Bootstrap 4 Page</h1>
  <p>Resize this responsive page to see the effect!</p>
 </div> -->
 
 <!-- NAVBAR-->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="font-size: large">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
   <div class="container">
     <a class="navbar-brand font-weight-bold" href="index.jsp">
-      <img src="./imgs/logo.png" width="40" height="40" alt="" style="margin: 0;">
+      <img src="./imgs/logo.png" width="90" height="40" alt="" >
       Hotel Marbella
     </a>
 
@@ -55,7 +56,7 @@
     <div class="carousel-item active " style="background-image: url(./imgs/imgs-index/carousel-slide-1.jpg);">
       <div class="carousel-caption p-4">
         <div class="btn-card pb-3">
-          <button type="button" class="btn btn-lg btn-danger" onclick="location.href='prenotazione.jsp'">Prenota Ora</button>
+          <button type="button" class="btn btn-lg btn-primary" onclick="location.href='prenotazione.jsp'">Prenota Ora</button>
         </div>
         <div class="gradient-slide p-1">
           <h1 class="font-weight-bold">Camere</h1>
@@ -97,15 +98,14 @@
     <div class="col">
       <div class="card w-100">
         <div class="row no-gutters">
-          <div class="col-lg-4">
-            <img src="./imgs/imgs-index/camera-card-1.jpg" class="card-img" alt="...">
+          <div class="col-lg-4" style="background-image: url('./imgs/imgs-index/camera-card-1.jpg')">
           </div>
           <div class="col-lg-8">
             <div class="card-header"><h5>Camere</h5></div>
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <a href="camere.jsp" class="btn btn-warning">Visita le camere</a>
-              <a href="prenotazione.jsp" class="btn btn-danger">Prenota ora</a>
+              <a href="camere.jsp" class="btn btn-darkgreen" >Visita le camere</a>
+              <button type="button" class="btn btn-primary" onclick="location.href='prenotazione.jsp'">Prenota Ora</button>
             </div>
           </div>
         </div>
@@ -116,14 +116,13 @@
     <div class="col">
       <div class="card w-100">
         <div class="row no-gutters">
-          <div class="col-lg-4">
-            <img src="./imgs/imgs-index/attivita-card-2.jpg" class="card-img" alt="...">
+          <div class="col-lg-4" style="background-image: url('./imgs/imgs-index/attivita-card-2.jpg') ">
           </div>
           <div class="col-lg-8">
             <div class="card-header"><h5>Attività</h5></div>
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <a href="attivita.jsp" class="btn btn-warning">Visita le nostre attività</a>
+              <a href="attivita.jsp" class="btn btn-darkgreen" style="background-color: darkgreen; color: white">Visita le nostre attività</a>
             </div>
           </div>
         </div>
@@ -135,14 +134,13 @@
     <div class="col">
       <div class="card w-100">
         <div class="row no-gutters">
-          <div class="col-lg-4">
-            <img src="./imgs/imgs-index/ristoranti-card-3.jpg" class="card-img" alt="...">
+          <div class="col-lg-4" style="background-image: url('./imgs/imgs-index/ristoranti-card-3.jpg') ">
           </div>
           <div class="col-lg-8">
             <div class="card-header"><h5>Ristoranti</h5></div>
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <a href="attivita.jsp#ristoranti" class="btn btn-warning">Scopri i nostri ristoranti</a>
+              <a href="attivita.jsp#ristoranti" class="btn btn-darkgreen" >Scopri i nostri ristoranti</a>
             </div>
           </div>
         </div>
@@ -154,7 +152,7 @@
 
 
 
-<div class="jumbotron py-1" style="margin-bottom:0">
+<div class="jumbotron py-1 footer" style="margin-bottom:0">
   <p>Contattaci</p>
   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius nam impedit praesentium, molestiae hic libero, unde autem deserunt repudiandae minus nisi ut, dolorem natus saepe aliquid. Recusandae assumenda officia nulla.
 

@@ -8,16 +8,17 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style_singole.css">
+    <link rel="stylesheet" href="./css/common.css">
     <title>Home</title>
 </head>
 <body class="py-0" style="background-color: rgba(225, 196, 167, 0.2)">
 <!--
 NAVBAR
 -->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="font-size: large">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
     <div class="container">
         <a class="navbar-brand font-weight-bold" href="index.jsp">
-            <img src="./imgs/logo.png" width="40" height="40" alt="">
+            <img src="./imgs/logo.png" width="90" height="40" alt="" >
             Hotel Marbella
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
