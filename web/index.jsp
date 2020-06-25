@@ -101,7 +101,7 @@
           <div class="col-lg-4" style="background-image: url('./imgs/imgs-index/camera-card-1.jpg')">
           </div>
           <div class="col-lg-8">
-            <div class="card-header"><h5>Camere</h5></div>
+            <h5 class="card-header">Camere</h5>
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <a href="camere.jsp" class="btn btn-darkgreen" >Visita le camere</a>
@@ -119,7 +119,7 @@
           <div class="col-lg-4" style="background-image: url('./imgs/imgs-index/attivita-card-2.jpg') ">
           </div>
           <div class="col-lg-8">
-            <div class="card-header"><h5>Attività</h5></div>
+            <h5 class="card-header">Attivitá</h5>
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <a href="attivita.jsp" class="btn btn-darkgreen" style="background-color: darkgreen; color: white">Visita le nostre attività</a>
@@ -137,7 +137,7 @@
           <div class="col-lg-4" style="background-image: url('./imgs/imgs-index/ristoranti-card-3.jpg') ">
           </div>
           <div class="col-lg-8">
-            <div class="card-header"><h5>Ristoranti</h5></div>
+            <h5 class="card-header">Ristoranti</h5>
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <a href="attivita.jsp#ristoranti" class="btn btn-darkgreen" >Scopri i nostri ristoranti</a>
