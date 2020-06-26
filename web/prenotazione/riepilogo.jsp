@@ -16,16 +16,16 @@ else {%>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-    <link rel="stylesheet" href="./css/style_prenotazione.css">
-    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="../css/style_prenotazione.css">
+    <link rel="stylesheet" href="../css/common.css">
 
 </head>
 <body>
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="font-size: large">
     <div class="container">
-        <a class="navbar-brand font-weight-bold" href="index.jsp">
-            <img src="./imgs/logo.png" width="90" height="40" alt="" >
+        <a class="navbar-brand font-weight-bold" href="../index.jsp">
+            <img src="../imgs/logo.png" width="90" height="40" alt="" >
             Hotel Marbella
         </a>
 
@@ -35,7 +35,7 @@ else {%>
         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
             <ul class="navbar-nav navbar-right">
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="index.jsp">Home</a>
+                    <a class="nav-link font-weight-bold" href="../index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link font-weight-bold" href="camere.jsp">Visita camere</a>
@@ -51,15 +51,15 @@ else {%>
 <div class="container border border-secondary rounded my-2 py-3">
     <h2>Vuole confermare la seguente prenotazione?</h2>
     <div class="d-flex">
-        <form method="post" class="px-2" action="./doReservationControl">
+        <form method="post" class="px-2" action="../doReservationControl">
             <input name="action" value="booked" hidden>
             <button class="btn btn-success" type="submit">Conferma prenotazione</button>
         </form>
-        <form method="post" class="px-2" action="./doReservationControl">
+        <form method="post" class="px-2" action="../doReservationControl">
             <input name="action" value="delete" hidden>
             <button class="btn btn-danger" type="submit">Cancella prenotazione</button>
         </form>
-        <form method="post" class="px-2" action="./doReservationControl">
+        <form method="post" class="px-2" action="../doReservationControl">
             <input name="action" value="modify" hidden>
             <button class="btn btn-warning" type="submit">Modifica prenotazione</button>
         </form>

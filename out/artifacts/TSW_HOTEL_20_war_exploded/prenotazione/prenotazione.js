@@ -108,7 +108,7 @@ function check(){
     let check_out =date.slice(13,23)
     $.ajax({
         type:'POST',
-        url:'./checkBooked',
+        url:'../checkBooked',
         data: {
             checkin : bookedDateMaker(check_in,true),
             checkout: bookedDateMaker(check_out,true),

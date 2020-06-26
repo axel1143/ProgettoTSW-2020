@@ -7,18 +7,18 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style_singole.css">
-    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="../css/style_singole.css">
+    <link rel="stylesheet" href="../css/common.css">
     <title>Home</title>
 </head>
-<body class="py-0" style="background-color: rgba(225, 196, 167, 0.2)">
+<body class="py-0" >
 <!--
 NAVBAR
 -->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand font-weight-bold" href="index.jsp">
-            <img src="./imgs/logo.png" width="90" height="40" alt="" >
+        <a class="navbar-brand font-weight-bold" href="../index.jsp">
+            <img src="../imgs/logo.png" width="90" height="40" alt="" >
             Hotel Marbella
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -27,16 +27,16 @@ NAVBAR
         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
             <ul class="navbar-nav navbar-right">
                 <li class="nav-item ">
-                    <a class="nav-link font-weight-bold" href="index.jsp">Home</a>
+                    <a class="nav-link font-weight-bold" href="../index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="camere.jsp">Visita camere</a>
+                    <a class="nav-link font-weight-bold" href="./camere.jsp">Visita camere</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="attivita.jsp">Esplora ristoranti ed attività</a>
+                    <a class="nav-link font-weight-bold" href="./attivita.jsp">Esplora ristoranti ed attività</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold btn-danger" href="prenotazione.jsp?tipocamera=standard" >Prenota Ora</a>
+                    <a class="nav-link font-weight-bold btn-danger" href="../prenotazione.jsp?tipocamera=standard" >Prenota Ora</a>
                 </li>
             </ul>
         </div>
@@ -49,7 +49,7 @@ NAVBAR
 <!-- CAROUSEL -->
 <div id="carouselExampleControls" class="carousel slide carousel-fade mb-0" data-ride="carousel">
     <div class="carousel-inner">
-        <div class="carousel-item active " style="background-image: url(./imgs/img-standard/standard3.jpg);">
+        <div class="carousel-item active " style="background-image: url('../imgs/img-standard/standard3.jpg');">
             <div class="carousel-caption p-4">
                 <div class="gradient-slide p-1">
                     <h1 class="font-weight-bold">Camera Standard</h1>
@@ -57,7 +57,7 @@ NAVBAR
                 </div>
             </div>
         </div>
-        <div class="carousel-item" style="background-image: url(./imgs/img-standard/standard2.jpg);">
+        <div class="carousel-item" style="background-image: url('../imgs/img-standard/standard2.jpg');">
             <div class="carousel-caption p-4 side-container">
                 <div class="gradient-slide p-1 side-body">
                     <h1 class="font-weight-bold">CIAO</h1>
@@ -65,7 +65,7 @@ NAVBAR
                 </div>
             </div>
         </div>
-        <div class="carousel-item" style="background-image: url(./imgs/img-standard/standard4.jpg);">
+        <div class="carousel-item" style="background-image: url('../imgs/img-standard/standard4.jpg');">
             <div class="carousel-caption p-4 side-container">
                 <div class="gradient-slide p-1 side-body">
                     <h1 class="font-weight-bold">CIAO</h1>

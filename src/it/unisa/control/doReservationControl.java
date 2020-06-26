@@ -24,7 +24,7 @@ public class doReservationControl extends javax.servlet.http.HttpServlet {
         Cart cart = (Cart) request.getSession().getAttribute("cart");
         HttpSession session = request.getSession();
         String action = (String) request.getParameter("action");
-
+        session.removeAttribute("action");
         switch (action) {
             case "create":
                 boolean toRegister = false;
@@ -48,7 +48,7 @@ public class doReservationControl extends javax.servlet.http.HttpServlet {
 
                 try {
                     if (!PrenotazioneDAO.validate(check_in, check_out, tipo))
-                        response.sendRedirect(response.encodeRedirectURL("./prenotazione.jsp?bookError=true")); //COntrolla se la prenotazione è valida
+                        response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp?bookError=true")); //COntrolla se la prenotazione è valida
 
                     else {
                         if(cart != null) request.getSession().removeAttribute("cart");
@@ -91,10 +91,10 @@ public class doReservationControl extends javax.servlet.http.HttpServlet {
 
                     /*RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/riepilogo.jsp");
                     dispatcher.forward(request, response); */
-                        response.sendRedirect(response.encodeRedirectURL("./riepilogo.jsp"));
+                        response.sendRedirect(response.encodeRedirectURL("./prenotazione/riepilogo.jsp"));
                     }
                 } catch (SQLException | ParseException throwables) {
-                    response.sendRedirect(response.encodeRedirectURL("./operation.jsp?error=SQLExceptionOrParseExxeption"));
+                    response.sendRedirect(response.encodeRedirectURL("./prenotazione/operation.jsp?error=SQLExceptionOrParseExxeption"));
                     throwables.printStackTrace();
                 }
                 break;
@@ -110,7 +110,7 @@ public class doReservationControl extends javax.servlet.http.HttpServlet {
                     response.sendRedirect(response.encodeRedirectURL("./index.jsp"));
 
                 } catch (SQLException sqlException) {
-                    response.sendRedirect(response.encodeRedirectURL("./operation.jsp?error=SQLExceptionOrParseException"));
+                    response.sendRedirect(response.encodeRedirectURL("./prenotazione/operation.jsp?error=SQLExceptionOrParseException"));
                     sqlException.printStackTrace();
                 }
                 break;
@@ -119,10 +119,9 @@ public class doReservationControl extends javax.servlet.http.HttpServlet {
                 response.sendRedirect(response.encodeRedirectURL("./index.jsp"));
                 break;
             case "modify":
-                RequestDispatcher requestDispatcher = request.getServletContext().getRequestDispatcher("/prenotazione.jsp");
                 cart.getClienteBean().setDatanascita(dateBookedMaker(cart.getClienteBean().getDatanascita()));
-                request.setAttribute("action", "modify");
-                requestDispatcher.forward(request,response);
+                session.setAttribute("action" , "modify");
+                response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp"));
 
         }
 

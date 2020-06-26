@@ -8,10 +8,10 @@
 !-->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <% Cart cart = (Cart) request.getSession().getAttribute("cart"); // Prende il carrello dalla sessione attuale
-    String action = (String) request.getAttribute("action"); // Serve a capire se la pagina JSP é stata chiamata con un action
+    String action = (String) request.getSession().getAttribute("action"); // Serve a capire se la pagina JSP é stata chiamata con un action
     String type = request.getParameter("tipocamera"); //Serve a capire se la prenotazione é stata chiamata su una determinata cameras specifica
     String bookError = request.getParameter("bookError"); //Controlla se in qualche modo l'utente ha bypassato il controllo front-end sulla data di prenotazione
-    if(cart != null && action == null) response.sendRedirect(response.encodeRedirectURL("./riepilogo.jsp"));
+    if(cart != null && action == null ) response.sendRedirect(response.encodeRedirectURL("./riepilogo.jsp"));
     if (type == null) type = ""; %>
 <html lang="en">
 <head>
@@ -29,8 +29,8 @@
     <!-- Bootstrap, DateRangePicker CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-    <link rel="stylesheet" href="./css/style_prenotazione.css">
-    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="../css/style_prenotazione.css">
+    <link rel="stylesheet" href="../css/common.css">
 
     <title>Prenota ora</title>
 </head>
@@ -39,8 +39,8 @@
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand font-weight-bold" href="index.jsp">
-            <img src="./imgs/logo.png" width="90" height="40" alt="" >
+        <a class="navbar-brand font-weight-bold" href="../index.jsp">
+            <img src="../imgs/logo.png" width="90" height="40" alt="" >
             Hotel Marbella
         </a>
 
@@ -50,7 +50,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
             <ul class="navbar-nav navbar-right">
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="index.jsp">Home</a>
+                    <a class="nav-link font-weight-bold" href="../index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link font-weight-bold" href="camere.jsp">Visita camere</a>
@@ -67,7 +67,7 @@
 <!-- FORM DI REGISTRAZIONE -->
 <div class="container py-2">
     <h1>Prenotati ora</h1>
-    <form name="register" method="post" action="./doReservationControl" onsubmit="return control()"> <!--onsubmit="return control()" -->
+    <form name="register" method="post" action="../doReservationControl" onsubmit="return control()"> <!--onsubmit="return control()" -->
         <div class="container-fluid border border-secondary rounded mt-3 py-3">
             <h3>Dati personali</h3>
             <div class="form-group">
@@ -152,6 +152,6 @@
 
 
 <!-- PREN JS -->
-<script src="prenotazione.js"></script>
+<script src="./prenotazione.js"></script>
 </body>
 </html>

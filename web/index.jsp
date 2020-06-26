@@ -22,10 +22,10 @@
 </div> -->
 
 <!-- NAVBAR-->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top py-0">
   <div class="container">
     <a class="navbar-brand font-weight-bold" href="index.jsp">
-      <img src="./imgs/logo.png" width="90" height="40" alt="" >
+      <img src="./imgs/logo.png" width="80" height="40" alt="" >
       Hotel Marbella
     </a>
 
@@ -38,10 +38,13 @@
           <a class="nav-link active font-weight-bold" href="index.jsp">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link font-weight-bold" href="camere.jsp">Visita camere</a>
+          <a class="nav-link font-weight-bold" href="./camere/camere.jsp">Visita camere</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link font-weight-bold" href="attivita.jsp">Esplora ristoranti ed attività</a>
+          <a class="nav-link font-weight-bold" href="./camere/attivita.jsp">Esplora ristoranti ed attività</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold" href="./login/login.jsp">Login</a>
         </li>
       </ul>
     </div>
@@ -56,7 +59,7 @@
     <div class="carousel-item active " style="background-image: url(./imgs/imgs-index/carousel-slide-1.jpg);">
       <div class="carousel-caption p-4">
         <div class="btn-card pb-3">
-          <button type="button" class="btn btn-lg btn-primary" onclick="location.href='prenotazione.jsp'">Prenota Ora</button>
+          <button type="button" class="btn btn-lg btn-primary" onclick="location.href='./prenotazione/prenotazione.jsp'">Prenota Ora</button>
         </div>
         <div class="gradient-slide p-1">
           <h1 class="font-weight-bold">Camere</h1>
@@ -104,7 +107,7 @@
             <h5 class="card-header">Camere</h5>
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <a href="camere.jsp" class="btn btn-darkgreen" >Visita le camere</a>
+              <a href="./camere/camere.jsp" class="btn btn-darkgreen" >Visita le camere</a>
               <button type="button" class="btn btn-primary" onclick="location.href='prenotazione.jsp'">Prenota Ora</button>
             </div>
           </div>
@@ -122,7 +125,7 @@
             <h5 class="card-header">Attivitá</h5>
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <a href="attivita.jsp" class="btn btn-darkgreen" style="background-color: darkgreen; color: white">Visita le nostre attività</a>
+              <a href="./camere/attivita.jsp" class="btn btn-darkgreen" style="background-color: darkgreen; color: white">Visita le nostre attività</a>
             </div>
           </div>
         </div>
@@ -140,7 +143,7 @@
             <h5 class="card-header">Ristoranti</h5>
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <a href="attivita.jsp#ristoranti" class="btn btn-darkgreen" >Scopri i nostri ristoranti</a>
+              <a href="./camere/attivita.jsp#ristoranti" class="btn btn-darkgreen" >Scopri i nostri ristoranti</a>
             </div>
           </div>
         </div>

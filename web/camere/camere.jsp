@@ -14,8 +14,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style_camere.css">
-    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="../css/style_camere.css">
+    <link rel="stylesheet" href="../css/common.css">
     <title>Camere</title>
 </head>
 <body class="pt-2">
@@ -24,8 +24,8 @@ NAVBAR
 -->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand font-weight-bold" href="index.jsp">
-            <img src="./imgs/logo.png" width="90" height="40" alt="" >
+        <a class="navbar-brand font-weight-bold" href="../index.jsp">
+            <img src="../imgs/logo.png" width="90" height="40" alt="" >
             Hotel Marbella
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -34,13 +34,13 @@ NAVBAR
         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
             <ul class="navbar-nav navbar-right">
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="index.jsp">Home</a>
+                    <a class="nav-link font-weight-bold" href="../index.jsp">Home</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link font-weight-bold" href="camere.jsp">Visita camere</a>
+                    <a class="nav-link font-weight-bold" href="../camere.jsp">Visita camere</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="attivita.jsp">Esplora ristoranti ed attività</a>
+                    <a class="nav-link font-weight-bold" href="./attivita.jsp">Esplora ristoranti ed attività</a>
                 </li>
             </ul>
         </div>
@@ -55,7 +55,7 @@ NAVBAR
     <div class="col">
       <div class="card w-90">
         <div class="row no-gutters">
-            <div class="col-lg-4" style="background-image: url('./imgs/imgs-camere/suite.jpg')">
+            <div class="col-lg-4" style="background-image: url('../imgs/imgs-camere/suite.jpg')">
             </div>
             <div class="col-lg-8">
                 <h5 class="card-header">Camera Suite</h5>
@@ -73,13 +73,13 @@ NAVBAR
         <div class="col">
             <div class="card w-90">
                 <div class="row no-gutters">
-                    <div class="col-lg-4" style="background-image: url('./imgs/imgs-camere/superior.jpg')">
+                    <div class="col-lg-4" style="background-image: url('../imgs/imgs-camere/superior.jpg')">
                     </div>
                     <div class="col-lg-8">
                         <h5 class="card-header">Camera Superior</h5>
                         <div class="card-body">
                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <button type="button" class="btn btn-darkgreen" onclick="location.href='./camera_superior.jsp'">Visita la camera</button>
+                            <button type="button" class="btn btn-darkgreen" onclick="location.href='camera_superior.jsp'">Visita la camera</button>
                         </div>
                     </div>
                 </div>
@@ -91,13 +91,13 @@ NAVBAR
         <div class="col">
         <div class="card w-90">
             <div class="row no-gutters">
-                <div class="col-lg-4" style="background-image: url('./imgs/imgs-camere/standard.jpg')">
+                <div class="col-lg-4" style="background-image: url('../imgs/imgs-camere/standard.jpg')">
                 </div>
                 <div class="col-lg-8">
                     <h5 class="card-header">Camera Standard</h5>
                     <div class="card-body">
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <button type="button" class="btn btn-darkgreen" onclick="location.href='./camera_standard.jsp'">Visita la camera</button>
+                        <button type="button" class="btn btn-darkgreen" onclick="location.href='camera_standard.jsp'">Visita la camera</button>
                     </div>
                 </div>
             </div>
