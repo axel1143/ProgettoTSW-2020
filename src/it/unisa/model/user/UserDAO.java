@@ -39,15 +39,46 @@ public class UserDAO {
     }
 
     // Controlla se il cliente con il parametro specificato è registrato
-    public static boolean isUser(String codice_fiscale) throws SQLException {
-        ArrayList<UserBean> usersList = (ArrayList<UserBean>) UserDAO.allUsers();
-        for(UserBean userBean: usersList){
-            if(userBean.getCodicefiscale().equals(codice_fiscale)) return true;
-        }
-        return false;
+    public static boolean isAlreadyUser(String email){
+        UserBean userBean = getUserByMail(email);
+        if(userBean == null) return false;
+        else return true;
     }
 
+    public static UserBean getUserByMail(String email){
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        UserBean user = null;
 
+        String statement = "SELECT * from Utente WHERE email = ?;";
+        try {
+            connection = DriverManagerConnectionPool.getConnection();
+            preparedStatement = connection.prepareStatement(statement);
+            preparedStatement.setString(1,email);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()) {
+                user = new UserBean();
+                user.setCodicefiscale(resultSet.getString("codice_fiscale"));
+                user.setEmail(resultSet.getString("email"));
+                user.setPassword(resultSet.getString("password"));
+                user.setAdmin(resultSet.getBoolean("is_admin"));
+            }
+
+            return  user;
+        } catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+        finally{
+            try{
+                if(preparedStatement != null) preparedStatement.close();
+                DriverManagerConnectionPool.releaseConnection(connection);
+            } catch (SQLException sqlException){
+                sqlException.printStackTrace();
+            }
+        }
+        return null;
+    }
     //Ritorna la lista di tutti gli utenti
     public static Collection<UserBean> allUsers() throws SQLException {
         Connection connection = null;

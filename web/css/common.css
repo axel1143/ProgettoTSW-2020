@@ -43,3 +43,9 @@
 .card-header{
     font-family: trajanpro_regular;
 }
+
+.genericError{
+    color: red;
+    font-size: large;
+    font-weight: bold;
+}

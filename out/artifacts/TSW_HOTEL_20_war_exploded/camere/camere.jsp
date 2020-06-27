@@ -1,4 +1,4 @@
-<%--
+<%@ page import="it.unisa.model.user.UserBean" %><%--
   Created by IntelliJ IDEA.
   User: Ciro
   Date: 14/05/2020
@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% UserBean userBean = (UserBean) session.getAttribute("user");%>
 <html lang="it">
 <head>
     <!-- Required meta tags -->
@@ -14,37 +15,64 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style_camere.css">
-    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_camere.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
     <title>Camere</title>
 </head>
 <body class="pt-2">
 <!--
 NAVBAR
 -->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top py-0">
     <div class="container">
-        <a class="navbar-brand font-weight-bold" href="../index.jsp">
-            <img src="../imgs/logo.png" width="90" height="40" alt="" >
+        <a class="navbar-brand font-weight-bold" href="${pageContext.request.contextPath}/index.jsp">
+            <img src="${pageContext.request.contextPath}/imgs/logo.png" width="80" height="40" alt="" >
             Hotel Marbella
         </a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
             <ul class="navbar-nav navbar-right">
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="../index.jsp">Home</a>
+                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/index.jsp">Home</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link font-weight-bold" href="../camere.jsp">Visita camere</a>
+                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/camere/camere.jsp">Visita camere</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="./attivita.jsp">Esplora ristoranti ed attività</a>
+                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/camere/attivita.jsp">Esplora ristoranti ed attività</a>
                 </li>
+                <%if(userBean == null){%>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/login/login.jsp">Login</a>
+                </li>
+                <%}else if(!userBean.isAdmin()) {%>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Area utente
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/login/user/userPage.jsp">Pannello utente</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/login?action=logout">Logout</a>
+                    </div>
+                </li>
+                <%} else if(userBean.isAdmin()){%>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Area admin
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/login/admin/adminPage.jsp">Pannello admin</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/login?action=logout">Logout</a>
+                    </div>
+                </li>
+                <%}%>
             </ul>
         </div>
     </div>
+
 </nav>
 
 <!-- Fine navbar-->

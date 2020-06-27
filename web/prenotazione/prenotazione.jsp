@@ -1,4 +1,5 @@
 <%@ page import="it.unisa.model.Cart" %>
+<%@ page import="it.unisa.model.user.UserBean" %>
 <!--
   Created by IntelliJ IDEA.
   User: alex
@@ -7,10 +8,11 @@
   To change this template use File | Settings | File Templates.
 !-->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% UserBean userBean = (UserBean) session.getAttribute("user");%>
 <% Cart cart = (Cart) request.getSession().getAttribute("cart"); // Prende il carrello dalla sessione attuale
     String action = (String) request.getSession().getAttribute("action"); // Serve a capire se la pagina JSP é stata chiamata con un action
     String type = request.getParameter("tipocamera"); //Serve a capire se la prenotazione é stata chiamata su una determinata cameras specifica
-    String bookError = request.getParameter("bookError"); //Controlla se in qualche modo l'utente ha bypassato il controllo front-end sulla data di prenotazione
+    String error = (String) request.getAttribute("error"); //Controlla se in qualche modo l'utente ha bypassato il controllo front-end sulla data di prenotazione
     if(cart != null && action == null ) response.sendRedirect(response.encodeRedirectURL("./riepilogo.jsp"));
     if (type == null) type = ""; %>
 <html lang="en">
@@ -23,24 +25,24 @@
     <script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-    <% if(bookError!= null && bookError.equals("true")){%>
+    <% if(error!= null && error.equals("already-booked")){%>
     <script>alert("La prenotazione effettuata non é disponibile, riprova con una data diversa!")</script>
     <% } %>
     <!-- Bootstrap, DateRangePicker CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-    <link rel="stylesheet" href="../css/style_prenotazione.css">
-    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_prenotazione.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 
     <title>Prenota ora</title>
 </head>
 <body>
 <!-- NAVBAR -->
 
-<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top py-0">
     <div class="container">
-        <a class="navbar-brand font-weight-bold" href="../index.jsp">
-            <img src="../imgs/logo.png" width="90" height="40" alt="" >
+        <a class="navbar-brand font-weight-bold" href="${pageContext.request.contextPath}/index.jsp">
+            <img src="${pageContext.request.contextPath}/imgs/logo.png" width="80" height="40" alt="" >
             Hotel Marbella
         </a>
 
@@ -50,24 +52,50 @@
         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
             <ul class="navbar-nav navbar-right">
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="../index.jsp">Home</a>
+                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="camere.jsp">Visita camere</a>
+                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/camere/camere.jsp">Visita camere</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="attivita.jsp">Esplora ristoranti ed attività</a>
+                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/camere/attivita.jsp">Esplora ristoranti ed attività</a>
                 </li>
+                <%if(userBean == null){%>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/login/login.jsp">Login</a>
+                </li>
+                <%}else if(!userBean.isAdmin()) {%>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Area utente
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/login/user/userPage.jsp">Pannello utente</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/login?action=logout">Logout</a>
+                    </div>
+                </li>
+                <%} else if(userBean.isAdmin()){%>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Area admin
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/login/admin/adminPage.jsp">Pannello admin</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/login?action=logout">Logout</a>
+                    </div>
+                </li>
+                <%}%>
             </ul>
         </div>
     </div>
+
 </nav>
 <!-- -->
 
 <!-- FORM DI REGISTRAZIONE -->
 <div class="container py-2">
     <h1>Prenotati ora</h1>
-    <form name="register" method="post" action="../doReservationControl" onsubmit="return control()"> <!--onsubmit="return control()" -->
+    <form name="register" method="post" action="${pageContext.request.contextPath}/doReservationControl" onsubmit="return control()"> <!--onsubmit="return control()" -->
         <div class="container-fluid border border-secondary rounded mt-3 py-3">
             <h3>Dati personali</h3>
             <div class="form-group">
@@ -122,6 +150,7 @@
             <div id="Response" <%if (action != null && action.equals("modify")){%> style="color: red; font-size: large"<%}%>> <%if (action != null && action.equals("modify")) out.println("Inserire nuovamente il periodo di prenotazione!");%></div>
         </div>
 
+        <% if(userBean == null){%>
         <div class="form-check">
             <input type="checkbox" class="form-check-input" id="registerCheck" name="register" value="toregister" onchange="showRegister()" checked/>
             <label class="form-check-label" for="registerCheck">Desidero registrarmi al sito</label>
@@ -139,8 +168,12 @@
                     <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password" onchange="controlPassword()" <% if (action != null && action.equals("modify") && cart.isAddUser()){%> value="<%=cart.getUserBean().getPassword()%>" <%}%>/>
                     <div id="passwordError"></div>
                 </div>
+                <%if(error != null && error.equals("user-already-exist")){%>
+                <div class="genericError">L'indirizzo scelto é giá stato utilizzato!</div>
+                <%}%>
             </div>
         </div>
+        <%}%>
         <input hidden value="create" name="action">
             <button type='Submit' class="btn btn-success">Procedi con la prenotazione</button>
     </form>
@@ -152,6 +185,6 @@
 
 
 <!-- PREN JS -->
-<script src="./prenotazione.js"></script>
+<script src="${pageContext.request.contextPath}/prenotazione/prenotazione.js"></script>
 </body>
 </html>

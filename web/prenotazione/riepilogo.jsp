@@ -1,4 +1,5 @@
-<%@ page import="it.unisa.model.Cart" %><%--
+<%@ page import="it.unisa.model.Cart" %>
+<%@ page import="it.unisa.model.user.UserBean" %><%--
   Created by IntelliJ IDEA.
   User: alex
   Date: 22/06/20
@@ -6,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% UserBean userBean = (UserBean) session.getAttribute("user");%>
 <% Cart cart = (Cart) request.getSession().getAttribute("cart");
 if(cart == null) response.sendRedirect(response.encodeRedirectURL("./prenotazione.jsp"));
 else {%>
@@ -16,16 +18,16 @@ else {%>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-    <link rel="stylesheet" href="../css/style_prenotazione.css">
-    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_prenotazione.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 
 </head>
 <body>
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="font-size: large">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top py-0">
     <div class="container">
-        <a class="navbar-brand font-weight-bold" href="../index.jsp">
-            <img src="../imgs/logo.png" width="90" height="40" alt="" >
+        <a class="navbar-brand font-weight-bold" href="${pageContext.request.contextPath}/index.jsp">
+            <img src="${pageContext.request.contextPath}/imgs/logo.png" class="logo" width="90" height="40" alt="" >
             Hotel Marbella
         </a>
 
@@ -35,13 +37,16 @@ else {%>
         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
             <ul class="navbar-nav navbar-right">
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="../index.jsp">Home</a>
+                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="camere.jsp">Visita camere</a>
+                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/camere/camere.jsp">Visita camere</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="attivita.jsp">Esplora ristoranti ed attività</a>
+                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/camere/attivita.jsp">Esplora ristoranti ed attività</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active font-weight-bold" href="${pageContext.request.contextPath}/login/login.jsp">Login</a>
                 </li>
             </ul>
         </div>
@@ -50,20 +55,9 @@ else {%>
 <!-- -->
 <div class="container border border-secondary rounded my-2 py-3">
     <h2>Vuole confermare la seguente prenotazione?</h2>
-    <div class="d-flex">
-        <form method="post" class="px-2" action="../doReservationControl">
-            <input name="action" value="booked" hidden>
-            <button class="btn btn-success" type="submit">Conferma prenotazione</button>
-        </form>
-        <form method="post" class="px-2" action="../doReservationControl">
-            <input name="action" value="delete" hidden>
-            <button class="btn btn-danger" type="submit">Cancella prenotazione</button>
-        </form>
-        <form method="post" class="px-2" action="../doReservationControl">
-            <input name="action" value="modify" hidden>
-            <button class="btn btn-warning" type="submit">Modifica prenotazione</button>
-        </form>
-    </div>
+            <a class="btn btn-success mx-2" type="submit" href="${pageContext.request.contextPath}/doReservationControl?action=booked" >Conferma prenotazione</a>
+            <a class="btn btn-danger" type="submit" href="${pageContext.request.contextPath}/doReservationControl?action=delete">Cancella prenotazione</a>
+            <a class="btn btn-warning mx-2" type="submit" href="${pageContext.request.contextPath}/doReservationControl?action=modify">Modifica prenotazione</a>
     <h2>Riepilogo informazioni:</h2>
     <div class="container-fluid border border-secondary rounded mt-3 py-3">
         <h3>Dati personali</h3>

@@ -32,7 +32,7 @@ function controlEmail() {
         let errMail = $('#emailError')
         errMail.html('');
         let email = $("#inputEmail")
-        let regCheck = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+        let regCheck =/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         if(!email.val().match(regCheck)){
             email.css("border-color", "red")
             errMail.css("color","red")
