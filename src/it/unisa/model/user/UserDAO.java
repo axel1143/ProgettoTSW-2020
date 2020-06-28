@@ -37,10 +37,42 @@ public class UserDAO {
             }
         }
     }
+    public static boolean removeUser(String codice_fiscale){
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        String statement = "DELETE from Utente where codice_fiscale = ?";
+        try{
+            connection = DriverManagerConnectionPool.getConnection();
+
+            preparedStatement = connection.prepareStatement(statement);
+            preparedStatement.setString(1,codice_fiscale);
+            preparedStatement.executeUpdate();
+            connection.commit();
+            preparedStatement.close();
+            return true;
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+        finally {
+            try{
+                if(preparedStatement != null) preparedStatement.close();
+                DriverManagerConnectionPool.releaseConnection(connection);
+            }catch (SQLException sqlException){
+                sqlException.printStackTrace();
+            }
+        }
+        return false;
+    }
 
     // Controlla se il cliente con il parametro specificato è registrato
-    public static boolean isAlreadyUser(String email){
+    public static boolean isAlreadyUserEmail(String email){
         UserBean userBean = getUserByMail(email);
+        if(userBean == null) return false;
+        else return true;
+    }
+    public static boolean isAlreadyUserCF(String codice_fiscale){
+        UserBean userBean = getUserByCF(codice_fiscale);
         if(userBean == null) return false;
         else return true;
     }
@@ -79,8 +111,43 @@ public class UserDAO {
         }
         return null;
     }
+
+    public static UserBean getUserByCF(String cf){
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        UserBean user = null;
+
+        String statement = "SELECT * from Utente WHERE codice_fiscale = ?;";
+        try {
+            connection = DriverManagerConnectionPool.getConnection();
+            preparedStatement = connection.prepareStatement(statement);
+            preparedStatement.setString(1,cf);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()) {
+                user = new UserBean();
+                user.setCodicefiscale(resultSet.getString("codice_fiscale"));
+                user.setEmail(resultSet.getString("email"));
+                user.setPassword(resultSet.getString("password"));
+                user.setAdmin(resultSet.getBoolean("is_admin"));
+            }
+
+            return  user;
+        } catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+        finally{
+            try{
+                if(preparedStatement != null) preparedStatement.close();
+                DriverManagerConnectionPool.releaseConnection(connection);
+            } catch (SQLException sqlException){
+                sqlException.printStackTrace();
+            }
+        }
+        return null;
+    }
     //Ritorna la lista di tutti gli utenti
-    public static Collection<UserBean> allUsers() throws SQLException {
+    public static Collection<UserBean> allUsers() {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ArrayList<UserBean> usersList = new ArrayList<UserBean>();
@@ -103,12 +170,18 @@ public class UserDAO {
 
             return  usersList;
 
-        }finally {
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+        finally {
             try{
                 if(preparedStatement != null) preparedStatement.close();
-            } finally {
                 DriverManagerConnectionPool.releaseConnection(connection);
             }
+            catch (SQLException sqlException){
+                sqlException.printStackTrace();
+            }
         }
+        return null;
     }
 }

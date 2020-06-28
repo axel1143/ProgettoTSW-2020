@@ -12,19 +12,19 @@ import java.util.Collection;
 public class ClienteDAO {
 
     //Ritorna una lista di tutti i clienti
-    public static Collection<ClienteBean> allCustomer() throws SQLException {
+    public static Collection<ClienteBean> allCustomer() {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         ArrayList<ClienteBean> costumers = new ArrayList<ClienteBean>();
         String statement = "select * from Cliente";
-        try{
+        try {
             connection = DriverManagerConnectionPool.getConnection();
             preparedStatement = connection.prepareStatement(statement);
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 ClienteBean bean = new ClienteBean();
                 bean.setCodicefiscale(resultSet.getString("codice_fiscale"));
                 bean.setNome(resultSet.getString("nome"));
@@ -33,15 +33,48 @@ public class ClienteDAO {
 
                 costumers.add(bean);
             }
+            DriverManagerConnectionPool.releaseConnection(connection);
+            preparedStatement.close();
             return costumers;
-
+        } catch (SQLException sql) {
+            sql.printStackTrace();
         } finally {
-            try{
-                if(preparedStatement != null) preparedStatement.close();
-            } finally {
+            try {
                 DriverManagerConnectionPool.releaseConnection(connection);
+            } catch (SQLException sqlException) {
+                sqlException.printStackTrace();
             }
         }
+        return null;
+    }
+
+    public static boolean removeCustomer(String codice_fiscale){
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        String statement = "DELETE from Cliente where codice_fiscale= ?";
+        try{
+            connection = DriverManagerConnectionPool.getConnection();
+
+            preparedStatement = connection.prepareStatement(statement);
+            preparedStatement.setString(1,codice_fiscale);
+
+            preparedStatement.executeUpdate();
+            connection.commit();
+            preparedStatement.close();
+            return true;
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+        finally {
+            try{
+                if(preparedStatement != null) preparedStatement.close();
+                DriverManagerConnectionPool.releaseConnection(connection);
+            }catch (SQLException sqlException){
+                sqlException.printStackTrace();
+            }
+        }
+        return false;
     }
 
 

@@ -13,11 +13,10 @@ import java.util.Date;
 public class PrenotazioneDAO {
 
     // Ritorna tutte le prenotazioni per un determinato codice fiscale
-    public static Collection<PrenotazioneBean> doRetriveByCF(String codice_fiscale) throws SQLException {
+    public static Collection<PrenotazioneBean> doRetriveByCF(String codice_fiscale){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        PrenotazioneBean bean = new PrenotazioneBean();
         ArrayList<PrenotazioneBean> prenotazioneBeans = new ArrayList<PrenotazioneBean>();
         String statement = "SELECT Prenotazione.* FROM Prenotazione, Cliente WHERE Cliente.codice_fiscale = ? and Cliente.codice_fiscale = Prenotazione.codice_fiscale;";
         try{
@@ -28,6 +27,7 @@ public class PrenotazioneDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()){
+                PrenotazioneBean bean = new PrenotazioneBean();
                 bean.setCodice_fiscale(resultSet.getString("codice_fiscale"));
                 bean.setNumero(resultSet.getInt("numero"));
                 bean.setCheck_in(resultSet.getTimestamp("check_in"));
@@ -37,18 +37,58 @@ public class PrenotazioneDAO {
 
             return prenotazioneBeans;
 
+        }
+        catch(SQLException sqlException){
+            sqlException.printStackTrace();
         } finally {
             try{
                 if(preparedStatement != null) preparedStatement.close();
-            } finally {
                 DriverManagerConnectionPool.releaseConnection(connection);
             }
+            catch(SQLException sqlException) {
+                sqlException.printStackTrace();
+            }
         }
+        return null;
     }
 
+    public static Collection<PrenotazioneBean> allBooking(){
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
 
+        ArrayList<PrenotazioneBean> prenotazioneBeans = new ArrayList<PrenotazioneBean>();
+        String statement = "SELECT * FROM Prenotazione";
+        try{
+            connection = DriverManagerConnectionPool.getConnection();
+            preparedStatement = connection.prepareStatement(statement);
+
+            ResultSet res = preparedStatement.executeQuery();
+
+            while (res.next()){
+                PrenotazioneBean bean = new PrenotazioneBean();
+                bean.setCodice_fiscale(res.getString("codice_fiscale"));
+                bean.setNumero(res.getInt("numero"));
+                bean.setCheck_in(res.getTimestamp("check_in"));
+                bean.setCheck_out(res.getTimestamp("check_out"));
+                prenotazioneBeans.add(bean);
+            }
+            return prenotazioneBeans;
+        }
+        catch(SQLException sqlException){
+            sqlException.printStackTrace();
+        } finally {
+            try{
+                if(preparedStatement != null) preparedStatement.close();
+                DriverManagerConnectionPool.releaseConnection(connection);
+            }
+            catch(SQLException sqlException) {
+                sqlException.printStackTrace();
+            }
+        }
+        return null;
+    }
     //Rimuove una prenotazione esistente
-    public static boolean removeReservation(PrenotazioneBean toAdd) throws SQLException{
+    public static boolean removeReservation(String codice_fiscale, String check_in, String check_out, int numero){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -57,22 +97,27 @@ public class PrenotazioneDAO {
             connection = DriverManagerConnectionPool.getConnection();
 
             preparedStatement = connection.prepareStatement(statement);
-            preparedStatement.setString(1,toAdd.getCodice_fiscale());
-            preparedStatement.setString(2,toAdd.getCheck_in().toString());
-            preparedStatement.setString(3,toAdd.getCheck_out().toString());
-            preparedStatement.setInt(4,toAdd.getNumero());
+            preparedStatement.setString(1,codice_fiscale);
+            preparedStatement.setString(2,check_in);
+            preparedStatement.setString(3,check_out);
+            preparedStatement.setInt(4,numero);
 
             preparedStatement.executeUpdate();
             connection.commit();
             preparedStatement.close();
             return true;
-        } finally {
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+        finally {
             try{
                 if(preparedStatement != null) preparedStatement.close();
-            } finally {
                 DriverManagerConnectionPool.releaseConnection(connection);
+            }catch (SQLException sqlException){
+                sqlException.printStackTrace();
             }
         }
+        return false;
     }
 
     //TO ADD A RESERVATION

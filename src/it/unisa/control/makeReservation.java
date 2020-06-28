@@ -8,7 +8,6 @@ import it.unisa.model.prenotazione.PrenotazioneDAO;
 import it.unisa.model.user.UserBean;
 import it.unisa.model.user.UserDAO;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -18,7 +17,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 @WebServlet("/doReservationControl")
-public class doReservationControl extends javax.servlet.http.HttpServlet {
+public class makeReservation extends javax.servlet.http.HttpServlet {
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         HttpSession session = request.getSession();
         UserBean logged = (UserBean) session.getAttribute("user");
@@ -42,21 +41,19 @@ public class doReservationControl extends javax.servlet.http.HttpServlet {
                 String check_in = bookeDateMaker(date.substring(0, 10), true);
                 String check_out = bookeDateMaker(date.substring(13, 23), true);
 
-                if (request.getParameter("register") != null || logged == null ) {
-                    toRegister = true;
-                    email = request.getParameter("email");
-                    password = request.getParameter("password");
+                if (request.getParameter("register") != null) {
+                    if(logged == null) {
+                        toRegister = true;
+                        email = request.getParameter("email");
+                        password = request.getParameter("password");
+                    }
                 }
 
                 try {
-                    if (!PrenotazioneDAO.validate(check_in, check_out, tipo)){
-                        RequestDispatcher requestDispatcher = request.getRequestDispatcher(response.encodeRedirectURL("./prenotazione/prenotazione.jsp"));
-                        request.setAttribute("error", "already-booked");
-                        requestDispatcher.forward(request,response);
-                        return;
-                    }
+                    if (!PrenotazioneDAO.validate(check_in, check_out, tipo))
+                        response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp?error=already-booked"));
 
-                    else {
+                    else{
                         request.getSession().removeAttribute("cart");
                         cart = new Cart();
                         ClienteBean clienteBean = new ClienteBean();
@@ -78,15 +75,10 @@ public class doReservationControl extends javax.servlet.http.HttpServlet {
                             userBean.setAdmin(false);
 
                             cart.setUserBean(userBean);
-                            if (!UserDAO.isAlreadyUser(email)) cart.setAddUser(true);
-                            else {
-                                RequestDispatcher requestDispatcher = request.getRequestDispatcher(response.encodeRedirectURL("./prenotazione/prenotazione.jsp"));
-                                request.setAttribute("error", "user-already-exist");
-                                requestDispatcher.forward(request,response);
-                                return;
-                            }
+                            if (!UserDAO.isAlreadyUserEmail(email)) cart.setAddUser(true);
+
                         }
-                        else {cart.setAddUser(false);
+                        else cart.setAddUser(false);
 
 
                         PrenotazioneBean toAdd = new PrenotazioneBean(); //Crea il bean
@@ -101,9 +93,16 @@ public class doReservationControl extends javax.servlet.http.HttpServlet {
                         cart.setPrenotazioneBean(toAdd);
                         session.setAttribute("cart", cart);
 
-                        response.sendRedirect(response.encodeRedirectURL("./prenotazione/riepilogo.jsp"));
+                        if(UserDAO.isAlreadyUserEmail(email) && toRegister){
+                            cart.getClienteBean().setDatanascita(dateBookedMaker(cart.getClienteBean().getDatanascita()));
+                            session.removeAttribute("cart");
+                            session.setAttribute("cart", cart);
+                            session.setAttribute("action" , "modify");
+                            response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp?error=user-already-exist"));
                         }
-                    }
+
+                        else response.sendRedirect(response.encodeRedirectURL("./prenotazione/riepilogo.jsp"));
+                        }
                 } catch (SQLException | ParseException throwables) {
                     response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp?error=errore-generico"));
                     throwables.printStackTrace();

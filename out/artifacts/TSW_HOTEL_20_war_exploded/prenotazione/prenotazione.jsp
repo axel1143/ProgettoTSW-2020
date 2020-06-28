@@ -12,7 +12,7 @@
 <% Cart cart = (Cart) request.getSession().getAttribute("cart"); // Prende il carrello dalla sessione attuale
     String action = (String) request.getSession().getAttribute("action"); // Serve a capire se la pagina JSP é stata chiamata con un action
     String type = request.getParameter("tipocamera"); //Serve a capire se la prenotazione é stata chiamata su una determinata cameras specifica
-    String error = (String) request.getAttribute("error"); //Controlla se in qualche modo l'utente ha bypassato il controllo front-end sulla data di prenotazione
+    String error = request.getParameter("error"); //Controlla se in qualche modo l'utente ha bypassato il controllo front-end sulla data di prenotazione
     if(cart != null && action == null ) response.sendRedirect(response.encodeRedirectURL("./riepilogo.jsp"));
     if (type == null) type = ""; %>
 <html lang="en">
@@ -126,7 +126,6 @@
                         });
                     });
                 </script>
-            </div>
         </div>
 
 

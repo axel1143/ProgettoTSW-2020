@@ -10,7 +10,7 @@ create table Camera
 ( numero smallint unsigned auto_increment,
   tipo varchar (10) not null,
   numero_letti tinyint not null,
-  constraint pk_numero primary key(numero)
+  primary key(numero)
 );
 
 create table Cliente
@@ -18,7 +18,7 @@ create table Cliente
   nome varchar(20) not null,
   cognome varchar(20) not null,
   data_di_nascita date not null,
-  constraint pk_codice_fiscale primary key(codice_fiscale)
+  primary key(codice_fiscale)
 );
        
 create table Prenotazione
@@ -26,17 +26,17 @@ create table Prenotazione
   numero smallint unsigned not null,
   check_in datetime not null,
   check_out datetime not null,
-  constraint pk_codice_fiscale_numero primary key(codice_fiscale,numero,check_in) ,
-  constraint fk_codice_fiscale1 foreign key (codice_fiscale) references Cliente(codice_fiscale) on update cascade on delete cascade,
-  constraint fk_numero1 foreign key (numero) references Camera(numero) on update cascade on delete cascade
+  primary key(codice_fiscale,numero,check_in) ,
+  foreign key (codice_fiscale) references Cliente(codice_fiscale) on update cascade on delete cascade,
+  foreign key (numero) references Camera(numero) on update cascade on delete cascade
 );
-create table Utente
+create table Utente /*Controllare il vincolo di partecipazione (Anche un admin deve effettuare una prenotazione) DA MODIFICARE*/
 (
     email varchar(30) not null,
     password varchar(30) not null,
-    codice_fiscale char(16) not null,
-    is_admin boolean not null , /*Controllare il vincolo di partecipazione (Anche un admin deve effettuare una prenotazione) DA MODIFICARE*/
-    constraint fk_codice_fiscale2 foreign key (codice_fiscale) references Cliente(codice_fiscale) on update cascade on delete cascade,
+    codice_fiscale char(16)/* not null,*/,
+    is_admin boolean not null ,
+    constraint foreign key (codice_fiscale) references Cliente(codice_fiscale) on update cascade on delete cascade,
     constraint pk_email primary key(email)
 );
 /*
@@ -82,6 +82,11 @@ INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('P
 INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('VGMLDT66H15C309X',2,'2020-01-02 10:00:00','2020-01-03 10:00:00');
 INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('LVMMCT27A08Z904K',3,'2020-01-03 10:00:00','2020-01-03 10:00:00');
 INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('LHUCFQ80H43B674H',4,'2020-01-04 10:00:00','2020-01-07 10:00:00');
+INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('PTUMPP69A09L140A',1,'2020-03-01 10:00:00','2020-03-03 10:00:00');
+INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('PTUMPP69A09L140A',1,'2020-03-05 10:00:00','2020-03-07 10:00:00');
+INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('VGMLDT66H15C309X',2,'2020-04-02 10:00:00','2020-04-03 10:00:00');
+INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('LVMMCT27A08Z904K',3,'2020-04-03 10:00:00','2020-04-03 10:00:00');
+INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('LHUCFQ80H43B674H',4,'2020-05-04 10:00:00','2020-05-07 10:00:00');
 INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('TKKBMB39L68I172H',5,'2020-01-05 10:00:00','2020-01-08 10:00:00');
 INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('GBTDSV55D55G173Z',6,'2020-01-06 10:00:00','2020-01-09 10:00:00');
 INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('BWNYNG95C04G058H',7,'2020-01-07 10:00:00','2020-01-10 10:00:00');
@@ -94,9 +99,12 @@ INSERT INTO Prenotazione(codice_fiscale, numero, check_in, check_out) VALUES ('F
 /*
  Popolamento Utente
  */
-INSERT INTO Utente(email, password, codice_fiscale, is_admin) VALUES ('violatrentini00@gmail.com' ,'123456','PTUMPP69A09L140A',false);
+INSERT INTO Utente(email, password, codice_fiscale, is_admin) VALUES ('violatrentini00@gmail.com' ,'123456password123456','PTUMPP69A09L140A',false);
 INSERT INTO Utente(email, password, codice_fiscale, is_admin) VALUES ('carisiolucc@hotmail.com' ,'carisiolucchesi','LVMMCT27A08Z904K',false);
-INSERT INTO Utente(email, password, codice_fiscale, is_admin) VALUES ('capazelio12345@libero.it' ,'cap2345','GBTDSV55D55G173Z',false);
-INSERT INTO Utente(email, password, codice_fiscale, is_admin) VALUES ('ffallaci47@gmail.com' ,'password','FVQGYU29S29H802O',false);
+INSERT INTO Utente(email, password, codice_fiscale, is_admin) VALUES ('capazelio12345@libero.it' ,'cap2345678910','GBTDSV55D55G173Z',false);
+INSERT INTO Utente(email, password, codice_fiscale, is_admin) VALUES ('ffallaci47@gmail.com' ,'passwordemail','FVQGYU29S29H802O',false);
+INSERT INTO Utente(email, password, codice_fiscale, is_admin) VALUES ('adminadmin@root.it' ,'adminadmin00',null,true);
+
+
 
 /*SELECT Count(*) from Prenotazione where codice_fiscale="FVQGYU29S29H8L2O" and numero=17 and check_in="2020-01-10 12:00:00" and check_out="2020-01-13 14:00:00";*/
