@@ -69,13 +69,11 @@
 
 </nav>
 
-<div class="container-fluid">
-    <h2 style="text-align: center"><%=userBean.getEmail()%> benvenuto nella tua area utente!</h2>
-    <h3 style="text-align: center">Queste sono le prenotazioni effettuate fin'ora</h3>
-    <div class="row">
-        <div class="col-lg-6 offset-lg-3">
-            <div id="showBooking">
-            </div>
+<h2 style="text-align: center"><%=userBean.getEmail()%> benvenuto nella tua area utente!</h2>
+<h3 style="text-align: center">Queste sono le prenotazioni effettuate fin'ora</h3>
+<div class="row">
+    <div class="col-lg-6 offset-lg-3">
+        <div id="showBooking">
         </div>
     </div>
 </div>

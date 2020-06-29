@@ -37,7 +37,9 @@ function getCustomers(contextPath) {
             addCol(table, "Nome")
             addCol(table, "Cognome")
             addCol(table, "Data di Nascita")
-            addCol(table,"Visualizza informazioni")
+            addCol(table, "Email di registrazione")
+            addCol(table,"Visualizza prenotazioni")
+
             createTableCostumer(data,table,contextPath)
         },
         error: function() {
@@ -49,13 +51,13 @@ function getCustomers(contextPath) {
 
 //Creazione delle Tabelle
 function createBookingTable(data,table,contextPath) {
-    let customers = data
+    let booking = data
     var result = [];
-    for (var i in customers){
-        result.push(customers[i])
+    for (var i in booking){
+        result.push(booking[i])
     }
     result.forEach(function (element, index) {
-        addBookingRow(table,element,index,customers,contextPath)
+        addBookingRow(table,element,index,booking,contextPath)
     })
     return table
 }
@@ -96,8 +98,9 @@ function addBookingRow(table, elementRow,index,customers,contextPath) {
     button.onclick = function(){
     $.ajax({
             type:'POST',
-            url:contextPath+'/removeReservation',
+            url:contextPath+'/getInfo',
             data: {
+                action : 'delete',
                 cf : customers[index]["codice_fiscale"],
                 check_in : new Date(customers[index]["check_in"]).toISOString().slice(0, 19).replace('T', ' '),
                 check_out: new Date(customers[index]["check_out"]).toISOString().slice(0, 19).replace('T', ' '),
@@ -126,15 +129,36 @@ function addRowCostumer(table, elementRow,contextPath) {
         td.appendChild(tdText)
         row.appendChild(td)
     }
-    let td = document.createElement("TD")
+    getEmail(elementRow.codicefiscale, contextPath,row)
+    let tdBtn = document.createElement("TD")
     let button = document.createElement("BUTTON")
     button.className = "btn btn-warning"
     button.onclick = function(){
         getBooking(elementRow.codicefiscale,contextPath);
     }
-    let buttonText = document.createTextNode("Visualizza dettagli")
+    let buttonText = document.createTextNode("Visualizza prenotazioni")
     button.appendChild(buttonText)
-    td.appendChild(button)
-    row.appendChild(td)
+    tdBtn.appendChild(button)
+    row.appendChild(tdBtn)
     table.appendChild(row)
+}
+
+function getEmail(codicefiscale, contextPath, row) {
+    let tdEmail = document.createElement("TD")
+    $.ajax({
+        type:'POST',
+        url:contextPath+'/getInfo',
+        data: {
+            toget : 'email',
+            cf : codicefiscale
+        },
+        success: function(data) {
+            tdEmail.appendChild(document.createTextNode(data))
+        },
+        error: function() {
+            tdEmail.appendChild(document.createTextNode("Utente non registrato"))
+        }
+    })
+
+    row.appendChild(tdEmail)
 }

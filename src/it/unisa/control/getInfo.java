@@ -23,22 +23,41 @@ import java.util.ArrayList;
 public class getInfo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("toget");
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
         Gson gson = new Gson();
         switch (action){
             case "Customers":
                 ArrayList<ClienteBean> customers = (ArrayList<ClienteBean>) ClienteDAO.allCustomer();
                 String customersToReturn = gson.toJson(customers);
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
                 response.getWriter().write(customersToReturn);
                 break;
             case "Booking":
                 String cf = request.getParameter("cf");
                 ArrayList<PrenotazioneBean> booking = (ArrayList<PrenotazioneBean>) PrenotazioneDAO.doRetriveByCF(cf);
                 String bookingToReturn = gson.toJson(booking);
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
                 response.getWriter().write(bookingToReturn);
                 break;
             case "Delete":
+                String cf1 = request.getParameter("cf");
+                String check_in = request.getParameter("check_in");
+                String check_out = request.getParameter("check_out");
+                int numero = Integer.parseInt(request.getParameter("numero"));
+                PrenotazioneDAO.removeReservation(cf1,check_in,check_out,numero);
+                if(PrenotazioneDAO.doRetriveByCF(cf1).size() == 0){
+                    ClienteDAO.removeCustomer(cf1);
+                    if(UserDAO.isAlreadyUserCF(cf1)){
+                        UserDAO.removeUser(cf1);
+                    }
+                }
+                break;
+            case "email":
+                String cf2 = request.getParameter("cf");
+                String email = UserDAO.getUserByCF(cf2).getEmail();
+                response.getWriter().write(email);
+                System.out.println(email +"ciao");
                 break;
         }
     }

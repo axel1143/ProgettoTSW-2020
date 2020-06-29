@@ -69,17 +69,18 @@
 </nav>
 
     <h1 style="text-align: center">Benvenuto nel pannello amministratore <%=userBean.getEmail()%></h1>
-    <div class="row">
-        <div class="col-lg-8 offset-lg-2">
-            <div id="showCustomer">
-                <h2>Clienti attualmente presenti</h2>
+    <div class="row pt-3">
+        <div class="col-lg-8 offset-lg-2 container border border-secondary rounded">
+            <h2>Clienti attualmente presenti</h2>
+            <div id="showCustomer" class="">
                 <table class="table" id = "tableCostumers"></table>
             </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-lg-8 offset-lg-2">
+    <div class="row pt-3">
+        <div class="col-lg-8 offset-lg-2 container border border-secondary rounded">
+            <h2>Prenotazioni per l'utente selezionato</h2>
             <div id="showBooking">
             </div>
         </div>
