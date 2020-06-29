@@ -9,6 +9,7 @@ function control() {
     if (controlCF() === false) err = false
     if (controlNames("nome") === false) err = false
     if (controlNames("cognome") === false) err = false
+    if (controlAge() === false) err = false
     if(document.getElementById("registerCheck").checked){
         if(controlEmail() === false) err = false
         if(controlPassword() === false) err = false
@@ -85,6 +86,29 @@ function controlCF() {
     }
     else {
         cf.style.borderColor = "green";
+        return true
+    }
+}
+
+function controlAge()
+{
+    let dataErr = $('#dataError')
+    dataErr.html('')
+    let data = document.forms["register"]["nascita"];
+    let dataNow= new Date();
+    let dataNasc = new Date(data.value);
+    console.log(dataNasc+ "     "+ dataNow)
+    let age= (dataNow - dataNasc)/31536000;
+    if (age < 18)
+    {
+        data.style.borderColor = "red";
+        dataErr.css("color", "red");
+        dataErr.html("Bisogna avere più di 18 anni per prenotare una camera ")
+        return false;
+    }
+    else
+    {
+        data.style.borderColor = "green";
         return true
     }
 }

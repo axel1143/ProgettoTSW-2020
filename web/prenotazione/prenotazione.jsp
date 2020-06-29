@@ -115,7 +115,7 @@
             </div>
             <div class="form-group">
                 <label for="inputData">Data di nascita</label>
-                <input type="text" class="form-control" id="inputData" name="nascita" <% if (action != null && action.equals("modify")){%> value="<%=cart.getClienteBean().getDatanascita()%>" <%}%> />
+                <input type="text" class="form-control" id="inputData" placeholder="Data di Nascita" name="nascita" onchange="controlAge()" <% if (action != null && action.equals("modify")){%> value="<%=cart.getClienteBean().getDatanascita()%>" <%}%>  />
                 <script>
                     $(function() {
                         $('input[name="nascita"]').daterangepicker({
@@ -126,6 +126,7 @@
                         });
                     });
                 </script>
+                <div id="dataError"></div>
         </div>
 
 
