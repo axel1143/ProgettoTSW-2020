@@ -77,13 +77,13 @@
 
 <!-- LOGIN FORM -->
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-2 offset-md-5 border border-secondary border-bottom-0 gradient-login rounded-top ">
+    <div class="row px-4">
+        <div class="col-sm-4 offset-sm-4 border border-secondary border-bottom-0 gradient-login rounded-top ">
             <h2 style="text-align: center">Effettua il login</h2>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-2 offset-md-5 border border-secondary border-top-0 gradient-login rounded-bottom">
+    <div class="row px-4">
+        <div class="col-sm-4 offset-sm-4 border border-secondary border-top-0 gradient-login rounded-bottom">
             <form onsubmit="return checkLogin()" method="post" action="${pageContext.request.contextPath}/login?action=login">
                 <div class="form-group">
                     <label for="inputEmail">Indirizzo email</label>

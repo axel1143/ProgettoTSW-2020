@@ -1,12 +1,7 @@
-function getAll(contextPath) {
-    getCustomers(contextPath)
-}
-function showDetails(codiceFiscale,contextPath) {
-    $("#showBooking").html("")
-    getBooking(codiceFiscale, contextPath)
-}
 
+// Ottenimento dei dati
 function getBooking(codicefiscale,contextPath) {
+    $("#showBooking").html("")
     $.ajax({
         type:'POST',
         url:contextPath+'/getInfo',
@@ -17,11 +12,11 @@ function getBooking(codicefiscale,contextPath) {
         success: function(data) {
             let table = document.createElement("TABLE")
             table.className = "table "
-            addBookingCol(table, "Check_in")
-            addBookingCol(table, "Check_out")
-            addBookingCol(table, "Numero")
-            addBookingCol(table, "Codice Fiscale")
-            addBookingCol(table,"Rimuovi prenotazione")
+            addCol(table, "Check_in")
+            addCol(table, "Check_out")
+            addCol(table, "Numero")
+            addCol(table, "Codice Fiscale")
+            addCol(table,"Rimuovi prenotazione")
             document.getElementById("showBooking").appendChild(createBookingTable(data, table,contextPath))
         },
         error: function() {
@@ -29,6 +24,30 @@ function getBooking(codicefiscale,contextPath) {
         }
     })
 }
+function getCustomers(contextPath) {
+    $.ajax({
+        type:'POST',
+        url:contextPath+'/getInfo',
+        data: {
+            toget : 'Customers'
+        },
+        success: function(data) {
+            let table = document.getElementById("tableCostumers")
+            addCol(table, "Codice Fiscale")
+            addCol(table, "Nome")
+            addCol(table, "Cognome")
+            addCol(table, "Data di Nascita")
+            addCol(table,"Visualizza informazioni")
+            createTableCostumer(data,table,contextPath)
+        },
+        error: function() {
+            $('#showCustomer').html("Impossibile ottenere i clienti")
+        }
+    })
+
+}
+
+//Creazione delle Tabelle
 function createBookingTable(data,table,contextPath) {
     let customers = data
     var result = [];
@@ -40,13 +59,29 @@ function createBookingTable(data,table,contextPath) {
     })
     return table
 }
-function addBookingCol(table,textCol) {
+
+function createTableCostumer(data,table,contextPath) {
+    let customers = data
+    let result = [];
+
+    for (let i in customers){
+        result.push(customers[i])
+    }
+    result.forEach(function (element) {
+        addRowCostumer(table,element,contextPath)
+    })
+    document.getElementById("showCustomer").appendChild(table)
+}
+
+//Add Col
+function addCol(table,textCol) {
     let col = document.createElement("TH")
     let text = document.createTextNode(textCol)
     col.appendChild(text)
     table.appendChild(col)
 }
 
+//Add Row
 function addBookingRow(table, elementRow,index,customers,contextPath) {
     let row = document.createElement("TR")
 
@@ -70,7 +105,7 @@ function addBookingRow(table, elementRow,index,customers,contextPath) {
             },
             success: function() {
                 alert("Prenotazione eliminata!")
-                location.reload()
+                getBooking(customers[index]["codice_fiscale"],contextPath)
             },
             error: function() {
                 alert("Impossibile eliminare!")
@@ -81,45 +116,6 @@ function addBookingRow(table, elementRow,index,customers,contextPath) {
     button.appendChild(buttonText)
     row.appendChild(button)
     table.appendChild(row)
-}
-
-
-
-
-function getCustomers(contextPath) {
-    $.ajax({
-        type:'POST',
-        url:contextPath+'/getInfo',
-        data: {
-            toget : 'Customers'
-        },
-        success: function(data) {
-            let table = document.getElementById("tableCostumers")
-            addBookingCol(table, "Codice Fiscale")
-            addBookingCol(table, "Nome")
-            addBookingCol(table, "Cognome")
-            addBookingCol(table, "Data di Nascita")
-            addBookingCol(table,"Visualizza informazioni")
-            createTableCostumer(data,table,contextPath)
-        },
-        error: function() {
-            $('#showCustomer').html("Impossibile ottenere i clienti")
-        }
-    })
-
-}
-
-function createTableCostumer(data,table,contextPath) {
-    let customers = data
-    let result = [];
-
-    for (let i in customers){
-        result.push(customers[i])
-    }
-    result.forEach(function (element) {
-        addRowCostumer(table,element,contextPath)
-    })
-    document.getElementById("showCustomer").appendChild(table)
 }
 
 function addRowCostumer(table, elementRow,contextPath) {
@@ -134,7 +130,7 @@ function addRowCostumer(table, elementRow,contextPath) {
     let button = document.createElement("BUTTON")
     button.className = "btn btn-warning"
     button.onclick = function(){
-        showDetails(elementRow.codicefiscale,contextPath);
+        getBooking(elementRow.codicefiscale,contextPath);
     }
     let buttonText = document.createTextNode("Visualizza dettagli")
     button.appendChild(buttonText)

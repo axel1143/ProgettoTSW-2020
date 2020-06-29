@@ -46,7 +46,9 @@ body{
 .card-header{
     font-family: trajanpro_regular;
 }
-
+.dropdown-menu{
+    padding: 0.5rem;
+}
 .genericError{
     color: red;
     font-size: large;

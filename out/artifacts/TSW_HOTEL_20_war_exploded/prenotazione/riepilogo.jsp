@@ -85,7 +85,7 @@ else {%>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <label class="input-group-text" for="inputCamera">Tipo di camera</label>
-                <input type="text" class="form-control" id="inputCamera" disabled value="<%= cart.getPrenotazioneBean().getTipo()%>"/>
+                <input type="text" class="form-control" id="inputCamera" disabled value="<%= cart.getCameraBean().getTipo_camera()%>"/>
             </div>
         </div>
         <div class="form-group">

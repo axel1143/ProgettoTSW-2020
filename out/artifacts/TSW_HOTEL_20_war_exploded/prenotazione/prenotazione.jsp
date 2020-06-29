@@ -135,7 +135,7 @@
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputCamera">Tipo di camera</label>
                 </div>
-                <select class="custom-select" id="inputCamera" name="tipocamera" onchange="$('#Response').html('')" <% if (action != null && action.equals("modify")){%> value="<%=cart.getPrenotazioneBean().getTipo()%>" <%}%>>
+                <select class="custom-select" id="inputCamera" name="tipocamera" onchange="$('#Response').html('')" <% if (action != null && action.equals("modify")){%> value="<%=cart.getCameraBean().getTipo_camera()%>" <%}%>>
                     <option value="suite" <%if (type.equals("suite") && action == null)%> selected <%;%>>Suite</option>
                     <option value="superior"<%if (type.equals("superior")  && action == null)%> selected <%;%>>Superior</option>
                     <option value="standard"<%if (type.equals("standard")  && action == null)%> selected <%;%>>Standard</option>
