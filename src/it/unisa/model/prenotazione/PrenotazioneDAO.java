@@ -1,6 +1,7 @@
 package it.unisa.model.prenotazione;
 
 import it.unisa.model.DriverManagerConnectionPool;
+import it.unisa.model.camera.CameraDAO;
 import it.unisa.model.cliente.ClienteDAO;
 import it.unisa.model.user.UserDAO;
 
@@ -152,70 +153,36 @@ public class PrenotazioneDAO {
 
 
     // Controlla se una prenotazione è valida per il check_in e check_out scelti
-    public static boolean validate(String check_in, String check_out, String tipo) throws SQLException, ParseException {
-        ArrayList<PrenotazioneBean> validateList = PrenotazioneDAO.listOfBooked(check_in,check_out,tipo);
-        if(validateList.size() == 0) return true; //Se la lista delle prenotazioni che da conflitto è vuota, allora la prenotazione si può effettuare
-
-        //Se la lista delle prenotazioni che da conflitto nella data scelta, supera il numero di camere disponibili per il tipo scelto, allora la prenotazione non è valida
-        else if(tipo.equals("standard") && validateList.size() < 10) return true;
-        else if(tipo.equals("superior") && validateList.size() < 5) return true;
-        else return tipo.equals("suite") && validateList.size() < 2;
+    public static boolean validate(String check_in, String check_out, String tipo){
+        return getFirstFreeByType(check_in, check_out, tipo) > 0;
     }
 
 
 
     // Ritorna la prima camera libera nel periodo scelto , -1 alrimenti(
-    public static int getFirstFreeByType(String check_in, String check_out,String tipo) throws SQLException,ParseException{
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        String selStatement = "select * from Camera where Camera.tipo = ?";
-        try {
-            connection = DriverManagerConnectionPool.getConnection();
-            preparedStatement = connection.prepareStatement(selStatement);
-            preparedStatement.setString(1, tipo);
-            ResultSet res = preparedStatement.executeQuery();
-            List<Integer> numbers = new ArrayList<Integer>();
-            while (res.next()){
-                numbers.add(res.getInt("numero")); //Recupera i numeri di tutte le camere (Implementabile anche da parte)
+    public static int getFirstFreeByType(String check_in, String check_out,String tipo) {
+            ArrayList<PrenotazioneBean> listBooked = PrenotazioneDAO.listOfBooked(check_in, check_out);
+            ArrayList<Integer> numbers = CameraDAO.getAllRoomsNumbersByType(tipo);
+
+            for(PrenotazioneBean bean : listBooked){
+                if(numbers.contains(bean.getNumero()))
+                            numbers.remove(Integer.valueOf(bean.getNumero()));
             }
-
-            ArrayList<PrenotazioneBean> listBooked = PrenotazioneDAO.listOfBooked(check_in, check_out, tipo);
-
-            if(listBooked.size() == 0) return numbers.get(1); //Se la listOfBooked è vuota, ritorna la prima camera libera
-
-            else {
-                ArrayList<Integer> bookedNumber = new ArrayList<Integer>();
-                for (PrenotazioneBean bean : listBooked) {
-                    bookedNumber.add(bean.getNumero());  //Crea una lista di tutti i numeri di camere nella listOfBooked
-                }
-
-                for(Integer number :numbers){
-                    if(!bookedNumber.contains(number)) return number; //Ritorna il primo numero di camera non contenuto nella listOfBooked
-                }
-
-            }
-        }finally {
-            try{
-                if(preparedStatement != null) preparedStatement.close();
-            } finally {
-                DriverManagerConnectionPool.releaseConnection(connection);
-            }
-        }
-        return -1;
+            if(numbers.size() >0) return numbers.get(0);
+            else return -1;
     }
 
 
     //Ritorna una lista di tutte le prenotazioni che vanno in conflitto con i porametri passati
-    public static ArrayList<PrenotazioneBean> listOfBooked(String check_in, String check_out, String tipo) throws SQLException, ParseException{
+    public static ArrayList<PrenotazioneBean> listOfBooked(String check_in, String check_out){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         ArrayList<PrenotazioneBean> prenotazioneBeans = new ArrayList<PrenotazioneBean>();
-        String statement = "SELECT Prenotazione.* from Prenotazione,Camera where Camera.numero = Prenotazione.numero and Camera.tipo = ?;";
+        String statement = "SELECT Prenotazione.* from Prenotazione ;";
         try{
             connection = DriverManagerConnectionPool.getConnection();
             preparedStatement = connection.prepareStatement(statement);
-            preparedStatement.setString(1, tipo);
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -252,13 +219,18 @@ public class PrenotazioneDAO {
                 else if((timestampCheckin.before(bcheckin) && timestampCheckout.after(bcheckout))) toReturn.add(bean);
             }
              return toReturn;
-        } finally {
+        } catch (SQLException | ParseException exception)
+            {
+            exception.printStackTrace();
+            }   finally {
             try {
                 if (preparedStatement != null) preparedStatement.close();
-            } finally {
                 DriverManagerConnectionPool.releaseConnection(connection);
+            } catch (SQLException sqlException){
+                sqlException.printStackTrace();
             }
         }
+        return null;
     }
 
     //

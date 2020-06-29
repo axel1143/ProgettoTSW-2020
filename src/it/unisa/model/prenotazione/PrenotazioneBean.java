@@ -7,7 +7,7 @@ public class PrenotazioneBean {
     Timestamp check_in;
     Timestamp check_out;
     int numero;
-    String codice_fiscale, tipo;
+    String codice_fiscale;
 
     public String toString() {
         return "PrenotazioneBean{" +
@@ -23,16 +23,8 @@ public class PrenotazioneBean {
         check_out= null;
         numero=0;
         codice_fiscale="";
-        tipo="";
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
 
     public Timestamp getCheck_in() {
         return check_in;

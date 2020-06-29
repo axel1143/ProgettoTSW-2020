@@ -16,14 +16,10 @@ import java.text.ParseException;
 public class checkBooked extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        try {
-            boolean checked = PrenotazioneDAO.validate(request.getParameter("checkin"), request.getParameter("checkout"),request.getParameter("tipocamera"));
-            if(!checked) response.setStatus(300);
-            else out.println(checked);
-        } catch (SQLException | ParseException throwables) {
-            response.sendError(404);
-        }
-        }
+        boolean checked = PrenotazioneDAO.validate(request.getParameter("checkin"), request.getParameter("checkout"),request.getParameter("tipocamera"));
+        if(!checked) response.setStatus(300);
+        else out.println(checked);
+    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);

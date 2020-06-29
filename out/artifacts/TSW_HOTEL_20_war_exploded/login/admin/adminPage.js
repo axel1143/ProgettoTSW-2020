@@ -22,7 +22,7 @@ function getBooking(codicefiscale,contextPath) {
             addBookingCol(table, "Numero")
             addBookingCol(table, "Codice Fiscale")
             addBookingCol(table,"Rimuovi prenotazione")
-            createBookingTable(data, table,contextPath)
+            document.getElementById("showBooking").appendChild(createBookingTable(data, table,contextPath))
         },
         error: function() {
             $('#showCustomer').html("Impossibile ottenere le prenotazioni")
@@ -38,8 +38,7 @@ function createBookingTable(data,table,contextPath) {
     result.forEach(function (element, index) {
         addBookingRow(table,element,index,customers,contextPath)
     })
-
-    document.getElementById("showBooking").appendChild(table)
+    return table
 }
 function addBookingCol(table,textCol) {
     let col = document.createElement("TH")
@@ -47,15 +46,17 @@ function addBookingCol(table,textCol) {
     col.appendChild(text)
     table.appendChild(col)
 }
+
 function addBookingRow(table, elementRow,index,customers,contextPath) {
     let row = document.createElement("TR")
-    for (var i in elementRow){
+
+    for (let i in elementRow){
         let td = document.createElement("TD")
         let tdText = document.createTextNode(elementRow[i])
         td.appendChild(tdText)
         row.appendChild(td)
+        console.log(i)
     }
-    let td = document.createElement("TD")
     let button = document.createElement("BUTTON")
     button.className = "btn btn-danger"
     button.onclick = function(){
@@ -79,8 +80,7 @@ function addBookingRow(table, elementRow,index,customers,contextPath) {
     }
     let buttonText = document.createTextNode("Cancella")
     button.appendChild(buttonText)
-    td.appendChild(button)
-    row.appendChild(td)
+    row.appendChild(button)
     table.appendChild(row)
 }
 
@@ -112,9 +112,9 @@ function getCustomers(contextPath) {
 
 function createTableCostumer(data,table,contextPath) {
     let customers = data
-    var result = [];
+    let result = [];
 
-    for (var i in customers){
+    for (let i in customers){
         result.push(customers[i])
     }
     result.forEach(function (element) {
@@ -125,7 +125,7 @@ function createTableCostumer(data,table,contextPath) {
 
 function addRowCostumer(table, elementRow,contextPath) {
     let row = document.createElement("TR")
-    for (var i in elementRow){
+    for (let i in elementRow){
         let td = document.createElement("TD")
         let tdText = document.createTextNode(elementRow[i])
         td.appendChild(tdText)

@@ -1,5 +1,6 @@
 package it.unisa.model;
 
+import it.unisa.model.camera.CameraBean;
 import it.unisa.model.cliente.ClienteBean;
 import it.unisa.model.prenotazione.PrenotazioneBean;
 import it.unisa.model.user.UserBean;
@@ -8,6 +9,7 @@ public class Cart {
     private ClienteBean clienteBean;
     private UserBean userBean;
     private PrenotazioneBean prenotazioneBean;
+    private CameraBean cameraBean;
     private boolean addClient;
     private boolean addUser;
 
@@ -15,10 +17,17 @@ public class Cart {
         clienteBean = null;
         userBean = null;
         prenotazioneBean = null;
+        cameraBean = null;
         addClient = false;
         addUser = false;
     }
+    public CameraBean getCameraBean() {
+        return cameraBean;
+    }
 
+    public void setCameraBean(CameraBean cameraBean) {
+        this.cameraBean = cameraBean;
+    }
     public ClienteBean getClienteBean() {
         return clienteBean;
     }

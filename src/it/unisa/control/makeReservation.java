@@ -1,6 +1,8 @@
 package it.unisa.control;
 
 import it.unisa.model.Cart;
+import it.unisa.model.camera.CameraBean;
+import it.unisa.model.camera.CameraDAO;
 import it.unisa.model.cliente.ClienteBean;
 import it.unisa.model.cliente.ClienteDAO;
 import it.unisa.model.prenotazione.PrenotazioneBean;
@@ -80,11 +82,12 @@ public class makeReservation extends javax.servlet.http.HttpServlet {
                         }
                         else cart.setAddUser(false);
 
+                        int numberRoom = PrenotazioneDAO.getFirstFreeByType(check_in, check_out, tipo);
+                        CameraBean cameraBean = new CameraBean();
+                        cameraBean = CameraDAO.getRoomByNumber(numberRoom);
+                        cart.setCameraBean(cameraBean);
 
-                        PrenotazioneBean toAdd = new PrenotazioneBean(); //Crea il bean
-
-                        int numberRoom = PrenotazioneDAO.getFirstFreeByType(check_in, check_out, tipo);//Recupera il primo numero di camera libero
-                        toAdd.setTipo(tipo);
+                        PrenotazioneBean toAdd = new PrenotazioneBean(); //Crea il bean//Recupera il primo numero di camera libero
                         toAdd.setCodice_fiscale(codiceFiscale);
                         toAdd.setCheck_in(new Timestamp((new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(check_in)).getTime()));
                         toAdd.setCheck_out(new Timestamp((new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(check_out)).getTime()));
