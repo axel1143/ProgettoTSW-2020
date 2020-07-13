@@ -30,3 +30,6 @@
 .sectionTitle{
     text-align: center;
 }
+.col-text{
+    box-shadow: -1em 1em 1em -1em rgba(0, 0, 0, .25);
+}

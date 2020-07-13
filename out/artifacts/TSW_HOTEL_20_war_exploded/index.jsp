@@ -5,7 +5,8 @@
   Time: 18:36
   To change this template use File | Settings | File Templates.
 --%>
-<% UserBean userBean = (UserBean) session.getAttribute("user");%>
+<% UserBean userBean = (UserBean) session.getAttribute("user");
+  String action = request.getParameter("action");%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="it">
 <head>
@@ -15,8 +16,18 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_index.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+
+
+
+
 </head>
-<body class="pt-1">
+<body class="pt-1" onload="
+  <%if(action != null && action.equals("booked")){%>
+        alert('Prenotazione effettuata correttamente!')
+
+<%} else if(action!= null && action.equals("deleted")){%>
+alert('Prenotazione cancellata!')
+<%}%>">
 <!--<div class="jumbotron text-center" style="margin-bottom:0">
  <h1>My First Bootstrap 4 Page</h1>
  <p>Resize this responsive page to see the effect!</p>
@@ -26,7 +37,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-0">
   <div class="container">
-    <a class="navbar-brand font-weight-bold" href="${pageContext.request.contextPath}/index.jsp">
+    <a class="navbar-brand " href="${pageContext.request.contextPath}/index.jsp">
       <img src="${pageContext.request.contextPath}/imgs/logo.png" width="80" height="40" alt="" >
       Hotel Marbella
     </a>
@@ -37,21 +48,21 @@
     <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
       <ul class="navbar-nav navbar-right">
         <li class="nav-item active">
-          <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/index.jsp">Home</a>
+          <a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/camere/camere.jsp">Visita camere</a>
+          <a class="nav-link" href="${pageContext.request.contextPath}/camere/camere.jsp">Visita camere</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/camere/attivita.jsp">Esplora ristoranti ed attività</a>
+          <a class="nav-link" href="${pageContext.request.contextPath}/camere/attivita.jsp">Esplora ristoranti ed attività</a>
         </li>
         <%if(userBean == null){%>
         <li class="nav-item">
-          <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/login/login.jsp">Login</a>
+          <a class="nav-link" href="${pageContext.request.contextPath}/login/login.jsp">Login</a>
         </li>
         <%}else if(!userBean.isAdmin()) {%>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Area utente
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
@@ -61,7 +72,7 @@
         </li>
         <%} else if(userBean.isAdmin()){%>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Area admin
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -187,7 +198,6 @@
   <p>Informazioni</p>
   Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error harum nulla est qui nam dolor aliquam necessitatibus vitae quasi accusamus veritatis impedit sequi maiores dolore assumenda, perspiciatis, quas voluptate. Fuga?
 </div>
-
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
