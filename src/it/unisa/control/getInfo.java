@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 @WebServlet("/getInfo")
 public class getInfo extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected synchronized void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("toget");
         Gson gson = new Gson();
         switch (action){
@@ -36,6 +36,7 @@ public class getInfo extends HttpServlet {
                 String cf = request.getParameter("cf");
                 ArrayList<PrenotazioneBean> booking = (ArrayList<PrenotazioneBean>) PrenotazioneDAO.doRetriveByCF(cf);
                 String bookingToReturn = gson.toJson(booking);
+                System.out.println(bookingToReturn);
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write(bookingToReturn);

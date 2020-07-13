@@ -97,8 +97,8 @@ function controlAge()
     let data = document.forms["register"]["nascita"];
     let dataNow= new Date();
     let dataNasc = new Date(data.value);
-    console.log(dataNasc+ "     "+ dataNow)
-    let age= (dataNow - dataNasc)/31536000;
+    let age= (dataNow - dataNasc)/31536000000;
+    console.log(age)
     if (age < 18)
     {
         data.style.borderColor = "red";

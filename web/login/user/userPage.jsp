@@ -68,15 +68,27 @@
     </div>
 
 </nav>
-
-<h2 style="text-align: center"><%=userBean.getEmail()%> benvenuto nella tua area utente!</h2>
-<h3 style="text-align: center">Queste sono le prenotazioni effettuate fin'ora</h3>
-<div class="row">
-    <div class="col-lg-6 offset-lg-3">
-        <div id="showBooking">
+<h2 style="text-align: center"> Benvenuto nella tua area utente!</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 d-flex align-items-center">
+            <ul>
+                <li>Codice Fiscale: <%=userBean.getCodicefiscale()%></li>
+                <li>Email: <%=userBean.getEmail()%></li>
+                <li>Password: <%=userBean.getPassword()%></li>
+            </ul>
+        </div>
+        <div class="col-lg-8">
+            <h4 style="text-align: center">Queste sono le prenotazioni effettuate fin'ora</h4>
+            <div class="row">
+                <div id="showBooking">
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+
 
 <script src="${pageContext.request.contextPath}/login/customerPage.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>

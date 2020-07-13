@@ -104,8 +104,8 @@ public class PrenotazioneDAO {
             preparedStatement.setInt(4,numero);
 
             preparedStatement.executeUpdate();
-            connection.commit();
             preparedStatement.close();
+            connection.commit();
             return true;
         }catch (SQLException sqlException){
             sqlException.printStackTrace();

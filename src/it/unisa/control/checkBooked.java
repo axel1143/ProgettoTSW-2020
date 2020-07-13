@@ -14,7 +14,7 @@ import java.text.ParseException;
 
 @WebServlet("/checkBooked")
 public class checkBooked extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected synchronized void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         boolean checked = PrenotazioneDAO.validate(request.getParameter("checkin"), request.getParameter("checkout"),request.getParameter("tipocamera"));
         if(!checked) response.setStatus(300);
