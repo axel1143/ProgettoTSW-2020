@@ -7,8 +7,15 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'arapey-regular';
+    src: url('../fonts/allpage/Arapey-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 *{
-    font-family: Serif;
+    font-family: arapey-regular;
+    font-size: 19px;
 }
 body{
     padding-top: 3rem;
@@ -53,4 +60,7 @@ body{
     color: red;
     font-size: large;
     font-weight: bold;
+}
+td, th {
+    text-align: center;
 }

@@ -93,6 +93,7 @@ function addBookingRow(table, elementRow,index,customers,contextPath) {
         td.appendChild(tdText)
         row.appendChild(td)
     }
+    let tdDelete = document.createElement("TD")
     let button = document.createElement("BUTTON")
     button.className = "btn btn-danger"
     button.onclick = function(){
@@ -100,7 +101,7 @@ function addBookingRow(table, elementRow,index,customers,contextPath) {
             type:'POST',
             url:contextPath+'/getInfo',
             data: {
-                action : 'delete',
+                toget : 'Delete',
                 cf : customers[index]["codice_fiscale"],
                 check_in : new Date(customers[index]["check_in"]).toISOString().slice(0, 19).replace('T', ' '),
                 check_out: new Date(customers[index]["check_out"]).toISOString().slice(0, 19).replace('T', ' '),
@@ -110,14 +111,16 @@ function addBookingRow(table, elementRow,index,customers,contextPath) {
                 alert("Prenotazione eliminata!")
                 getBooking(customers[index]["codice_fiscale"],contextPath)
             },
-            error: function() {
+            error: function(error) {
+                console.log(error)
                 alert("Impossibile eliminare!")
             }
         })
     }
     let buttonText = document.createTextNode("Cancella")
     button.appendChild(buttonText)
-    row.appendChild(button)
+    tdDelete.appendChild(button)
+    row.appendChild(tdDelete)
     table.appendChild(row)
 }
 

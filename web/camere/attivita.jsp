@@ -13,16 +13,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_attivita.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
-
-
-
 </head>
 <body style="">
-
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-0">
     <div class="container">
-        <a class="navbar-brand font-weight-bold" href="${pageContext.request.contextPath}/index.jsp">
+        <a class="navbar-brand " href="${pageContext.request.contextPath}/index.jsp">
             <img src="${pageContext.request.contextPath}/imgs/logo.png" width="80" height="40" alt="" >
             Hotel Marbella
         </a>
@@ -33,21 +29,21 @@
         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
             <ul class="navbar-nav navbar-right">
                 <li class="nav-item ">
-                    <a class="nav-link  font-weight-bold" href="${pageContext.request.contextPath}/index.jsp">Home</a>
+                    <a class="nav-link  " href="${pageContext.request.contextPath}/index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/camere/camere.jsp">Visita camere</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/camere/camere.jsp">Visita camere</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/camere/attivita.jsp">Esplora ristoranti ed attività</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/camere/attivita.jsp">Esplora ristoranti ed attività</a>
                 </li>
                 <%if(userBean == null){%>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/login/login.jsp">Login</a>
+                    <a class="nav-link " href="${pageContext.request.contextPath}/login/login.jsp">Login</a>
                 </li>
                 <%}else if(!userBean.isAdmin()) {%>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Area utente
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
@@ -57,7 +53,7 @@
                 </li>
                 <%} else if(userBean.isAdmin()){%>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Area admin
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -74,13 +70,13 @@
 <!-- Fine NAVBAR-->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-3 col-description d-flex align-items-center py-3">
-            <div class="container border border-secondary rounded">
+        <div class="col-lg-3 col-description d-flex align-items-center py-3">
+            <div class="col-text">
                 <p class="lead card-title"><h1 class="sectionTitle">Spa</h1>
                 <p class="lead card-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, quas, architecto, harum iure possimus veniam placeat eligendi aut asperiores molestias totam officia commodi in consequuntur minus suscipit adipisci omnis! Doloribus.</p>
             </div>
         </div>
-        <div class="col-md-9 py-3 col-image d-flex align-items-center" style="background-image: url('../imgs/imgs-attivita/spa-backgorund-1.jpg');">
+        <div class="col-lg-9 col-image d-flex align-items-center p-3" style="background-image: url('../imgs/imgs-attivita/spa-backgorund-1.jpg');">
             <div class="container mxy-5">
                 <div id="carouselControls" class="carousel slide carousel-fade" data-ride="carousel">
                     <div class="carousel-inner">
@@ -106,7 +102,7 @@
 </div>
 <div class="container-fluid my-2">
     <div class="row">
-        <div class="col-md-9 py-3 col-image d-flex align-items-center" style="background-image: url('../imgs/imgs-attivita/ristoranti-background-3.jpg');">
+        <div class="col-lg-9  col-image d-flex align-items-center p-3" style="background-image: url('../imgs/imgs-attivita/ristoranti-background-3.jpg');">
             <div class="container">
                 <div id="carouselControls2" class="carousel slide carousel-fade" data-ride="carousel">
                     <div class="carousel-inner">
@@ -129,8 +125,8 @@
             </div>
         </div>
         <a name="ristoranti"></a>
-        <div class="col-md-3 col-description d-flex align-items-center py-2">
-            <div class="container border border-secondary rounded">
+        <div class="col-lg-3 col-description pt-5 pt-2 d-flex align-items-center ">
+            <div class="col-text">
                 <p class="text-center lead"><h1 class="sectionTitle">Ristoranti</h1>
                 <p class="lead card-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, quas, architecto, harum iure possimus veniam placeat eligendi aut asperiores molestias totam officia commodi in consequuntur minus suscipit adipisci omnis! Doloribus.</p>
             </div>
@@ -139,13 +135,13 @@
 </div>
 <div class="container-fluid" >
     <div class="row">
-        <div class="col-md-3 col-description d-flex align-items-center pb-2">
-            <div class="container border border-secondary rounded">
+        <div class="col-lg-3 col-description pb-5 pt-2 d-flex align-items-center">
+            <div class="col-text">
                 <p class="text-center lead">  <h1 class="sectionTitle">Bar, Palestra e Ludoteca</h1>
                 <p class="lead card-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, quas, architecto, harum iure possimus veniam placeat eligendi aut asperiores molestias totam officia commodi in consequuntur minus suscipit adipisci omnis! Doloribus.</p>
             </div>
         </div>
-        <div class="col-md-9 d-flex col-image align-items-center py-3 " style="background-image: url('../imgs/imgs-attivita/attivita-background-2.jpg');">
+        <div class="col-lg-9 d-flex col-image align-items-center p-3 " style="background-image: url('../imgs/imgs-attivita/attivita-background-2.jpg');">
             <div class="container">
                 <div id="carouselControls3" class="carousel slide carousel-fade" data-ride="carousel">
                     <div class="carousel-inner">

@@ -26,8 +26,8 @@ else {%>
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-0">
     <div class="container">
-        <a class="navbar-brand font-weight-bold" href="${pageContext.request.contextPath}/index.jsp">
-            <img src="${pageContext.request.contextPath}/imgs/logo.png" class="logo" width="90" height="40" alt="" >
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">
+            <img src="${pageContext.request.contextPath}/imgs/logo.png" width="80" height="40" alt="" >
             Hotel Marbella
         </a>
 
@@ -37,22 +37,44 @@ else {%>
         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
             <ul class="navbar-nav navbar-right">
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/index.jsp">Home</a>
+                    <a class="nav-link " href="${pageContext.request.contextPath}/index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/camere/camere.jsp">Visita camere</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/camere/camere.jsp">Visita camere</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/camere/attivita.jsp">Esplora ristoranti ed attività</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/camere/attivita.jsp">Esplora ristoranti ed attività</a>
                 </li>
+                <%if(userBean == null){%>
                 <li class="nav-item">
-                    <a class="nav-link active font-weight-bold" href="${pageContext.request.contextPath}/login/login.jsp">Login</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/login/login.jsp">Login</a>
                 </li>
+                <%}else if(!userBean.isAdmin()) {%>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Area utente
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/login/user/userPage.jsp">Pannello utente</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/login?action=logout">Logout</a>
+                    </div>
+                </li>
+                <%} else if(userBean.isAdmin()){%>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Area admin
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/login/admin/adminPage.jsp">Pannello admin</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/login?action=logout">Logout</a>
+                    </div>
+                </li>
+                <%}%>
             </ul>
         </div>
     </div>
-</nav>
-<!-- -->
+
+</nav><!-- -->
 <div class="container border border-secondary rounded my-2 py-3">
     <h2>Vuole confermare la seguente prenotazione?</h2>
             <a class="btn btn-success mx-2" type="submit" href="${pageContext.request.contextPath}/doReservationControl?action=booked" >Conferma prenotazione</a>

@@ -120,16 +120,16 @@ public class makeReservation extends javax.servlet.http.HttpServlet {
 
                     session.removeAttribute("cart");
 
-                    response.sendRedirect(response.encodeRedirectURL("./index.jsp"));
+                    response.sendRedirect(response.encodeRedirectURL("./index.jsp?action=booked"));
 
                 } catch (SQLException sqlException) {
-                    response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp?error=SQLExceptionOrParseException"));
+                    response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp"));
                     sqlException.printStackTrace();
                 }
                 break;
             case "delete":
                 request.getSession().removeAttribute("cart");
-                response.sendRedirect(response.encodeRedirectURL("./index.jsp"));
+                response.sendRedirect(response.encodeRedirectURL("./index.jsp?action=deleted"));
                 break;
             case "modify":
                 cart.getClienteBean().setDatanascita(dateBookedMaker(cart.getClienteBean().getDatanascita()));

@@ -57,12 +57,10 @@ public class getInfo extends HttpServlet {
                 String cf2 = request.getParameter("cf");
                 String email = UserDAO.getUserByCF(cf2).getEmail();
                 response.getWriter().write(email);
-                System.out.println(email +"ciao");
                 break;
         }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }

@@ -25,7 +25,7 @@ NAVBAR
 -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-0">
     <div class="container">
-        <a class="navbar-brand font-weight-bold" href="${pageContext.request.contextPath}/index.jsp">
+        <a class="navbar-brand " href="${pageContext.request.contextPath}/index.jsp">
             <img src="${pageContext.request.contextPath}/imgs/logo.png" width="80" height="40" alt="" >
             Hotel Marbella
         </a>
@@ -36,21 +36,21 @@ NAVBAR
         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
             <ul class="navbar-nav navbar-right">
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/index.jsp">Home</a>
+                    <a class="nav-link " href="${pageContext.request.contextPath}/index.jsp">Home</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/camere/camere.jsp">Visita camere</a>
+                    <a class="nav-link " href="${pageContext.request.contextPath}/camere/camere.jsp">Visita camere</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/camere/attivita.jsp">Esplora ristoranti ed attività</a>
+                    <a class="nav-link " href="${pageContext.request.contextPath}/camere/attivita.jsp">Esplora ristoranti ed attività</a>
                 </li>
                 <%if(userBean == null){%>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/login/login.jsp">Login</a>
+                    <a class="nav-link " href="${pageContext.request.contextPath}/login/login.jsp">Login</a>
                 </li>
                 <%}else if(!userBean.isAdmin()) {%>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Area utente
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
@@ -60,7 +60,7 @@ NAVBAR
                 </li>
                 <%} else if(userBean.isAdmin()){%>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Area admin
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -90,6 +90,7 @@ NAVBAR
                 <div class="card-body">
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <button type="button" class="btn btn-darkgreen" onclick="location.href='./camera_suite.jsp'">Visita la camera</button>
+                    <div class="btn bordered border-secondary"> Prezzo medio 200€/notte a persona</div>
                 </div>
             </div>
         </div>
@@ -108,6 +109,7 @@ NAVBAR
                         <div class="card-body">
                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                             <button type="button" class="btn btn-darkgreen" onclick="location.href='camera_superior.jsp'">Visita la camera</button>
+                            <div class="btn bordered border-secondary"> Prezzo medio 100€/notte a persona</div>
                         </div>
                     </div>
                 </div>
@@ -126,6 +128,7 @@ NAVBAR
                     <div class="card-body">
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                         <button type="button" class="btn btn-darkgreen" onclick="location.href='camera_standard.jsp'">Visita la camera</button>
+                        <div class="btn bordered border-secondary"> Prezzo medio 60€/notte a persona</div>
                     </div>
                 </div>
             </div>

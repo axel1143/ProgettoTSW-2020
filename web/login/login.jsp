@@ -23,7 +23,7 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-0">
     <div class="container">
-        <a class="navbar-brand font-weight-bold" href="${pageContext.request.contextPath}/index.jsp">
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">
             <img src="${pageContext.request.contextPath}/imgs/logo.png" width="80" height="40" alt="" >
             Hotel Marbella
         </a>
@@ -34,21 +34,21 @@
         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
             <ul class="navbar-nav navbar-right">
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/index.jsp">Home</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/camere/camere.jsp">Visita camere</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/camere/camere.jsp">Visita camere</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="${pageContext.request.contextPath}/camere/attivita.jsp">Esplora ristoranti ed attività</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/camere/attivita.jsp">Esplora ristoranti ed attività</a>
                 </li>
                 <%if(userBean == null){%>
                 <li class="nav-item">
-                    <a class="nav-link active font-weight-bold" href="${pageContext.request.contextPath}/login/login.jsp">Login</a>
+                    <a class="nav-link active" href="${pageContext.request.contextPath}/login/login.jsp">Login</a>
                 </li>
                 <%}else if(!userBean.isAdmin()) {%>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Area utente
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
@@ -58,7 +58,7 @@
                 </li>
                 <%} else if(userBean.isAdmin()){%>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Area admin
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
