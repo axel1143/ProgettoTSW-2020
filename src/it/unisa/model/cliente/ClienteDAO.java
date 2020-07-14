@@ -11,6 +11,41 @@ import java.util.Collection;
 
 public class ClienteDAO {
 
+    public static ClienteBean getCostumerByCF(String cf) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        ClienteBean bean = new ClienteBean();
+        String statement = "select * from Cliente where codice_fiscale = ?";
+        try {
+            connection = DriverManagerConnectionPool.getConnection();
+            preparedStatement = connection.prepareStatement(statement);
+
+            preparedStatement.setString(1,cf);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                bean.setCodicefiscale(resultSet.getString("codice_fiscale"));
+                bean.setNome(resultSet.getString("nome"));
+                bean.setCognome(resultSet.getString("cognome"));
+                bean.setDatanascita(resultSet.getString("data_di_nascita"));
+
+            }
+
+            preparedStatement.close();
+            return bean;
+        } catch (SQLException sql) {
+            sql.printStackTrace();
+        } finally {
+            try {
+                DriverManagerConnectionPool.releaseConnection(connection);
+            } catch (SQLException sqlException) {
+                sqlException.printStackTrace();
+            }
+        }
+        return null;
+    }
+
     //Ritorna una lista di tutti i clienti
     public static Collection<ClienteBean> allCustomer() {
         Connection connection = null;

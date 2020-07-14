@@ -152,7 +152,7 @@ function getEmail(codicefiscale, contextPath, row) {
         type:'POST',
         url:contextPath+'/getInfo',
         data: {
-            toget : 'email',
+            toget : 'Email',
             cf : codicefiscale
         },
         success: function(data) {

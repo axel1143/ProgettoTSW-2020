@@ -54,7 +54,7 @@ public class getInfo extends HttpServlet {
                     }
                 }
                 break;
-            case "email":
+            case "Email":
                 String cf2 = request.getParameter("cf");
                 String email = UserDAO.getUserByCF(cf2).getEmail();
                 response.getWriter().write(email);
