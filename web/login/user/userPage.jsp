@@ -1,4 +1,5 @@
-<%@ page import="it.unisa.model.user.UserBean" %><%--
+<%@ page import="it.unisa.model.user.UserBean" %>
+<%@ page import="it.unisa.model.cliente.ClienteBean" %><%--
   Created by IntelliJ IDEA.
   User: alex
   Date: 27/06/20
@@ -7,6 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <% UserBean userBean = (UserBean) session.getAttribute("user");%>
+<% ClienteBean clienteBean = (ClienteBean) session.getAttribute("customer");%>
 <html>
 <head>
     <title>Hotel Marbel</title>
@@ -68,15 +70,32 @@
     </div>
 
 </nav>
+<h2 style="text-align: center"> Benvenuto <%=clienteBean.getNome()%> nella tua area utente!</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 d-flex align-items-center">
+            <ul>
+                <li>Codice Fiscale: <%=userBean.getCodicefiscale()%></li>
+                <li>Email: <%=userBean.getEmail()%></li>
+                <li>Password: <%=userBean.getPassword()%></li>
+                <li>Nome: <%=clienteBean.getNome()%></li>
+                <li>Cognome: <%=clienteBean.getCognome()%></li>
+                <li>Data di nascita: <%=clienteBean.getDatanascita()%></li>
+                <p style="font-weight: bold">Importante: Se tutte le prenotazioni dovessero essere cancellate, l'utente al prossimo login sarebbe cancellato!</p>
+            </ul>
 
-<h2 style="text-align: center"><%=userBean.getEmail()%> benvenuto nella tua area utente!</h2>
-<h3 style="text-align: center">Queste sono le prenotazioni effettuate fin'ora</h3>
-<div class="row">
-    <div class="col-lg-6 offset-lg-3">
-        <div id="showBooking">
+        </div>
+        <div class="col-lg-8">
+            <h4 style="text-align: center">Queste sono le prenotazioni effettuate fin'ora</h4>
+            <div class="row">
+                <div id="showBooking">
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+
 
 <script src="${pageContext.request.contextPath}/login/customerPage.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>

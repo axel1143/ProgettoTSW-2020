@@ -23,6 +23,7 @@ public class makeReservation extends javax.servlet.http.HttpServlet {
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         HttpSession session = request.getSession();
         UserBean logged = (UserBean) session.getAttribute("user");
+        ClienteBean customerLogged = (ClienteBean) session.getAttribute("customer");
         Cart cart = (Cart) session.getAttribute("cart");
 
         String action = request.getParameter("action");
@@ -32,12 +33,6 @@ public class makeReservation extends javax.servlet.http.HttpServlet {
                 boolean toRegister = false;
                 String email = "";
                 String password = "";
-                String codiceFiscale = request.getParameter("codicefiscale");
-                String nome = request.getParameter("nome");
-                String cognome = request.getParameter("cognome");
-                String nascita = request.getParameter("nascita");
-                nascita = bookeDateMaker(nascita, false);
-
                 String tipo = request.getParameter("tipocamera");
                 String date = request.getParameter("dates");
                 String check_in = bookeDateMaker(date.substring(0, 10), true);
@@ -58,27 +53,36 @@ public class makeReservation extends javax.servlet.http.HttpServlet {
                     else{
                         request.getSession().removeAttribute("cart");
                         cart = new Cart();
-                        ClienteBean clienteBean = new ClienteBean();
-                        clienteBean.setCodicefiscale(codiceFiscale);
-                        clienteBean.setNome(nome);
-                        clienteBean.setCognome(cognome);
-                        clienteBean.setDatanascita(nascita);
 
-                        cart.setClienteBean(clienteBean);
+                        if(customerLogged == null) {
+                            String codiceFiscale = request.getParameter("codicefiscale");
+                            String nome = request.getParameter("nome");
+                            String cognome = request.getParameter("cognome");
+                            String nascita = request.getParameter("nascita");
+                            nascita = bookeDateMaker(nascita, false);
+                            ClienteBean clienteBean = new ClienteBean();
+                            clienteBean.setCodicefiscale(codiceFiscale);
+                            clienteBean.setNome(nome);
+                            clienteBean.setCognome(cognome);
+                            clienteBean.setDatanascita(nascita);
+                            cart.setClienteBean(clienteBean);
+                        }
+                        else {
+                            cart.setClienteBean(customerLogged);
+                        }
 
-                        if (!ClienteDAO.isCustomer(codiceFiscale)) cart.setAddClient(true);
+                        if (!ClienteDAO.isCustomer(cart.getClienteBean().getCodicefiscale())) cart.setAddClient(true);
                         else cart.setAddClient(false);
 
                         if (toRegister) {
                             UserBean userBean = new UserBean();
                             userBean.setEmail(email);
                             userBean.setPassword(password);
-                            userBean.setCodicefiscale(codiceFiscale);
+                            userBean.setCodicefiscale(cart.getClienteBean().getCodicefiscale());
                             userBean.setAdmin(false);
 
                             cart.setUserBean(userBean);
                             if (!UserDAO.isAlreadyUserEmail(email)) cart.setAddUser(true);
-
                         }
                         else cart.setAddUser(false);
 
@@ -88,7 +92,7 @@ public class makeReservation extends javax.servlet.http.HttpServlet {
                         cart.setCameraBean(cameraBean);
 
                         PrenotazioneBean toAdd = new PrenotazioneBean(); //Crea il bean//Recupera il primo numero di camera libero
-                        toAdd.setCodice_fiscale(codiceFiscale);
+                        toAdd.setCodice_fiscale(cart.getClienteBean().getCodicefiscale());
                         toAdd.setCheck_in(new Timestamp((new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(check_in)).getTime()));
                         toAdd.setCheck_out(new Timestamp((new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(check_out)).getTime()));
                         toAdd.setNumero(numberRoom);

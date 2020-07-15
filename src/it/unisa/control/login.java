@@ -1,5 +1,7 @@
 package it.unisa.control;
 
+import it.unisa.model.cliente.ClienteBean;
+import it.unisa.model.cliente.ClienteDAO;
 import it.unisa.model.user.UserBean;
 import it.unisa.model.user.UserDAO;
 
@@ -35,6 +37,10 @@ public class login extends HttpServlet {
                                 userBean.setCodicefiscale(userRequested.getCodicefiscale());
 
                                 session.setAttribute("user", userBean);
+
+                                ClienteBean clienteBean = ClienteDAO.getCostumerByCF(userBean.getCodicefiscale());
+                                session.setAttribute("customer", clienteBean);
+
                                 response.sendRedirect(response.encodeRedirectURL(request.getContextPath()+"/index.jsp"));
                             }
                             else {
@@ -54,6 +60,7 @@ public class login extends HttpServlet {
                 case "logout":
                     if (userBean != null){
                         session.removeAttribute("user");
+                        session.removeAttribute("customer");
                     }
                     response.sendRedirect(response.encodeRedirectURL(request.getContextPath()+"/index.jsp"));
                     break;

@@ -1,5 +1,6 @@
 <%@ page import="it.unisa.model.Cart" %>
 <%@ page import="it.unisa.model.user.UserBean" %>
+<%@ page import="it.unisa.model.cliente.ClienteBean" %>
 <!--
   Created by IntelliJ IDEA.
   User: alex
@@ -8,13 +9,18 @@
   To change this template use File | Settings | File Templates.
 !-->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<% UserBean userBean = (UserBean) session.getAttribute("user");%>
-<% Cart cart = (Cart) request.getSession().getAttribute("cart"); // Prende il carrello dalla sessione attuale
+<%
+    ClienteBean clienteBean = (ClienteBean) session.getAttribute("customer");
+    UserBean userBean = (UserBean) session.getAttribute("user");
+    Cart cart = (Cart) request.getSession().getAttribute("cart"); // Prende il carrello dalla sessione attuale
     String action = (String) request.getSession().getAttribute("action"); // Serve a capire se la pagina JSP é stata chiamata con un action
     String type = request.getParameter("tipocamera"); //Serve a capire se la prenotazione é stata chiamata su una determinata cameras specifica
     String error = request.getParameter("error"); //Controlla se in qualche modo l'utente ha bypassato il controllo front-end sulla data di prenotazione
-    if(cart != null && action == null ) response.sendRedirect(response.encodeRedirectURL("./riepilogo.jsp"));
-    if (type == null) type = ""; %>
+    if(cart != null && action == null ) response.sendRedirect(response.encodeRedirectURL(pageContext.getRequest().getServletContext().getContextPath()+"/riepilogo.jsp"));
+    if(type == null) type = "";
+
+    if(userBean != null && userBean.isAdmin()) response.sendRedirect(response.encodeRedirectURL((pageContext.getRequest().getServletContext().getContextPath()+"/login/admin/adminPage.jsp")));
+%>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -97,10 +103,11 @@
     <h1>Prenotati ora</h1>
     <form name="register" method="post" action="${pageContext.request.contextPath}/doReservationControl" onsubmit="return control()"> <!--onsubmit="return control()" -->
         <div class="container-fluid border border-secondary rounded mt-3 py-3">
+            <%if(clienteBean == null){%>
             <h3>Dati personali</h3>
             <div class="form-group">
                 <label for="inputCodiceFiscale">Codice Fiscale</label>
-                <input type="text" class="form-control" id="inputCodiceFiscale" name="codicefiscale"  placeholder="Inserisci qui il tuo codice fiscale" onchange="controlCF()" <% if (action != null && action.equals("modify")){%> value="<%=cart.getPrenotazioneBean().getCodice_fiscale()%>" <%}%> />
+                <input type="text" class="form-control" id="inputCodiceFiscale" name="codicefiscale"  placeholder="Inserisci qui il tuo codice fiscale" onchange="controlCF()" <% if(action != null && action.equals("modify")){%> value="<%=cart.getPrenotazioneBean().getCodice_fiscale()%> <%}%> " />
                 <div id="cfError"></div>
             </div>
             <div class="form-group">
@@ -127,8 +134,8 @@
                     });
                 </script>
                 <div id="dataError"></div>
-        </div>
-
+            </div>
+        <%}%>
 
         <div class="container-fluid border border-secondary rounded my-3 py-3">
             <h3>Informazioni prenotazione</h3>

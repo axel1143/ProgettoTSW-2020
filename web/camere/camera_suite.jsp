@@ -63,6 +63,9 @@ NAVBAR
                     </div>
                 </li>
                 <%}%>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-danger" href="${pageContext.request.contextPath}/prenotazione/prenotazione.jsp?tipocamera=suite">Prenota ora!</a>
+                </li>
             </ul>
         </div>
     </div>
