@@ -1,4 +1,5 @@
-<%@ page import="it.unisa.model.user.UserBean" %><%--
+<%@ page import="it.unisa.model.user.UserBean" %>
+<%@ page import="it.unisa.model.cliente.ClienteBean" %><%--
   Created by IntelliJ IDEA.
   User: alex
   Date: 27/06/20
@@ -7,6 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <% UserBean userBean = (UserBean) session.getAttribute("user");%>
+<% ClienteBean clienteBean = (ClienteBean) session.getAttribute("customer");%>
 <html>
 <head>
     <title>Hotel Marbel</title>
@@ -68,7 +70,7 @@
     </div>
 
 </nav>
-<h2 style="text-align: center"> Benvenuto nella tua area utente!</h2>
+<h2 style="text-align: center"> Benvenuto <%=clienteBean.getNome()%> nella tua area utente!</h2>
 <div class="container">
     <div class="row">
         <div class="col-lg-4 d-flex align-items-center">
@@ -76,7 +78,12 @@
                 <li>Codice Fiscale: <%=userBean.getCodicefiscale()%></li>
                 <li>Email: <%=userBean.getEmail()%></li>
                 <li>Password: <%=userBean.getPassword()%></li>
+                <li>Nome: <%=clienteBean.getNome()%></li>
+                <li>Cognome: <%=clienteBean.getCognome()%></li>
+                <li>Data di nascita: <%=clienteBean.getDatanascita()%></li>
+                <p style="font-weight: bold">Importante: Se tutte le prenotazioni dovessero essere cancellate, l'utente al prossimo login sarebbe cancellato!</p>
             </ul>
+
         </div>
         <div class="col-lg-8">
             <h4 style="text-align: center">Queste sono le prenotazioni effettuate fin'ora</h4>

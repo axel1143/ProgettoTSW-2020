@@ -87,8 +87,7 @@ public class makeReservation extends javax.servlet.http.HttpServlet {
                         else cart.setAddUser(false);
 
                         int numberRoom = PrenotazioneDAO.getFirstFreeByType(check_in, check_out, tipo);
-                        CameraBean cameraBean = new CameraBean();
-                        cameraBean = CameraDAO.getRoomByNumber(numberRoom);
+                        CameraBean cameraBean = CameraDAO.getRoomByNumber(numberRoom);
                         cart.setCameraBean(cameraBean);
 
                         PrenotazioneBean toAdd = new PrenotazioneBean(); //Crea il bean//Recupera il primo numero di camera libero
@@ -101,8 +100,8 @@ public class makeReservation extends javax.servlet.http.HttpServlet {
                         session.setAttribute("cart", cart);
 
                         if(UserDAO.isAlreadyUserEmail(email) && toRegister){
-                            cart.getClienteBean().setDatanascita(dateBookedMaker(cart.getClienteBean().getDatanascita()));
                             session.removeAttribute("cart");
+                            cart.getClienteBean().setDatanascita(dateBookedMaker(cart.getClienteBean().getDatanascita()));
                             session.setAttribute("cart", cart);
                             session.setAttribute("action" , "modify");
                             response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp?error=user-already-exist"));
