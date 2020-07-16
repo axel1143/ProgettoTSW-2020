@@ -55,16 +55,11 @@ public class makeReservation extends javax.servlet.http.HttpServlet {
                         cart = new Cart();
 
                         if(customerLogged == null) {
-                            String codiceFiscale = request.getParameter("codicefiscale");
-                            String nome = request.getParameter("nome");
-                            String cognome = request.getParameter("cognome");
-                            String nascita = request.getParameter("nascita");
-                            nascita = bookeDateMaker(nascita, false);
                             ClienteBean clienteBean = new ClienteBean();
-                            clienteBean.setCodicefiscale(codiceFiscale);
-                            clienteBean.setNome(nome);
-                            clienteBean.setCognome(cognome);
-                            clienteBean.setDatanascita(nascita);
+                            clienteBean.setCodicefiscale(request.getParameter("codicefiscale"));
+                            clienteBean.setNome(request.getParameter("nome"));
+                            clienteBean.setCognome(request.getParameter("cognome"));
+                            clienteBean.setDatanascita(bookeDateMaker(request.getParameter("nascita"), false));
                             cart.setClienteBean(clienteBean);
                         }
                         else {
@@ -103,8 +98,7 @@ public class makeReservation extends javax.servlet.http.HttpServlet {
                             session.removeAttribute("cart");
                             cart.getClienteBean().setDatanascita(dateBookedMaker(cart.getClienteBean().getDatanascita()));
                             session.setAttribute("cart", cart);
-                            session.setAttribute("action" , "modify");
-                            response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp?error=user-already-exist"));
+                            response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp?error=user-already-exist&action=modify"));
                         }
 
                         else response.sendRedirect(response.encodeRedirectURL("./prenotazione/riepilogo.jsp"));
@@ -136,8 +130,7 @@ public class makeReservation extends javax.servlet.http.HttpServlet {
                 break;
             case "modify":
                 cart.getClienteBean().setDatanascita(dateBookedMaker(cart.getClienteBean().getDatanascita()));
-                session.setAttribute("action" , "modify");
-                response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp"));
+                response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp?action=modify"));
 
         }
 
