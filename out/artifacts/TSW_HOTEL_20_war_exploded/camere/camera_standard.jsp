@@ -78,7 +78,7 @@ NAVBAR
 <!-- CAROUSEL -->
 <div id="carouselExampleControls" class="carousel slide carousel-fade mb-0" data-ride="carousel">
     <div class="carousel-inner">
-        <div class="carousel-item active " style="background-image: url('../imgs/img-standard/standard3.jpg');">
+        <div class="carousel-item active " style="background-image: url('../imgs/img-standard/nuovo1jpg.jpg');">
             <div class="carousel-caption p-4">
                 <div class="gradient-slide p-1">
                     <h1 class="font-weight-bold">Camera Standard</h1>
@@ -86,19 +86,19 @@ NAVBAR
                 </div>
             </div>
         </div>
-        <div class="carousel-item" style="background-image: url('../imgs/img-standard/standard2.jpg');">
+        <div class="carousel-item" style="background-image: url('../imgs/img-standard/nuovo2.jpg');">
             <div class="carousel-caption p-4 side-container">
                 <div class="gradient-slide p-1 side-body">
-                    <h1 class="font-weight-bold">CIAO</h1>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius nam impedit praesentium, molestiae hic libero, unde autem deserunt repudiandae minus </p>
+                    <h1 class="font-weight-bold">Efficienza</h1>
+                    <p>Le nostre camere standard sono camere particolari rispetto alle camere standard semplici.Il nostro staff offre per le standard una coilazione di accoglienza il primo giorno di pernottamento. </p>
                 </div>
             </div>
         </div>
-        <div class="carousel-item" style="background-image: url('../imgs/img-standard/standard4.jpg');">
+        <div class="carousel-item" style="background-image: url('../imgs/img-standard/nuovo1jpg.jpg');">
             <div class="carousel-caption p-4 side-container">
                 <div class="gradient-slide p-1 side-body">
-                    <h1 class="font-weight-bold">CIAO</h1>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius nam impedit praesentium, molestiae hic libero, unde autem deserunt repudiandae minus </p>
+                    <h1 class="font-weight-bold">Comodità</h1>
+                    <p>Facciamo un tuffo nel passato con le nostre camere standard ma l'importante è sempre mantenere un piede nel presente per godere al meglio questa esperienza. </p>
                 </div>
             </div>
         </div>

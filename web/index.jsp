@@ -99,7 +99,7 @@ alert('Prenotazione cancellata!')
         </div>
         <div class="gradient-slide p-1">
           <h1 class="font-weight-bold">Camere</h1>
-          <p style>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ipsum molestiae dicta veritatis, adipisci molestias nesciunt qui quisquam placeat eum suscipit laudantium nemo culpa. Laboriosam blanditiis similique eius quo quod!</p>
+          <p style>Goditi un soggiorno unico e pieno di relax nelle nostre accoglienti camere.Resapira magnifici momenti che solo l'hotel Marbella sa regalare ai propri clienti grazie anche al calore e all'accoglienza dello staff.</p>
         </div>
       </div>
     </div>
@@ -107,7 +107,7 @@ alert('Prenotazione cancellata!')
       <div class="carousel-caption p-4">
         <div class="gradient-slide p-1">
           <h1 class="font-weight-bold">Attività</h1>
-          <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ipsum molestiae dicta veritatis, adipisci molestias nesciunt qui quisquam placeat eum suscipit laudantium nemo culpa. Laboriosam blanditiis similique eius quo quod!</p>
+          <p >L'hotel Marbella offre anche tante attività da intraprendere per trascorrere al meglio il tempo in nostra compagnia.Non perdete l'occassione e buttatevi all'avventura non ve ne pentirete.</p>
         </div>
       </div>
     </div>
@@ -115,7 +115,7 @@ alert('Prenotazione cancellata!')
       <div class="carousel-caption p-4">
         <div class="gradient-slide p-1">
           <h1 class="font-weight-bold">Ristoranti</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ipsum molestiae dicta veritatis, adipisci molestias nesciunt qui quisquam placeat eum suscipit laudantium nemo culpa. Laboriosam blanditiis similique eius quo quod!</p>
+          <p>Quello che offre il nostro hotel è soltanto il meglio per i palati dei nostri clienti.Gli chef pluristellati sapranno come prenderevi con la gola con i nostri piatti gourmet piani d'amore e attenzione.</p>
         </div>
       </div>
     </div>
@@ -142,7 +142,7 @@ alert('Prenotazione cancellata!')
           <div class="col-lg-8">
             <h5 class="card-header">Camere</h5>
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text">Qui è presente la scelta delle varie camere che lo staff ha organizzato per far vivere al meglio il vostro soggiorno presso la nostra struttura.</p>
               <a href="${pageContext.request.contextPath}/camere/camere.jsp" class="btn btn-darkgreen" >Visita le camere</a>
               <button type="button" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/prenotazione/prenotazione.jsp'">Prenota Ora</button>
             </div>
@@ -160,7 +160,7 @@ alert('Prenotazione cancellata!')
           <div class="col-lg-8">
             <h5 class="card-header">Attivitá</h5>
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text">Le nostre attività sono varie.Manteniamo impegnati i nostri clienti sia fisicamednte che mantalmente con un'ottima accoglienza.</p>
               <a href="${pageContext.request.contextPath}/camere/attivita.jsp" class="btn btn-darkgreen" style="background-color: darkgreen; color: white">Visita le nostre attività</a>
             </div>
           </div>
@@ -178,7 +178,7 @@ alert('Prenotazione cancellata!')
           <div class="col-lg-8">
             <h5 class="card-header">Ristoranti</h5>
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text">Esplorate i nostri caldi e accoglienti ristoranti, dove coccoliamo il palato dei nostri amati clienti.</p>
               <a href="${pageContext.request.contextPath}/camere/attivita.jsp#ristoranti" class="btn btn-darkgreen" >Scopri i nostri ristoranti</a>
             </div>
           </div>

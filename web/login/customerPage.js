@@ -110,6 +110,7 @@ function addBookingRow(table, elementRow,index,customers,contextPath) {
             success: function() {
                 alert("Prenotazione eliminata!")
                 getBooking(customers[index]["codice_fiscale"],contextPath)
+
             },
             error: function(error) {
                 console.log(error)
