@@ -73,7 +73,7 @@
         <div class="col-lg-3 col-description d-flex align-items-center py-3">
             <div class="col-text">
                 <p class="lead card-title"><h1 class="sectionTitle">Spa</h1>
-                <p class="lead card-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, quas, architecto, harum iure possimus veniam placeat eligendi aut asperiores molestias totam officia commodi in consequuntur minus suscipit adipisci omnis! Doloribus.</p>
+                <p class="lead card-body">Le nostre attività sono varie. La più gettonata tra queste è la nostra lussuosa e rilassante spa che mette a proprio agio ogni nostro cliente. Utilizza la nostra struttutra passando dal calore della nostra sauna al percorso relax fatto in acqua attravereso idromassaggio e getti d'acqua a temperature varie.</p>
             </div>
         </div>
         <div class="col-lg-9 col-image d-flex align-items-center p-3" style="background-image: url('../imgs/imgs-attivita/spa-backgorund-1.jpg');">
@@ -128,7 +128,7 @@
         <div class="col-lg-3 col-description pt-5 pt-2 d-flex align-items-center ">
             <div class="col-text">
                 <p class="text-center lead"><h1 class="sectionTitle">Ristoranti</h1>
-                <p class="lead card-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, quas, architecto, harum iure possimus veniam placeat eligendi aut asperiores molestias totam officia commodi in consequuntur minus suscipit adipisci omnis! Doloribus.</p>
+                <p class="lead card-body">I nostri chef stellati coccoleranno il vosatro palato come non è mai stato fatto. I nostri ristoranti si presentano con un ambiente professionale e molto accogliente per mettere a prorpio agio l'ampia clientela. Non lasciatevi scappare una sensazione unica suscitata dai nostri sapori stellari.</p>
             </div>
         </div>
     </div>
@@ -138,7 +138,7 @@
         <div class="col-lg-3 col-description pb-5 pt-2 d-flex align-items-center">
             <div class="col-text">
                 <p class="text-center lead">  <h1 class="sectionTitle">Bar, Palestra e Ludoteca</h1>
-                <p class="lead card-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, quas, architecto, harum iure possimus veniam placeat eligendi aut asperiores molestias totam officia commodi in consequuntur minus suscipit adipisci omnis! Doloribus.</p>
+                <p class="lead card-body">Le tante attività sono composte anche da bar per passare una serata diversa con amici, palestre per chi vuole rilassarsi ma tenersi in forma allo stesso momento e in fine le ludoteche dove ci occuperemo dei vorsti bambini come fossero i nostri.</p>
             </div>
         </div>
         <div class="col-lg-9 d-flex col-image align-items-center p-3 " style="background-image: url('../imgs/imgs-attivita/attivita-background-2.jpg');">

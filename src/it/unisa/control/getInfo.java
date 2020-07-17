@@ -32,7 +32,6 @@ public class getInfo extends HttpServlet {
                 String cf = request.getParameter("cf");
                 ArrayList<PrenotazioneBean> booking = (ArrayList<PrenotazioneBean>) PrenotazioneDAO.doRetriveByCF(cf);
                 String bookingToReturn = gson.toJson(booking);
-                System.out.println(bookingToReturn);
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write(bookingToReturn);
