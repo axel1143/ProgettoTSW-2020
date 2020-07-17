@@ -94,7 +94,7 @@ NAVBAR
                 </div>
             </div>
         </div>
-        <div class="carousel-item" style="background-image: url('../imgs/img-standard/nuovo1jpg.jpg');">
+        <div class="carousel-item" style="background-image: url('../imgs/img-standard/standard3.jpg');">
             <div class="carousel-caption p-4 side-container">
                 <div class="gradient-slide p-1 side-body">
                     <h1 class="font-weight-bold">Comodità</h1>

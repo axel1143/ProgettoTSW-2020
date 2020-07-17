@@ -73,7 +73,7 @@
         <div class="col-lg-3 col-description d-flex align-items-center py-3">
             <div class="col-text">
                 <p class="lead card-title"><h1 class="sectionTitle">Spa</h1>
-                <p class="lead card-body">Le nostre attività sono varie.La più gettonata tra queste è la nostra lussuosa e rilassante spa che mette a proprio agio ogni nostro cliente.Utilizza la nostra struttutra passando dal calore della nostra sauna al percorso relax fatto in acqua attravereso idromassaggio e getti d'acqua a temperature varie.</p>
+                <p class="lead card-body">Le nostre attività sono varie. La più gettonata tra queste è la nostra lussuosa e rilassante spa che mette a proprio agio ogni nostro cliente. Utilizza la nostra struttutra passando dal calore della nostra sauna al percorso relax fatto in acqua attravereso idromassaggio e getti d'acqua a temperature varie.</p>
             </div>
         </div>
         <div class="col-lg-9 col-image d-flex align-items-center p-3" style="background-image: url('../imgs/imgs-attivita/spa-backgorund-1.jpg');">
@@ -128,7 +128,7 @@
         <div class="col-lg-3 col-description pt-5 pt-2 d-flex align-items-center ">
             <div class="col-text">
                 <p class="text-center lead"><h1 class="sectionTitle">Ristoranti</h1>
-                <p class="lead card-body">I nostri chef stellati coccoleranno il vosatro palato come non è mai stato fatto. I nostri ristoranti si presentano con un ambiente professionale e molto accogliente per mettere a prorpio agio l'ampia clientela.Non lasciatevi scappare una sensazione unica suscitata dai nostri sapori stellari.</p>
+                <p class="lead card-body">I nostri chef stellati coccoleranno il vosatro palato come non è mai stato fatto. I nostri ristoranti si presentano con un ambiente professionale e molto accogliente per mettere a prorpio agio l'ampia clientela. Non lasciatevi scappare una sensazione unica suscitata dai nostri sapori stellari.</p>
             </div>
         </div>
     </div>
