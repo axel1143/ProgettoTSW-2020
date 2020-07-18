@@ -190,13 +190,12 @@ alert('Prenotazione cancellata!')
 <!-- CARDS-->
 
 
-
+<!-- FOOTER -->
 <div class="jumbotron py-1 footer" style="margin-bottom:0">
-  <p>Contattaci</p>
-  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius nam impedit praesentium, molestiae hic libero, unde autem deserunt repudiandae minus nisi ut, dolorem natus saepe aliquid. Recusandae assumenda officia nulla.
-
-  <p>Informazioni</p>
-  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error harum nulla est qui nam dolor aliquam necessitatibus vitae quasi accusamus veritatis impedit sequi maiores dolore assumenda, perspiciatis, quas voluptate. Fuga?
+  <p><h3>Contattaci<h3><p>
+  I nostri numeri : 089765463 / 3886572709 <br>
+  La nostra email : HotelMarbella@gmail.com <br>
+  Contattaci per avere maggiori informazioni e risolvere ogni tuo dubbio. Lo staff di Marbella saprà soddisfare le vostre richieste.
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

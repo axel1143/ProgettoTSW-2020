@@ -24,12 +24,12 @@ public class AuthFilter implements Filter {
         UserBean userBean = (UserBean) session.getAttribute("user");
 
         String uri = request.getRequestURI();
-        if (session != null) {
+        if (session != null && userBean!= null ) {
             if (uri.contains("/user/")) {
-                if( userBean != null &&(userBean.isAdmin() || !userBean.isAdmin())) chain.doFilter(req,resp);
+                if(userBean.isAdmin() || !userBean.isAdmin()) chain.doFilter(req,resp);
                 else response.sendRedirect(response.encodeRedirectURL(request.getContextPath())+"/index.jsp");
             } else if(uri.contains("/admin/")) {
-                if( userBean != null &&(userBean.isAdmin())) chain.doFilter(req,resp);
+                if( userBean.isAdmin()) chain.doFilter(req,resp);
                 else response.sendRedirect(response.encodeRedirectURL(request.getContextPath())+"/index.jsp");
             }
         } else response.sendRedirect(response.encodeRedirectURL(request.getContextPath())+"/index.jsp");

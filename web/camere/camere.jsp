@@ -102,7 +102,7 @@ NAVBAR
         <div class="col">
             <div class="card w-90">
                 <div class="row no-gutters">
-                    <div class="col-lg-4" style="background-image: url('../imgs/imgs-camere/superior.jpg')">
+                    <div class="col-lg-4" style="background-image: url('../imgs/img-superior/superior1.jpg')">
                     </div>
                     <div class="col-lg-8">
                         <h5 class="card-header">Camera Superior</h5>

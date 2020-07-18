@@ -166,7 +166,13 @@
     </div>
 </div>
 
-
+<!-- FOOTER -->
+<div class="jumbotron py-1 footer" style="margin-bottom:0">
+    <p><h3>Contattaci<h3><p>
+    I nostri numeri : 089765463 / 3886572709 <br>
+    La nostra email : HotelMarbella@gmail.com <br>
+    Contattaci per avere maggiori informazioni e risolvere ogni tuo dubbio. Lo staff di Marbella saprà soddisfare le vostre richieste.
+</div>
 
 
 
