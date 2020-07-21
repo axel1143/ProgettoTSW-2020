@@ -38,11 +38,28 @@ public class makeReservation extends javax.servlet.http.HttpServlet {
                 String check_in = bookeDateMaker(date.substring(0, 10), true);
                 String check_out = bookeDateMaker(date.substring(13, 23), true);
 
+                if(!tipo.equals("suite") && !tipo.equals("superior") && !tipo.equals("standard")){
+                    response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp?error=errore-generico"));
+                    return; }
+                if(check_in.compareTo(check_out) < 0){
+                    response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp?error=errore-generico"));
+                    return; }
+
+
                 if (request.getParameter("register") != null) {
                     if(logged == null) {
                         toRegister = true;
                         email = request.getParameter("email");
                         password = request.getParameter("password");
+
+                        if(!email.matches("^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$")){
+                            response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp?error=errore-generico"));
+                            return ;}
+                        else
+                        if(password.length() < 10){
+                            response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp?error=errore-generico"));
+                            return ;}
+
                     }
                 }
 
@@ -59,6 +76,16 @@ public class makeReservation extends javax.servlet.http.HttpServlet {
                             String nome = request.getParameter("nome");
                             String cognome = request.getParameter("cognome");
                             String nascita = request.getParameter("nascita");
+
+                            if(!codiceFiscale.matches("^[A-Z]{6}\\d{2}[A-Z]\\d{2}[A-Z]\\d{3}[A-Z]$")){
+                                response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp?error=errore-generico"));
+                                return ;
+                            }
+
+                            if(nome.length()>20 || cognome.length()>20){
+                                response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp?error=errore-generico"));
+                                return; }
+
                             nascita = bookeDateMaker(nascita, false);
                             ClienteBean clienteBean = new ClienteBean();
                             clienteBean.setCodicefiscale(codiceFiscale);
@@ -70,7 +97,6 @@ public class makeReservation extends javax.servlet.http.HttpServlet {
                         else {
                             cart.setClienteBean(customerLogged);
                         }
-
                         if (!ClienteDAO.isCustomer(cart.getClienteBean().getCodicefiscale())) cart.setAddClient(true);
                         else cart.setAddClient(false);
 
