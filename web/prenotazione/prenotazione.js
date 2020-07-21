@@ -6,14 +6,14 @@ function control() {
         responsePar.css("color", "red")
         responsePar.html("Data di prenotazione non controllata!")
     }
-    //if (controlCF() === false) err = false
-    //if (controlNames("nome") === false) err = false
-    //if (controlNames("cognome") === false) err = false
-    //if (controlAge() === false) err = false
-    //if(document.getElementById("registerCheck").checked){
-     //   if(controlEmail() === false) err = false
-      // if(controlPassword() === false) err = false
-    //}
+    if (controlCF() === false) err = false
+    if (controlNames("nome") === false) err = false
+    if (controlNames("cognome") === false) err = false
+    if (controlAge() === false) err = false
+    if(document.getElementById("registerCheck").checked){
+        if(controlEmail() === false) err = false
+        if(controlPassword() === false) err = false
+    }
     return err
 }
 function controlPassword() {

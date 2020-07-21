@@ -57,7 +57,7 @@ public class makeReservation extends javax.servlet.http.HttpServlet {
                             return ;}
                         else
                         if(password.length() < 10){
-                            response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp?error=errore-generico"));
+                            response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp?error=errore-generic"));
                             return ;}
 
                     }
