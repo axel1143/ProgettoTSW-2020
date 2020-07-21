@@ -1,13 +1,10 @@
 package it.unisa.control;
 
 import com.google.gson.Gson;
-import com.mysql.cj.xdevapi.Client;
-import com.mysql.cj.xdevapi.JsonArray;
 import it.unisa.model.cliente.ClienteBean;
 import it.unisa.model.cliente.ClienteDAO;
 import it.unisa.model.prenotazione.PrenotazioneBean;
 import it.unisa.model.prenotazione.PrenotazioneDAO;
-import it.unisa.model.user.UserBean;
 import it.unisa.model.user.UserDAO;
 
 import javax.servlet.ServletException;
@@ -16,7 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 @WebServlet("/getInfo")
@@ -36,7 +32,6 @@ public class getInfo extends HttpServlet {
                 String cf = request.getParameter("cf");
                 ArrayList<PrenotazioneBean> booking = (ArrayList<PrenotazioneBean>) PrenotazioneDAO.doRetriveByCF(cf);
                 String bookingToReturn = gson.toJson(booking);
-                System.out.println(bookingToReturn);
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write(bookingToReturn);

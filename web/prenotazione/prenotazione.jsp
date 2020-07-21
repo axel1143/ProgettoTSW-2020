@@ -13,10 +13,10 @@
     ClienteBean clienteBean = (ClienteBean) session.getAttribute("customer");
     UserBean userBean = (UserBean) session.getAttribute("user");
     Cart cart = (Cart) request.getSession().getAttribute("cart"); // Prende il carrello dalla sessione attuale
-    String action = (String) request.getSession().getAttribute("action"); // Serve a capire se la pagina JSP é stata chiamata con un action
+    String action = request.getParameter("action"); // Serve a capire se la pagina JSP é stata chiamata con un action
     String type = request.getParameter("tipocamera"); //Serve a capire se la prenotazione é stata chiamata su una determinata cameras specifica
     String error = request.getParameter("error"); //Controlla se in qualche modo l'utente ha bypassato il controllo front-end sulla data di prenotazione
-    if(cart != null && action == null ) response.sendRedirect(response.encodeRedirectURL(pageContext.getRequest().getServletContext().getContextPath()+"/riepilogo.jsp"));
+    if(cart != null && action == null ) response.sendRedirect(response.encodeRedirectURL(pageContext.getRequest().getServletContext().getContextPath()+"/prenotazione/riepilogo.jsp"));
     if(type == null) type = "";
 
     if(userBean != null && userBean.isAdmin()) response.sendRedirect(response.encodeRedirectURL((pageContext.getRequest().getServletContext().getContextPath()+"/login/admin/adminPage.jsp")));
@@ -122,7 +122,7 @@
             </div>
             <div class="form-group">
                 <label for="inputData">Data di nascita</label>
-                <input type="text" class="form-control" id="inputData" placeholder="Data di Nascita" name="nascita" <% if (action != null && action.equals("modify")){%> value="<%=cart.getClienteBean().getDatanascita()%>" <%}%>  />
+                <input type="text" class="form-control" id="inputData" placeholder="Data di Nascita" name="nascita" onchange="controlAge()" <% if (action != null && action.equals("modify")){%> value="<%=cart.getClienteBean().getDatanascita()%>" <%}%>  />
                 <script>
                     $(function() {
                         $('input[name="nascita"]').daterangepicker({
@@ -150,11 +150,17 @@
                 </select>
             </div>
             <div class="form-group"><label for="inputCheck">Seleziona le tua permanenza</label>
-                <input class="form-control" type="text" name="dates" id="inputCheck"  value="" />
+                <input class="form-control" type="text" name="dates" id="inputCheck"  value="" onchange="$('#inputCheck').html('')"/>
                 <script>$('input[name="dates"]').daterangepicker();</script>
             </div>
             <a class="btn btn-warning" onclick="check()" style="color: white">Controlla data di prenotazione</a>
-            <div id="Response" <%if (action != null && action.equals("modify")){%> style="color: red; font-size: large"<%}%>> <%if (action != null && action.equals("modify")) out.println("Inserire nuovamente il periodo di prenotazione!");%></div>
+
+            <div id="Response" class="genericError">
+                <%if (action != null && action.equals("modify")){%>
+                Inserire nuovamente il periodo di prenotazione!
+                <%}%>
+            </div>
+
         </div>
 
         <% if(userBean == null){%>

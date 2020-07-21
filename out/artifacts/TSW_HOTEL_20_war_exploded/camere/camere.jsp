@@ -88,7 +88,7 @@ NAVBAR
             <div class="col-lg-8">
                 <h5 class="card-header">Camera Suite</h5>
                 <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text">Il meglio del hotel Marbella messo a disposizione alla nostra clientela. Clicca per avere maggiori informazioni e per visitare le nostre maglifiche suite.</p>
                     <button type="button" class="btn btn-darkgreen" onclick="location.href='./camera_suite.jsp'">Visita la camera</button>
                     <div class="btn bordered border-secondary"> Prezzo medio 200€/notte a persona</div>
                 </div>
@@ -102,12 +102,12 @@ NAVBAR
         <div class="col">
             <div class="card w-90">
                 <div class="row no-gutters">
-                    <div class="col-lg-4" style="background-image: url('../imgs/imgs-camere/superior.jpg')">
+                    <div class="col-lg-4" style="background-image: url('../imgs/img-superior/superior1.jpg')">
                     </div>
                     <div class="col-lg-8">
                         <h5 class="card-header">Camera Superior</h5>
                         <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text">Visita le nostre camere superior per passare una notte di relax in una camera più spaziosa del previsto. Clicca per avere maggiori informazioni e per visitare le nostre camere superior. </p>
                             <button type="button" class="btn btn-darkgreen" onclick="location.href='camera_superior.jsp'">Visita la camera</button>
                             <div class="btn bordered border-secondary"> Prezzo medio 100€/notte a persona</div>
                         </div>
@@ -121,12 +121,12 @@ NAVBAR
         <div class="col">
         <div class="card w-90">
             <div class="row no-gutters">
-                <div class="col-lg-4" style="background-image: url('../imgs/imgs-camere/standard.jpg')">
+                <div class="col-lg-4" style="background-image: url('../imgs/img-standard/nuovo2.jpg')">
                 </div>
                 <div class="col-lg-8">
                     <h5 class="card-header">Camera Standard</h5>
                     <div class="card-body">
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Le camere standard sono il l'elemento classico che può offrire il nostro hotel. Goditi la nostra camera standard molto diversa dalla camera standard che tutti si aspettano. Clicca per maggiori informazioni e per visitare le nostre camere standard.</p>
                         <button type="button" class="btn btn-darkgreen" onclick="location.href='camera_standard.jsp'">Visita la camera</button>
                         <div class="btn bordered border-secondary"> Prezzo medio 60€/notte a persona</div>
                     </div>
@@ -137,13 +137,14 @@ NAVBAR
 </div>
 </div>
 
+<!-- FOOTER -->
 <div class="jumbotron py-1 footer" style="margin-bottom:0">
-    <p>Contattaci</p>
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius nam impedit praesentium, molestiae hic libero, unde autem deserunt repudiandae minus nisi ut, dolorem natus saepe aliquid. Recusandae assumenda officia nulla.
-
-    <p>Informazioni</p>
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error harum nulla est qui nam dolor aliquam necessitatibus vitae quasi accusamus veritatis impedit sequi maiores dolore assumenda, perspiciatis, quas voluptate. Fuga?
+    <p><h3>Contattaci<h3><p>
+    I nostri numeri : 089765463 / 3886572709 <br>
+    La nostra email : HotelMarbella@gmail.com <br>
+    Contattaci per avere maggiori informazioni e risolvere ogni tuo dubbio. Lo staff di Marbella saprà soddisfare le vostre richieste.
 </div>
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

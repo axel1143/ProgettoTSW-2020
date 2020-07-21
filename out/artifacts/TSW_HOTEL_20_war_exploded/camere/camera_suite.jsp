@@ -63,6 +63,9 @@ NAVBAR
                     </div>
                 </li>
                 <%}%>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-danger" href="${pageContext.request.contextPath}/prenotazione/prenotazione.jsp?tipocamera=suite">Prenota ora!</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -86,16 +89,16 @@ NAVBAR
         <div class="carousel-item" style="background-image: url('../imgs/img-suite/suiteuno.jpg');">
             <div class="carousel-caption p-4">
                 <div class="gradient-slide p-1 side-body">
-                    <h1 class="font-weight-bold">CIAO</h1>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius nam impedit praesentium, molestiae hic libero, unde autem deserunt repudiandae minus </p>
+                    <h1 class="font-weight-bold">Vista Relax</h1>
+                    <p>La suite offre anche uno spazio verde dove poter passarew del tempo libero.Questo spazio verde offre una vista mozziafiato su tutto il paesaggio circostante.</p>
                 </div>
             </div>
         </div>
         <div class="carousel-item" style="background-image: url('../imgs/img-suite/suite3.jpg');">
             <div class="carousel-caption p-4">
                 <div class="gradient-slide p-1 side-body">
-                    <h1 class="font-weight-bold">CIAO</h1>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius nam impedit praesentium, molestiae hic libero, unde autem deserunt repudiandae minus </p>
+                    <h1 class="font-weight-bold">Area Relax</h1>
+                    <p>La nostra suite è incorporata di vasca idromassaggio e un piccolo angolo sauna per garantire intensa esperienza di relax ai clienti che la prenotano. </p>
                 </div>
             </div>
         </div>

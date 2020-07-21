@@ -98,15 +98,13 @@ function controlAge()
     let dataNow= new Date();
     let dataNasc = new Date(data.value);
     let age= (dataNow - dataNasc)/31536000000;
-    if (age < 18)
-    {
+    if (age < 18) {
         data.style.borderColor = "red";
         dataErr.css("color", "red");
         dataErr.html("Bisogna avere più di 18 anni per prenotare una camera ")
         return false;
     }
-    else
-    {
+    else {
         data.style.borderColor = "green";
         return true
     }
@@ -125,7 +123,7 @@ function showRegister() {
 
 function check(){
     let date  = $('#inputCheck').val()
-    let responsePar = $('div#Response')
+    let responsePar = $('#Response')
     responsePar.html("")
     let check_in =date.slice(0,10)
     let check_out =date.slice(13,23)

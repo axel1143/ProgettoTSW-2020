@@ -90,16 +90,16 @@ NAVBAR
         <div class="carousel-item" style="background-image: url('../imgs/img-superior/superior2.jpg');">
             <div class="carousel-caption p-4 side-container">
                 <div class="gradient-slide p-1 side-body">
-                    <h1 class="font-weight-bold">CIAO</h1>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius nam impedit praesentium, molestiae hic libero, unde autem deserunt repudiandae minus </p>
+                    <h1 class="font-weight-bold">Privacy</h1>
+                    <p>Il nostro staff tiene molto alla sicurezza della privacy della nostra clientela.Le camere superiro sono munite tutte di una chiave unica che potrà possere solo il cliente che ne usufruisce.</p>
                 </div>
             </div>
         </div>
         <div class="carousel-item" style="background-image: url('../imgs/img-superior/superior3.jpg');">
             <div class="carousel-caption p-4 side-container">
                 <div class="gradient-slide p-1 side-body">
-                    <h1 class="font-weight-bold">CIAO</h1>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius nam impedit praesentium, molestiae hic libero, unde autem deserunt repudiandae minus </p>
+                    <h1 class="font-weight-bold">Confort</h1>
+                    <p>Le stanze superior offrono un maggior confort dato il loro spazio ma anche per i loro servizi. Goditi il soggiorno in nostra compagnia scegliendo l'Hotel Marbella.</p>
                 </div>
             </div>
         </div>
