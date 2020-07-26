@@ -41,7 +41,7 @@ public class makeReservation extends javax.servlet.http.HttpServlet {
                 if(!tipo.equals("suite") && !tipo.equals("superior") && !tipo.equals("standard")){
                     response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp?error=errore-generico"));
                     return; }
-                if(check_in.compareTo(check_out) > 0){
+                if(check_in.compareTo(check_out) >= 0){
                     response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp?error=errore-generico"));
                     return; }
 
@@ -163,8 +163,7 @@ public class makeReservation extends javax.servlet.http.HttpServlet {
                 break;
             case "modify":
                 cart.getClienteBean().setDatanascita(dateBookedMaker(cart.getClienteBean().getDatanascita()));
-                session.setAttribute("action" , "modify");
-                response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp"));
+                response.sendRedirect(response.encodeRedirectURL("./prenotazione/prenotazione.jsp?action=modify"));
 
         }
 

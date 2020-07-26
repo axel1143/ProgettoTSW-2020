@@ -150,7 +150,7 @@
                 </select>
             </div>
             <div class="form-group"><label for="inputCheck">Seleziona le tua permanenza</label>
-                <input class="form-control" type="text" name="dates" id="inputCheck"  value="" onchange="$('#inputCheck').html('')"/>
+                <input class="form-control" type="text" name="dates" id="inputCheck"  onchange="$('#inputCheck').html('')"/>
                 <script>$('input[name="dates"]').daterangepicker();</script>
             </div>
             <a class="btn btn-warning" onclick="check()" style="color: white">Controlla data di prenotazione</a>
