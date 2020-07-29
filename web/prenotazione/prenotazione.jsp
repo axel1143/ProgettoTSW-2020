@@ -1,6 +1,6 @@
-<%@ page import="it.unisa.model.Cart" %>
-<%@ page import="it.unisa.model.user.UserBean" %>
-<%@ page import="it.unisa.model.cliente.ClienteBean" %>
+<%@page import="it.unisa.model.Cart" %>
+<%@page import="it.unisa.model.user.UserBean"%>
+<%@page import="it.unisa.model.cliente.ClienteBean"%>
 <!--
   Created by IntelliJ IDEA.
   User: alex
@@ -16,9 +16,9 @@
     String action = request.getParameter("action"); // Serve a capire se la pagina JSP é stata chiamata con un action
     String type = request.getParameter("tipocamera"); //Serve a capire se la prenotazione é stata chiamata su una determinata cameras specifica
     String error = request.getParameter("error"); //Controlla se in qualche modo l'utente ha bypassato il controllo front-end sulla data di prenotazione
+
     if(cart != null && action == null ) response.sendRedirect(response.encodeRedirectURL(pageContext.getRequest().getServletContext().getContextPath()+"/prenotazione/riepilogo.jsp"));
     if(type == null) type = "";
-
     if(userBean != null && userBean.isAdmin()) response.sendRedirect(response.encodeRedirectURL((pageContext.getRequest().getServletContext().getContextPath()+"/login/admin/adminPage.jsp")));
 %>
 <html lang="en">
@@ -151,7 +151,9 @@
             </div>
             <div class="form-group"><label for="inputCheck">Seleziona le tua permanenza</label>
                 <input class="form-control" type="text" name="dates" id="inputCheck"  onchange="$('#inputCheck').html('')"/>
-                <script>$('input[name="dates"]').daterangepicker();</script>
+                <script>$('input[name="dates"]').daterangepicker({
+                    minDate: new Date()
+                });</script>
             </div>
             <a class="btn btn-warning" onclick="check()" style="color: white">Controlla data di prenotazione</a>
 
